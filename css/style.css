@@ -1,18 +1,23 @@
-h1,
+h1 {
+  font-weight: 900;
+  color: #ffb100;
+}
+
 h2,
 h3,
 h4 {
-  font-family: sans-serif;
+  font-weight: 700;
 }
 
 p {
-  font-family: sans-serif;
+  font-weight: 400;
   font-size: 20px;
 }
 
 body {
   background-color: #1c1917;
   color: #f5f5f4;
+  font-family: "Inter", sans-serif;
 }
 
 .carousel-item {
