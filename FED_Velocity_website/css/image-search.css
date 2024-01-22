@@ -1,0 +1,15 @@
+#drop-area {
+  cursor: pointer;
+  text-align: center;
+  background-color: #f8f9fa;
+}
+
+#drop-area:hover {
+  background-color: #e9ecef;
+}
+
+#image-preview img {
+  max-width: 100%;
+  max-height: 300px;
+  margin-top: 10px;
+}
