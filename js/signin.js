@@ -1,4 +1,4 @@
-globalThis.handleCredentialResponse = async (response) => {
+globalThis.handleCredentialResponse = async (responsePayload) => {
   // decodeJwtResponse() is a custom function defined by you
   // to decode the credential response.
   //   responsePayload = decodeJwtResponse(response.credential);
