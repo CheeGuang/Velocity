@@ -22,12 +22,8 @@
     <script src="js/script.js" defer></script>
     <script src="js/signin.js" defer></script>
 
-    <!-- Google Platform Library -->
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <meta
-      name="google-signin-client_id"
-      content="669052276058-pjj021iq10hvib472q7bl42db1jclh9s.apps.googleusercontent.com"
-    />
+    <!-- Google Sign-In Libraries -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
   </head>
   <body>
     <div
@@ -52,8 +48,14 @@
         />
         <span class="ml-2 flex-grow-1">Sign In with Google</span>
       </a> -->
-      <div class="g-signin2" data-onsuccess="onSignIn"></div>
-      <a href="#" onclick="signOut();">Sign out</a>
+
+      <div
+        id="g_id_onload"
+        data-client_id="669052276058-pjj021iq10hvib472q7bl42db1jclh9s.apps.googleusercontent.com"
+        data-ux_mode="redirect"
+        data-login_uri="https://www.example.com/your_login_endpoint"
+      ></div>
+      <div class="g_id_signin" data-type="standard"></div>
     </div>
 
     <script
