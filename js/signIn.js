@@ -1,4 +1,4 @@
-const APIKEY = "58c028f9c481812dde4624100ed946691f4e5";
+const APIKEY = "65b03b109eb5ba00e57fa24e";
 
 globalThis.handleCredentialResponse = async (response) => {
   // decodeJwtResponse() is a custom function defined by you
