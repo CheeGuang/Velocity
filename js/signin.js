@@ -2,7 +2,7 @@ globalThis.handleCredentialResponse = async (responsePayload) => {
   // decodeJwtResponse() is a custom function defined by you
   // to decode the credential response.
   //   responsePayload = decodeJwtResponse(response.credential);
-
+  const responsePayload = decodeJwtResponse(response.credential);
   console.log("ID: " + responsePayload.sub);
   console.log("Full Name: " + responsePayload.name);
   console.log("Given Name: " + responsePayload.given_name);
