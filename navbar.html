@@ -1,110 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Bootstrap Link -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-      defer
-    ></script>
-    <script
-      src="https://kit.fontawesome.com/4f6d96e165.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <title>Navbar</title>
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/navbarFooter.css" />
-    <script src="js/searchFunction.js" defer></script>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#" id="logo"
-          ><img src="images/Logo-8.png" alt=""
-        /></a>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" id="logo"
+      ><img src="images/Logo-8.png" alt=""
+    /></a>
 
-        <button
-          class="navbar-toggler order-2 order-md-1"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <button
+      class="navbar-toggler order-2 order-md-1"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <!-- The navLinks to be collapsed -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <!-- The navLinks -->
-          <ul class="navbar-nav">
-            <!-- NavLink 1 -->
-            <li class="nav-item">
-              <a class="nav-link" href="productPage.html">Men</a>
-            </li>
-            <!-- End of NavLink 1 -->
+    <!-- The navLinks to be collapsed -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- The navLinks -->
+      <ul class="navbar-nav">
+        <!-- NavLink 1 -->
+        <li class="nav-item">
+          <a class="nav-link" href="productPage.html">Men</a>
+        </li>
+        <!-- End of NavLink 1 -->
 
-            <!-- NavLink 2 -->
-            <li class="nav-item">
-              <a class="nav-link" href="productPage.html">Women</a>
-            </li>
-            <!-- End of NavLink 2 -->
+        <!-- NavLink 2 -->
+        <li class="nav-item">
+          <a class="nav-link" href="productPage.html">Women</a>
+        </li>
+        <!-- End of NavLink 2 -->
 
-            <!-- NavLink 3 -->
-            <li class="nav-item">
-              <a class="nav-link" href="shoeFinderQuiz.html"
-                >Shoe Finder Quiz</a
-              >
-            </li>
-            <!-- End of NavLink 3 -->
-          </ul>
-          <!-- The navLinks -->
-        </div>
-        <!-- The navLinks to be collapsed -->
+        <!-- NavLink 3 -->
+        <li class="nav-item">
+          <a class="nav-link" href="shoeFinderQuiz.html">Shoe Finder Quiz</a>
+        </li>
+        <!-- End of NavLink 3 -->
+      </ul>
+      <!-- The navLinks -->
+    </div>
+    <!-- The navLinks to be collapsed -->
 
-        <!-- Icon Container (These 3 cannot collapse!!!) -->
-        <div class="icons order-1 order-md-2">
-          <i
-            class="icon fa-solid fa-magnifying-glass"
-            id="navbar-searchIcon"
-          ></i>
-          <a href="signin.html"><i class="icon fa-solid fa-user"></i></a>
-          <i class="icon fa-solid fa-cart-shopping" id="navbar-cartIcon"></i>
-        </div>
-        <!-- End of Icon Container -->
+    <!-- Icon Container (These 3 cannot collapse!!!) -->
+    <div class="icons order-1 order-md-2">
+      <i class="icon fa-solid fa-magnifying-glass" id="navbar-searchIcon"></i>
+      <a href="signin.html"><i class="icon fa-solid fa-user"></i></a>
+      <i class="icon fa-solid fa-cart-shopping" id="navbar-cartIcon"></i>
+    </div>
+    <!-- End of Icon Container -->
 
-        <!-- Search Bar (This also cannot collape!!!) -->
-        <div class="search-bar">
-          <i class="fa-solid fa-magnifying-glass" id="navbar-searchIcon"></i>
-          <input type="text" placeholder="Search" />
+    <!-- Search Bar (This also cannot collape!!!) -->
+    <div class="search-bar">
+      <i class="fa-solid fa-magnifying-glass" id="navbar-searchIcon"></i>
+      <input type="text" placeholder="Search" />
 
-          <!-- This is for autocomplete search box -->
-          <div class="autocom-box">
-            <li>Men</li>
-            <li>Women</li>
-            <li>Running</li>
-            <li>Walking</li>
-            <li>White Shoes</li>
-          </div>
-          <!-- This is the end for autocomplete search box -->
-        </div>
-        <!-- End of Search Bar -->
+      <!-- This is for autocomplete search box -->
+      <div class="autocom-box">
+        <li>Men</li>
+        <li>Women</li>
+        <li>Running</li>
+        <li>Walking</li>
+        <li>White Shoes</li>
       </div>
-    </nav>
-  </body>
-</html>
+      <!-- This is the end for autocomplete search box -->
+    </div>
+    <!-- End of Search Bar -->
+  </div>
+</nav>
