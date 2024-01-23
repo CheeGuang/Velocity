@@ -29,21 +29,21 @@ globalThis.handleCredentialResponse = async (response) => {
   };
 
   // Create AJAX settings
-  let settings = {
-    async: true,
-    crossDomain: true,
-    url: "https://velocity-554e.restdb.io/rest/customer",
-    method: "POST", //POST Request
-    headers: {
+  // prettier-ignore
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://velocity-554e.restdb.io/rest/customer",
+    "method": "POST",
+    "headers": {
       "content-type": "application/json",
       "x-apikey": APIKEY,
-      "cache-control": "no-cache",
+      "cache-control": "no-cache"
     },
-    processData: false,
-    data: JSON.stringify(jsondata),
-  };
+    "processData": false,
+    "data": JSON.stringify(jsondata)
+  }
 
-  //Send ajax request over to the DB and print response of the RESTDB storage to console.
   $.ajax(settings).done(function (response) {
     console.log(response);
   });
