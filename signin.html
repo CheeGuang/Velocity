@@ -20,6 +20,13 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="../js/script.js" defer></script>
+
+    <!-- Google Platform Library -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta
+      name="google-signin-client_id"
+      content="669052276058-pjj021iq10hvib472q7bl42db1jclh9s.apps.googleusercontent.com"
+    />
   </head>
   <body>
     <div
@@ -32,7 +39,7 @@
         class="img-fluid mb-5"
         style="max-width: 35vw"
       />
-      <a
+      <!-- <a
         href="#"
         class="btn btn-light btn-lg btn-block align-items-center d-flex justify-content-between"
       >
@@ -43,7 +50,9 @@
           style="max-width: 40px"
         />
         <span class="ml-2 flex-grow-1">Sign In with Google</span>
-      </a>
+      </a> -->
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
+      <a href="#" onclick="signOut();">Sign out</a>
     </div>
 
     <script
