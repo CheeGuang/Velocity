@@ -15,11 +15,18 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <title>Landing Page</title>
-    <!-- Our own CSS -->
+    <title>Sign In</title>
+
+    <!-- Linking CSS -->
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <script src="../js/script.js" defer></script>
+
+    <!-- Linking JS -->
+    <script src="js/script.js" defer></script>
+    <script src="js/signIn.js" defer></script>
+
+    <!-- Google Sign-In Libraries -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
   </head>
   <body>
     <div
@@ -32,18 +39,27 @@
         class="img-fluid mb-5"
         style="max-width: 35vw"
       />
-      <a
-        href="#"
-        class="btn btn-light btn-lg btn-block align-items-center d-flex justify-content-between"
-      >
-        <img
-          src="images/google.jpg"
-          alt="Google Icon"
-          class="w-100"
-          style="max-width: 40px"
-        />
-        <span class="ml-2 flex-grow-1">Sign In with Google</span>
-      </a>
+      <!-- Google Sign In Button -->
+      <script src="https://accounts.google.com/gsi/client" async defer></script>
+      <div
+        id="g_id_onload"
+        data-client_id="669052276058-pjj021iq10hvib472q7bl42db1jclh9s.apps.googleusercontent.com"
+        data-context="signin"
+        data-ux_mode="popup"
+        data-callback="handleCredentialResponse"
+        data-auto_prompt="false"
+      ></div>
+
+      <div
+        class="g_id_signin"
+        data-type="standard"
+        data-shape="pill"
+        data-theme="outline"
+        data-text="continue_with"
+        data-size="large"
+        data-logo_alignment="left"
+      ></div>
+      <!-- Google Sign In Button -->
     </div>
 
     <script
