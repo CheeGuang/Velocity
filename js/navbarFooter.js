@@ -14,6 +14,7 @@ fetch("navbar.html")
 //   })
 //   .catch((error) => console.error(error));
 
+initialiseProfilePicture();
 function initialiseProfilePicture() {
   let customerDataJSONString = localStorage.getItem("customerData");
   let customerDataJSON = JSON.parse(customerDataJSONString);
