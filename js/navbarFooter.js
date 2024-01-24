@@ -13,3 +13,12 @@ fetch("navbar.html")
 //     document.getElementById("footer").innerHTML = data;
 //   })
 //   .catch((error) => console.error(error));
+
+function initialiseProfilePicture() {
+  let customerDataJSONString = localStorage.getItem("customerData");
+  let customerDataJSON = JSON.parse(customerDataJSONString);
+  if (customerDataJSON["imageUrl"] != null) {
+    document.getElementById("profile-image-login").src =
+      customerDataJSON["imageUrl"];
+  }
+}

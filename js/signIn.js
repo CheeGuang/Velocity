@@ -31,41 +31,36 @@ globalThis.handleCredentialResponse = async (response) => {
   let customerJSONString = JSON.stringify(customerJSON);
   localStorage.setItem("customerData", customerJSONString);
 
-  getCustomersData();
+  if (getCustomersData()) {
+    // Storing Information as a JSON
+    let jsondata = {
+      customerId: customerId,
+      email: customerEmail,
+      firstName: customerFirstName,
+      lastName: customerLastName,
+      imageUrl: customerImageURL,
+    };
 
-  // Storing Information as a JSON
-  let jsondata = {
-    customerId: customerId,
-    email: customerEmail,
-    firstName: customerFirstName,
-    lastName: customerLastName,
-    imageUrl: customerImageURL,
-  };
+    // Create AJAX settings
+    // prettier-ignore
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://velocity-554e.restdb.io/rest/customer",
+        "method": "POST",
+        "headers": {
+          "content-type": "application/json",
+          "x-apikey": APIKEY,
+          "cache-control": "no-cache"
+        },
+        "processData": false,
+        "data": JSON.stringify(jsondata)
+      }
 
-  // Create AJAX settings
-  // prettier-ignore
-  var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://velocity-554e.restdb.io/rest/customer",
-    "method": "POST",
-    "headers": {
-      "content-type": "application/json",
-      "x-apikey": APIKEY,
-      "cache-control": "no-cache"
-    },
-    "processData": false,
-    "data": JSON.stringify(jsondata)
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    });
   }
-
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-    // let customerJSON = {
-
-    // }
-  });
-
-  //   localStorage.setItem(customer, customerJSON)
 };
 
 function decodeJwtResponse(token) {
@@ -103,9 +98,9 @@ function getCustomersData() {
   //[STEP 8]: Make our AJAX calls
   //Once we get the response, we modify our table content by creating the content internally. We run a loop to continously add on data
   //RESTDb/NoSql always adds in a unique id for each data, we tap on it to have our data and place it into our links
+  let isNew = true;
   $.ajax(settings).done(function (response) {
     console.log(response);
-    let isNew = true;
     for (var i = 0; i < response.length; i++) {
       if (customerDataJSON["customerId"] == response[i]["customerId"]) {
         isNew = false;
@@ -113,4 +108,5 @@ function getCustomersData() {
     }
     console.log(isNew);
   });
+  return isNew;
 }
