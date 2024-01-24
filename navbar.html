@@ -21,19 +21,19 @@
       <!-- The navLinks -->
       <ul class="navbar-nav">
         <!-- NavLink 1 -->
-        <li class="nav-item">
+        <li class="nav-item d-flex justify-content-center">
           <a class="nav-link" href="productPage.html">Men</a>
         </li>
         <!-- End of NavLink 1 -->
 
         <!-- NavLink 2 -->
-        <li class="nav-item">
+        <li class="nav-item d-flex justify-content-center">
           <a class="nav-link" href="productPage.html">Women</a>
         </li>
         <!-- End of NavLink 2 -->
 
         <!-- NavLink 3 -->
-        <li class="nav-item">
+        <li class="nav-item d-flex justify-content-center">
           <a class="nav-link" href="shoeFinderQuiz.html">Shoe Finder Quiz</a>
         </li>
         <!-- End of NavLink 3 -->
@@ -43,10 +43,24 @@
     <!-- The navLinks to be collapsed -->
 
     <!-- Icon Container (These 3 cannot collapse!!!) -->
-    <div class="icons order-1 order-md-2">
-      <i class="icon fa-solid fa-magnifying-glass" id="navbar-searchIcon"></i>
-      <a href="signin.html"><i class="icon fa-solid fa-user"></i></a>
-      <i class="icon fa-solid fa-cart-shopping" id="navbar-cartIcon"></i>
+    <div class="icons d-flex align-items-center order-md-2">
+      <i
+        class="icon fa-solid fa-magnifying-glass d-flex align-items-center"
+        id="navbar-searchIcon"
+      ></i>
+      <!-- <a href="signin.html"><i class="icon fa-solid fa-user"></i></a> -->
+      <i
+        class="icon fa-solid fa-cart-shopping d-flex align-items-center"
+        id="navbar-cartIcon"
+      ></i>
+      <a href="signin.html" class="profile-link d-flex align-items-center">
+        <img
+          src="images/loginIcon.svg"
+          alt="Profile Picture"
+          class="profile-image"
+          id="profile-image-login"
+        />
+      </a>
     </div>
     <!-- End of Icon Container -->
 
