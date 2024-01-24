@@ -31,7 +31,7 @@ globalThis.handleCredentialResponse = async (response) => {
   let customerJSONString = JSON.stringify(customerJSON);
   localStorage.setItem("customerData", customerJSONString);
 
-  //   getCustomersData();
+  getCustomersData();
 
   // Storing Information as a JSON
   let jsondata = {
@@ -82,7 +82,7 @@ function decodeJwtResponse(token) {
 
   return JSON.parse(jsonPayload);
 }
-getCustomersData();
+// getCustomersData();
 function getCustomersData() {
   //[STEP 7]: Create our AJAX settings
   let settings = {
