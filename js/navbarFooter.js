@@ -3,6 +3,7 @@ fetch("navbar.html")
   .then((response) => response.text())
   .then((data) => {
     document.getElementById("navbar-container").innerHTML = data;
+    initialiseProfilePicture();
   })
   .catch((error) => console.error(error));
 
@@ -14,7 +15,6 @@ fetch("navbar.html")
 //   })
 //   .catch((error) => console.error(error));
 
-initialiseProfilePicture();
 function initialiseProfilePicture() {
   let customerDataJSONString = localStorage.getItem("customerData");
   let customerDataJSON = JSON.parse(customerDataJSONString);
