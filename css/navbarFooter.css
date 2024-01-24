@@ -3,6 +3,10 @@
   justify-content: space-between;
 }
 
+.navbarDetails {
+  margin: 0;
+}
+
 #navbar .nav-link {
   color: var(--font-color);
   font-family: "Inter", sans-serif;
@@ -29,6 +33,7 @@
 
 #navbar #logo {
   margin-left: 2rem;
+  width: 300px;
 }
 
 #navbarNav {
@@ -41,6 +46,7 @@
 
 #navbar .icons {
   display: block;
+  width: 300px;
 }
 
 .icons .icon {

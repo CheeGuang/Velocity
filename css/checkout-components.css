@@ -23,10 +23,6 @@
   padding: 0 8.4vw;
 }
 
-#checkout-freeShippingBar-bar {
-  margin-bottom: 10vh;
-}
-
 /* Apply Cashback */
 /* Custom CSS for the on/off switch */
 .onoff-switch {
@@ -78,4 +74,8 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.row {
+  margin: 25;
 }
