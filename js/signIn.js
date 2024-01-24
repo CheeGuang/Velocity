@@ -28,9 +28,10 @@ globalThis.handleCredentialResponse = async (response) => {
     "imageUrl": customerImageURL,
   };
 
-  localStorage.setItem("customerData", customerJSON);
+  let customerJSONString = JSON.stringify(customerJSON);
+  localStorage.setItem("customerData", customerJSONString);
 
-  getCustomersData();
+  //   getCustomersData();
 
   // Storing Information as a JSON
   let jsondata = {
@@ -96,6 +97,8 @@ function getCustomersData() {
     },
   };
 
+  let customerJSONString = localStorage.getItem("customerData");
+  let customerJSON = JSON.parse(customerJSONString);
   //[STEP 8]: Make our AJAX calls
   //Once we get the response, we modify our table content by creating the content internally. We run a loop to continously add on data
   //RESTDb/NoSql always adds in a unique id for each data, we tap on it to have our data and place it into our links
@@ -103,10 +106,7 @@ function getCustomersData() {
     console.log(response);
     let isNew = true;
     for (var i = 0; i < response.length; i++) {
-      if (
-        localStorage.getItem("customerData")["customerId"] ==
-        response[i]["customerId"]
-      ) {
+      if (customerJSON["customerId"] == response[i]["customerId"]) {
         isNew = false;
       }
     }
