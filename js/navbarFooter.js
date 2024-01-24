@@ -18,7 +18,7 @@ fetch("navbar.html")
 function initialiseProfilePicture() {
   let customerDataJSONString = localStorage.getItem("customerData");
   let customerDataJSON = JSON.parse(customerDataJSONString);
-  if (customerDataJSON["imageUrl"] != null) {
+  if (customerDataJSON != null) {
     document.getElementById("profile-image-login").src =
       customerDataJSON["imageUrl"];
   }
