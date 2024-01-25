@@ -156,9 +156,15 @@
 }
 
 .profile-image {
+  position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.profile-link #profile-image-login:hover {
+  opacity: 0;
 }
 
 /* responsive */
