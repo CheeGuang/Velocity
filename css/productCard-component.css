@@ -1,28 +1,39 @@
 #productListing {
-  /* max-width: 1400px; */
-  display: flex;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  /* max-width: 1400px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   grid-gap: 2em;
   width: 100%;
   padding: 4vw;
+  align-content: center; */
+
+  width: 100%;
+  max-width: 1400px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-gap: 4em;
   align-content: center;
+  margin: auto;
+  margin-top: 90px;
+  padding-top: 0;
 }
 
 .card {
   position: relative;
   flex: 1 1 14rem;
   padding: 1.5em 2em;
-  color: #eceff1;
-  background-color: #2b2b2b;
-  border: 1px solid #eceff133;
+  color: var(--font-color);
+  background-color: #d7d7d7;
   border-radius: 15px;
-  min-width: 280px;
+  /* min-width: 280px;
   min-height: 350px;
   max-width: 300px;
-  max-height: 360px;
+  max-height: 360px; */
+  width: 240px;
+  height: 288px;
 }
 
-.card:hover::before {
+/* .card:hover::before {
   opacity: 1;
 }
 
@@ -37,7 +48,6 @@
   top: 0px;
   transition: opacity 500ms;
   width: 100%;
-  border: 1px solid #ffb100;
 }
 
 .card::before {
@@ -56,7 +66,7 @@
     transparent 40%
   );
   z-index: 1;
-}
+} */
 
 .card > .card-body {
   border-radius: inherit;
@@ -87,7 +97,7 @@
   align-self: end;
   text-align: center;
   text-decoration: none;
-  color: var(--primary-color);
+  color: var(--font-color);
   padding: 0.7em;
   border-radius: 10px;
   background-color: none;
@@ -97,16 +107,16 @@
   z-index: 3;
 }
 
-.btn:hover,
+/* .btn:hover,
 .btn:active {
   color: var(--font-color);
   background-color: var(--primary-color) !important;
   box-shadow: 0 0 200px var(--primary-color), 0 0 25px var(--primary-color),
     0 0 50px var(--primary-color), 0 0 200px var(--primary-color);
-}
+} */
 
-/* This is for  */
-.btn span {
+/* This is for span */
+/* .btn span {
   position: absolute;
   display: block;
 }
@@ -181,4 +191,4 @@
   100% {
     bottom: 100%;
   }
-}
+} */
