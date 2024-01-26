@@ -38,6 +38,10 @@ function addToCart() {
       }
 
       if (localStorage.getItem("customerRestDBData") != null) {
+        var newCustomerJSON = JSON.parse(
+          localStorage.getItem("customerRestDBData")
+        );
+        newCustomerJSON["cart"] = cartArray;
         // Updating cart of customer's account with cartArray in RestDB
         var settings = {
           async: true,
@@ -52,7 +56,7 @@ function addToCart() {
             "cache-control": "no-cache",
           },
           processData: false,
-          data: JSON.stringify(cartArray),
+          data: JSON.stringify(newCustomerJSON),
         };
 
         $.ajax(settings).done(function (response) {
