@@ -59,6 +59,7 @@ function addToCart() {
                 JSON.parse(localStorage.getItem("customersData"))[i]
               )
             );
+            break;
           }
         }
         var newCustomerJSON = localStorage.getItem("customerRestDBData");
