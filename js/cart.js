@@ -1,4 +1,3 @@
-console.log(JSON.parse(localStorage.getItem("cartData")));
 // Create a Cart JSON object
 if (localStorage.getItem("cartData") != null) {
   var cartArray = JSON.parse(localStorage.getItem("cartData"));
