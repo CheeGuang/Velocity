@@ -31,7 +31,7 @@ globalThis.handleCredentialResponse = async (response) => {
   let customerJSONString = JSON.stringify(customerJSON);
   localStorage.setItem("customerData", customerJSONString);
 
-  if (getCustomersData()) {
+  if (getCustomersData() == true) {
     console.log("Hi");
     // Storing Information as a JSON
     let jsondata = {
