@@ -83,11 +83,13 @@
 
 .itemSummary {
   margin: 0;
+  height: 200px;
+  max-height: 200px;
 }
 
 .card img {
   width: 90%;
-  height: auto;
+  height: 50%;
   object-fit: cover;
 }
 

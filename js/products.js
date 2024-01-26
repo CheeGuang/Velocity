@@ -46,7 +46,7 @@ function insertProductHTML(productData) {
     <div class="card-body">
         <div class="itemSummary">
             <h2 class="card-title">${productData["name"]}</h2>
-            <p class="card-text">${productData["price"]}</p>
+            <p class="card-text">${productData["price"]} SGD</p>
         </div>
         <img src="../images/ShoePicture${productData["gender"]}/${productData[
     "imagePath"

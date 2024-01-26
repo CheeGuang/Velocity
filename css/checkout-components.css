@@ -4,7 +4,7 @@
   height: 1.8vw;
   min-width: 1.3em;
   min-height: 1.3em;
-  background-color: #f5f5f4; /* Bootstrap primary color */
+  background-color: var(--font-color); /* Bootstrap primary color */
   border-radius: 50%;
   /* Center the content */
   display: flex;
@@ -15,15 +15,19 @@
 }
 
 .line {
-  background-color: #f5f5f4;
+  background-color: var(--font-color);
   height: 2px;
 }
 
 #checkout-progressBar-top {
   padding: 0 8.4vw;
+  margin-bottom: 1.5em;
 }
 
 /* Apply Cashback */
+#cashbackSect p {
+  margin: 2em 0;
+}
 /* Custom CSS for the on/off switch */
 .onoff-switch {
   position: relative;
@@ -61,7 +65,7 @@
 }
 
 input:checked + .slider {
-  background-color: #007bff; /* Color when switch is on */
+  background-color: var(--primary-color); /* Color when switch is on */
 }
 
 input:checked + .slider:before {
