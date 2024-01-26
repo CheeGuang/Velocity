@@ -53,12 +53,12 @@ function insertProductHTML(productData) {
   ]
     .split(",")[0]
     .trim()}" class="card-img-top" alt="..." />
-        <a href="#" class="btn btn-primary" style="background-color: #b6b6b6">
+        <a href="#" class="btn btn-primary" style="background-color: #b6b6b6" onclick="addToCart()">
             <!-- <span></span>
                 <span></span>
                 <span></span>
                 <span></span> -->
-            Add To Cart
+            Learn More
         </a>
     </div>
 </div>
