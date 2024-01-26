@@ -64,7 +64,7 @@ function addToCart() {
   }
 
   // Pushing cartArray to Local Storage
+  console.log(cartArray);
   localStorage.setItem("cartData", JSON.stringify(cartArray));
   console.log(JSON.parse(localStorage.getItem("cartData")));
-  console.log(cartArray);
 }
