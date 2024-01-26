@@ -1,3 +1,5 @@
+const APIKEY = "65b03b109eb5ba00e57fa24e";
+
 // Create a Cart JSON object
 if (localStorage.getItem("cartData") != null) {
   var cartArray = JSON.parse(localStorage.getItem("cartData"));
