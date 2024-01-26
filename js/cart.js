@@ -64,7 +64,7 @@ function addToCart() {
         }
         var newCustomerJSON = JSON.parse(localStorage.getItem("customerData"));
         console.log(newCustomerJSON);
-        newCustomerJSON["cart"] = JSON.stringify(cartArray);
+        newCustomerJSON["cart"] = cartArray;
         console.log(newCustomerJSON);
         console.log(
           JSON.parse(localStorage.getItem("customerRestDBData"))["_id"]
