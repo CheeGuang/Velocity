@@ -37,26 +37,28 @@ function addToCart() {
         cartArray.push([itemJSON, 1]);
       }
 
-      // Updating cart of customer's account with cartArray in RestDB
-      var settings = {
-        async: true,
-        crossDomain: true,
-        url: `https://velocity-554e.restdb.io/rest/product/${JSON.parse(
-          localStorage.getItem("customerData")["_id"]
-        )}`,
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-          "x-apikey": APIKEY,
-          "cache-control": "no-cache",
-        },
-        processData: false,
-        data: JSON.stringify(cartArray),
-      };
+      if (localStorage.getItem("customerData") != null) {
+        // Updating cart of customer's account with cartArray in RestDB
+        var settings = {
+          async: true,
+          crossDomain: true,
+          url: `https://velocity-554e.restdb.io/rest/product/${JSON.parse(
+            localStorage.getItem("customerRestDBData")["_id"]
+          )}`,
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+            "x-apikey": APIKEY,
+            "cache-control": "no-cache",
+          },
+          processData: false,
+          data: JSON.stringify(cartArray),
+        };
 
-      $.ajax(settings).done(function (response) {
-        console.log(response);
-      });
+        $.ajax(settings).done(function (response) {
+          console.log(response);
+        });
+      }
       break;
     }
   }
