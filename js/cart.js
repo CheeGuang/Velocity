@@ -68,9 +68,9 @@ function addToCart() {
         var settings = {
           async: true,
           crossDomain: true,
-          url: `https://velocity-554e.restdb.io/rest/product/${JSON.parse(
-            localStorage.getItem("customerRestDBData")["_id"]
-          )}`,
+          url: `https://velocity-554e.restdb.io/rest/product/${
+            JSON.parse(localStorage.getItem("customerRestDBData"))["_id"]
+          }`,
           method: "PUT",
           headers: {
             "content-type": "application/json",
