@@ -32,6 +32,7 @@ globalThis.handleCredentialResponse = async (response) => {
   localStorage.setItem("customerData", customerJSONString);
 
   if (getCustomersData()) {
+    console.log("Hi");
     // Storing Information as a JSON
     let jsondata = {
       customerId: customerId,
@@ -112,9 +113,10 @@ function getCustomersData() {
     for (var i = 0; i < response.length; i++) {
       if (customerDataJSON["customerId"] == response[i]["customerId"]) {
         isNew = false;
+        break;
       }
     }
-    console.log(isNew);
-    return isNew;
   });
+  console.log(isNew);
+  return isNew;
 }
