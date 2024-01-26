@@ -62,8 +62,8 @@ function addToCart() {
             break;
           }
         }
-        var newCustomerJSON = localStorage.getItem("customerRestDBData");
-        newCustomerJSON["cart"] = JSON.stringify(cartArray);
+        // var newCustomerJSON = localStorage.getItem("customerRestDBData");
+        var newCustomerJSON = localStorage.getItem("customerData");
         console.log(cartArray);
         console.log(newCustomerJSON["cart"]);
         console.log(
