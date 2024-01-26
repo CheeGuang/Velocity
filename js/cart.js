@@ -33,7 +33,7 @@ function addToCart() {
           break;
         }
       }
-      if (!itemExistInCart) {
+      if (itemExistInCart == false) {
         cartArray.push([itemJSON, 1]);
       }
 
