@@ -1,5 +1,3 @@
-const APIKEY = "65b03b109eb5ba00e57fa24e";
-
 // Create a Cart JSON object
 if (localStorage.getItem("cartData") != null) {
   var cartArray = JSON.parse(localStorage.getItem("cartData"));
@@ -76,7 +74,7 @@ function addToCart() {
           method: "PUT",
           headers: {
             "content-type": "application/json",
-            "x-apikey": APIKEY,
+            "x-apikey": "65b03b109eb5ba00e57fa24e",
             "cache-control": "no-cache",
           },
           processData: false,
