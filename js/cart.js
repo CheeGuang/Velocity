@@ -37,10 +37,20 @@ function addToCart() {
         cartArray.push([itemJSON, 1]);
       }
 
-      if (localStorage.getItem("customerRestDBData") != null) {
-        var newCustomerJSON = JSON.parse(
-          localStorage.getItem("customerRestDBData")
-        );
+      if (localStorage.getItem("customersData") != null) {
+        for (
+          let i = 0;
+          i < JSON.parse(localStorage.getItem("customersData"));
+          i++
+        ) {
+          if (
+            JSON.parse(localStorage.getItem("customerData"))["name"] ==
+            JSON.parse(localStorage.getItem("customersData"))[i]["name"]
+          ) {
+            localStorage.setItem("customerRestDBData");
+          }
+        }
+        var newCustomerJSON = localStorage.getItem("customerRestDBData");
         newCustomerJSON["cart"] = cartArray;
         // Updating cart of customer's account with cartArray in RestDB
         var settings = {
