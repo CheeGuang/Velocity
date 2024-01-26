@@ -113,10 +113,9 @@ function getCustomersData() {
     for (var i = 0; i < response.length; i++) {
       if (customerDataJSON["customerId"] == response[i]["customerId"]) {
         isNew = false;
-        break;
+        console.log(isNew);
+        return isNew;
       }
     }
   });
-  console.log(isNew);
-  return isNew;
 }
