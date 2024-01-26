@@ -47,7 +47,12 @@ function addToCart() {
             JSON.parse(localStorage.getItem("customerData"))["name"] ==
             JSON.parse(localStorage.getItem("customersData"))[i]["name"]
           ) {
-            localStorage.setItem("customerRestDBData");
+            localStorage.setItem(
+              "customerRestDBData",
+              JSON.stringify(
+                JSON.parse(localStorage.getItem("customersData"))[i]
+              )
+            );
           }
         }
         var newCustomerJSON = localStorage.getItem("customerRestDBData");

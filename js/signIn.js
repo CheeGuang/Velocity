@@ -60,7 +60,7 @@ globalThis.handleCredentialResponse = async (response) => {
 
     $.ajax(settings).done(function (response) {
       console.log(response);
-      localStorage.setItem("customersData", response);
+      localStorage.setItem("customersData", JSON.stringify(response));
     });
   }
 };
