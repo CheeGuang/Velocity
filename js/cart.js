@@ -44,8 +44,8 @@ function addToCart() {
           i++
         ) {
           if (
-            JSON.parse(localStorage.getItem("customerData"))["name"] ==
-            JSON.parse(localStorage.getItem("customersData"))[i]["name"]
+            JSON.parse(localStorage.getItem("customerData"))["customerId"] ==
+            JSON.parse(localStorage.getItem("customersData"))[i]["customerId"]
           ) {
             localStorage.setItem(
               "customerRestDBData",
