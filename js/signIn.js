@@ -59,14 +59,15 @@ globalThis.handleCredentialResponse = async (response) => {
 
     $.ajax(settings).done(function (response) {
       console.log(response);
-      for (let i = 0; i < response.length; i++) {}
     });
   }
-  if (
-    JSON.parse(localStorage.getItem("customerData"))["customerId"] ==
-    response[i]["customerId"]
-  ) {
-    localStorage.setItem("customerRestDBData", response[i]);
+  for (let i = 0; i < response.length; i++) {
+    if (
+      JSON.parse(localStorage.getItem("customerData"))["customerId"] ==
+      response[i]["customerId"]
+    ) {
+      localStorage.setItem("customerRestDBData", response[i]);
+    }
   }
 };
 
