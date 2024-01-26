@@ -61,7 +61,7 @@ globalThis.handleCredentialResponse = async (response) => {
       console.log(response);
     });
   }
-  for (let i = 0; i < response.length; i++) {
+  for (var i = 0; i < response.length; i++) {
     if (
       JSON.parse(localStorage.getItem("customerData"))["customerId"] ==
       response[i]["customerId"]
@@ -115,6 +115,6 @@ function getCustomersData() {
       }
     }
     console.log(isNew);
+    return isNew;
   });
-  return isNew;
 }
