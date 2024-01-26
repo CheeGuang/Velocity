@@ -37,7 +37,7 @@ function addToCart() {
         cartArray.push([itemJSON, 1]);
       }
 
-      if (localStorage.getItem("customerData") != null) {
+      if (localStorage.getItem("customerRestDBData") != null) {
         // Updating cart of customer's account with cartArray in RestDB
         var settings = {
           async: true,
