@@ -64,6 +64,10 @@ function addToCart() {
         }
         var newCustomerJSON = localStorage.getItem("customerRestDBData");
         newCustomerJSON["cart"] = cartArray;
+        console.log(newCustomerJSON);
+        console.log(
+          JSON.parse(localStorage.getItem("customerRestDBData"))["_id"]
+        );
         // Updating cart of customer's account with cartArray in RestDB
         var settings = {
           async: true,
