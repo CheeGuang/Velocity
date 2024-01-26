@@ -40,7 +40,7 @@ function addToCart() {
       if (localStorage.getItem("customersData") != null) {
         for (
           let i = 0;
-          i < JSON.parse(localStorage.getItem("customersData"));
+          i < JSON.parse(localStorage.getItem("customersData").length);
           i++
         ) {
           if (
