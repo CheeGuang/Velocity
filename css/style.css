@@ -74,6 +74,10 @@ section {
   border-radius: 2em;
 }
 
+.topbox {
+  height: 70px;
+}
+
 img {
   width: 100%;
   height: 100%;

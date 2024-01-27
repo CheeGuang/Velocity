@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/navbarFooter.css" />
+    <link rel="stylesheet" href="css/payment-components.css" />
 
     <!-- Linking JS -->
     <script src="js/script.js" defer></script>
@@ -45,5 +46,132 @@
     <header>
       <div id="navbar-container"></div>
     </header>
+
+    <div class="topbox"></div>
+
+    <section class="accordion" id="accordionExample">
+      <!-- First Option -->
+      <div class="form-check accordion-item">
+        <div class="accordian-header">
+          <input
+            class="form-check-input collapsed"
+            type="radio"
+            name="exampleRadios"
+            id="credDebtCard"
+            value="cardOpt"
+            checked
+            data-bs-toggle="collapse"
+            data-bs-target="#credDebtForm"
+            aria-expanded="false"
+            aria-controls="credDebtForm"
+          />
+          <label class="form-check-label" for="credDebtCard">
+            Credit / Debit Card
+          </label>
+        </div>
+
+        <div id="credDebtForm" class="accordion-body collapse">
+          <!-- Form to fill in for credit and debit card -->
+          <form class="row g-3 needs-validation mt-2" novalidate>
+            <div class="col-md-10">
+              <input
+                type="text"
+                class="form-control"
+                id="cardNumberHolder"
+                placeholder="Card Number"
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+
+            <div class="col-md-5">
+              <input
+                type="text"
+                class="form-control"
+                id="expirationDateHolder"
+                placeholder="Expiration Date"
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+
+            <div class="col-md-5">
+              <input
+                type="text"
+                class="form-control"
+                id="securityCodeHolder"
+                placeholder="CVC / CVV"
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+
+            <div class="col-md-10">
+              <input
+                type="text"
+                class="form-control"
+                id="cardNameHolder"
+                placeholder="Card Name"
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="saveCardInfo"
+                  required
+                />
+                <label class="form-check-label" for="saveCardInfo">
+                  Securely save card for a quicker checkout.
+                </label>
+              </div>
+            </div>
+
+            <small
+              >You will not be charged until you have reviewed and placed your
+              order in the next step</small
+            >
+          </form>
+        </div>
+      </div>
+
+      <!-- Second Option -->
+      <div class="form-check accordion-item">
+        <div class="accordian-header collapsed">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="exampleRadios"
+            id="cashOnDev"
+            value="cashOpt"
+            checked
+            data-bs-toggle="collapse"
+            data-bs-target="#cashNotification"
+            aria-expanded="false"
+            aria-controls="cashNotification"
+          />
+          <label
+            class="form-check-label"
+            for="cashNotification"
+            data-bs-parent="#accordionExample"
+          >
+            Cash On Delivery
+          </label>
+        </div>
+
+        <div id="cashNotification" class="accordion-body collapse">
+          <small>Payment will be made when product is delivered.</small>
+        </div>
+      </div>
+    </section>
+
+    <div class="col-12" id="submitBtn">
+      <button class="btn btn-primary" type="submit">Submit form</button>
+    </div>
   </body>
 </html>
