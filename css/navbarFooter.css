@@ -61,9 +61,9 @@
 }
 
 .icons .icon {
-  font-size: 1.2em;
+  font-size: 1.6em;
   color: var(--font-color);
-  padding-right: 60px;
+  padding-right: 70px;
   cursor: pointer;
 }
 
@@ -71,18 +71,19 @@
   color: var(--primary-color);
 }
 
-/* Custom CSS for overlay */
-.icon-container {
+/* Shopping cart logic */
+#shopingCart-icon {
+  font-size: 1.9em;
+}
+.shoppingCart-icon-container {
   position: relative;
-  width: 50px; /* Adjust the width as needed */
   display: inline-block;
 }
 
-.icon-overlay {
+.shoppingCart-icon-overlay {
   position: absolute;
-  top: 0;
-  right: 0;
-  background-color: #ff5733; /* Background color for the overlay */
+  top: -6px;
+  right: 59px;
   color: white; /* Text color for the overlay */
   padding: 2px 5px;
   border-radius: 50%; /* Make it a circle */

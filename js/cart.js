@@ -90,6 +90,7 @@ function addToCart() {
           console.log(response);
         });
       }
+
       break;
     }
   }
@@ -98,4 +99,5 @@ function addToCart() {
   console.log(cartArray);
   localStorage.setItem("cartData", JSON.stringify(cartArray));
   console.log(JSON.parse(localStorage.getItem("cartData")));
+  updateOverlayText();
 }

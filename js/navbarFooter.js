@@ -4,7 +4,7 @@ fetch("navbar.html")
   .then((data) => {
     document.getElementById("navbar-container").innerHTML = data;
     initialiseProfilePicture();
-    updateOverlayText("99+"); // Change the overlay text to "5"
+    updateOverlayText(); // Change the overlay text to "5"
   })
   .catch((error) => console.error(error));
 
@@ -31,10 +31,13 @@ function updateOverlayText() {
   let NoOfItemsInCart = 0;
   let cartDataJSON = JSON.parse(localStorage.getItem("cartData"));
   if (cartDataJSON != null) {
+    // Add Overlay Background Colour
+    document.getElementById("shoppingCart-overlay-text").style.backgroundColor =
+      " #ff5733";
     for (let i = 0; i < cartDataJSON.length; i++) {
       NoOfItemsInCart += cartDataJSON[i][1];
     }
-    var overlayText = document.getElementById("overlay-text");
+    var overlayText = document.getElementById("shoppingCart-overlay-text");
     if (overlayText) {
       if (NoOfItemsInCart < 100) {
         overlayText.textContent = NoOfItemsInCart;
@@ -44,5 +47,3 @@ function updateOverlayText() {
     }
   }
 }
-
-// Example usage
