@@ -71,6 +71,23 @@
   color: var(--primary-color);
 }
 
+/* Custom CSS for overlay */
+.icon-container {
+  position: relative;
+  width: 50px; /* Adjust the width as needed */
+  display: inline-block;
+}
+
+.icon-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #ff5733; /* Background color for the overlay */
+  color: white; /* Text color for the overlay */
+  padding: 2px 5px;
+  border-radius: 50%; /* Make it a circle */
+}
+
 /* This is for the search bar + icon */
 #navbar .search-bar {
   position: absolute;

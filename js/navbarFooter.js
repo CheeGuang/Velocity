@@ -4,6 +4,7 @@ fetch("navbar.html")
   .then((data) => {
     document.getElementById("navbar-container").innerHTML = data;
     initialiseProfilePicture();
+    updateOverlayText("99+"); // Change the overlay text to "5"
   })
   .catch((error) => console.error(error));
 
@@ -23,3 +24,25 @@ function initialiseProfilePicture() {
       customerDataJSON["imageUrl"];
   }
 }
+
+// Function to update the overlay text
+function updateOverlayText() {
+  // Get Number of Items in cart
+  let NoOfItemsInCart = 0;
+  let cartDataJSON = JSON.parse(localStorage.getItem("cartData"));
+  if (cartDataJSON != null) {
+    for (let i = 0; i < cartDataJSON.length; i++) {
+      NoOfItemsInCart += cartDataJSON[i][1];
+    }
+    var overlayText = document.getElementById("overlay-text");
+    if (overlayText) {
+      if (NoOfItemsInCart < 100) {
+        overlayText.textContent = NoOfItemsInCart;
+      } else {
+        overlayText.textContent = "99+";
+      }
+    }
+  }
+}
+
+// Example usage
