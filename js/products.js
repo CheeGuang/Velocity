@@ -8,6 +8,28 @@ if (localStorage.getItem("productData") == null) {
 }
 const PRODUCTDATAJSON = JSON.parse(localStorage.getItem("productData"));
 
+if (JSON.parse(localStorage.getItem("searchedImage")) != null) {
+  for (let i = 0; i < PRODUCTDATAJSON.length; i++) {
+    console.log(PRODUCTDATAJSON[i]["type"]);
+    console.log(JSON.parse(localStorage.getItem("searchedImage"))["type"]);
+    console.log(PRODUCTDATAJSON[i]["color"]);
+    console.log(JSON.parse(localStorage.getItem("searchedImage"))["colour"]);
+    if (
+      PRODUCTDATAJSON[i]["type"] ==
+        JSON.parse(localStorage.getItem("searchedImage"))["type"] &&
+      PRODUCTDATAJSON[i]["color"] ==
+        JSON.parse(localStorage.getItem("searchedImage"))["colour"]
+    ) {
+      insertProductHTML(PRODUCTDATAJSON[i]);
+    }
+  }
+  localStorage.removeItem("searchedImage");
+} else {
+  for (let i = 0; i < PRODUCTDATAJSON.length; i++) {
+    insertProductHTML(PRODUCTDATAJSON[i]);
+  }
+}
+
 function getProductsData() {
   //Create our AJAX settings
   var settings = {
@@ -32,10 +54,6 @@ function getProductsData() {
   });
 }
 
-for (let i = 0; i < PRODUCTDATAJSON.length; i++) {
-  insertProductHTML(PRODUCTDATAJSON[i]);
-}
-
 function insertProductHTML(productData) {
   // Create a new HTML element, for example, a div
   var newElement = document.createElement("div");
@@ -53,7 +71,7 @@ function insertProductHTML(productData) {
   ]
     .split(",")[0]
     .trim()}" class="card-img-top" alt="..." />
-        <a href="#" class="btn btn-primary" style="background-color: #b6b6b6" onclick="addToCart()">
+        <a href="productDetail.html" class="btn btn-primary" style="background-color: #b6b6b6" >
             <!-- <span></span>
                 <span></span>
                 <span></span>
@@ -63,7 +81,7 @@ function insertProductHTML(productData) {
     </div>
 </div>
 `;
-
+  // onclick="addToCart()"
   // Find the section element with the id "productListing"
   var productListing = document.getElementById("productListing");
 
