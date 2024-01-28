@@ -133,4 +133,5 @@ As a user, I want to see a consistent use of color and design in the KFC Website
 ## Credits
 
 - [Google Maps Auto-Complete Tutorial](https://www.youtube.com/watch?v=Q_GraCZJRiQ)
+- [AWQ How to invoke a lambda function after Uploading an Image to S3 Bucket](https://youtu.be/7X-xI1PqzK0?si=jUWTx-vvuloMK1q9)
 - [ChatGPT](https://chat.openai.com/)
