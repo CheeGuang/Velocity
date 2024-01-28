@@ -1,3 +1,5 @@
+let cartData = JSON.parse(localStorage.getItem("data")) || [];
+
 function CardCreation(product) {
   let itemCard = document.createElement("li");
   itemCard.className = "itemCard";
@@ -48,4 +50,8 @@ function CardCreation(product) {
   itemCount.innerHTML = `Qty: ${quantity}`;
 
   return itemCard;
+}
+
+for (i = 0; i < cartData.length; i++) {
+  CardCreation(cartData[i][0]);
 }

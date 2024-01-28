@@ -33,6 +33,8 @@
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/navbarFooter.css" />
     <link rel="stylesheet" href="css/progressBars.css" />
+    <link rel="stylesheet" href="css/review-components.css" />
+    <link rel="stylesheet" href="css/orderSummary.css" />
     <link rel="stylesheet" href="css/checkoutDelivery-components.css" />
 
     <!-- Linking JS -->
@@ -115,11 +117,11 @@
       </div>
     </section>
 
-    <section id="ShippingOptSect">
-      <h2>Shipping Options</h2>
+    <section id="ShippingOptSect" class="col-md-10 mt-5">
+      <h2 class="mb-5">Shipping Options</h2>
 
       <!-- Shipping Options -->
-      <div class="form-check">
+      <div class="form-check col-md-10">
         <input
           class="form-check-input"
           type="radio"
@@ -131,7 +133,11 @@
           <p>$5.00</p>
         </label>
       </div>
-      <div class="form-check">
+
+      <!-- Separator -->
+      <div class="separator col-md-10 mt-3 mb-3"></div>
+
+      <div class="form-check col-md-10">
         <input
           class="form-check-input"
           type="radio"
@@ -147,6 +153,9 @@
           <p>$10.90</p>
         </label>
       </div>
+
+      <!-- Separator -->
+      <div class="separator mt-3 mb-3"></div>
     </section>
 
     <section id="ProductSelected">
@@ -154,13 +163,13 @@
       <ul class="prodList"></ul>
     </section>
 
-    <section id="DeliveryInfoSect">
-      <h2>Delivery Address</h2>
+    <section id="DeliveryInfoSect" class="col-md-10 mt-5">
+      <h2 class="mb-5">Delivery Address</h2>
 
       <!-- Form for user to fill in  -->
       <form class="row g-3 needs-validation" novalidate>
         <!-- First Name Input Field -->
-        <div class="col-md-5">
+        <div class="col-md-6">
           <input
             type="text"
             class="form-control"
@@ -172,7 +181,7 @@
         </div>
 
         <!-- Last Name Input Field -->
-        <div class="col-md-5">
+        <div class="col-md-6">
           <input
             type="text"
             class="form-control"
@@ -184,7 +193,7 @@
         </div>
 
         <!-- Address Input Field -->
-        <div class="col-md-10">
+        <div class="col-md-12">
           <div class="input-group has-validation">
             <!-- Autocomplete location search input -->
             <input
@@ -198,7 +207,7 @@
         </div>
 
         <!-- Unit Number Input Field -->
-        <div class="col-md-5">
+        <div class="col-md-6">
           <input
             type="text"
             class="form-control"
@@ -210,7 +219,7 @@
         </div>
 
         <!-- Phone Number Input Field -->
-        <div class="col-md-5">
+        <div class="col-md-6">
           <input
             type="text"
             class="form-control"
@@ -222,7 +231,7 @@
         </div>
 
         <!-- Agree to Delivery T&C -->
-        <div class="col-12">
+        <div class="checkForm col-md-12">
           <div class="form-check">
             <input
               class="form-check-input"
@@ -241,7 +250,7 @@
         </div>
 
         <!-- Agree to save user delivery details -->
-        <div class="col-12">
+        <div class="checkForm col-md-12">
           <div class="form-check">
             <input
               class="form-check-input"
@@ -255,10 +264,46 @@
             </label>
           </div>
         </div>
-        <div class="col-12">
-          <button class="btn btn-primary" type="submit">Submit form</button>
-        </div>
       </form>
     </section>
+
+    <!-- Order Summary -->
+    <section id="orderSummary" class="col-md-10 mt-5">
+      <div class="row">
+        <div class="container">
+          <h2 class="mb-5">Order Summary</h2>
+          <div class="row d-flex justify-content-between align-items-center">
+            <div class="row">
+              <h3 class="col-md-7">Subtotal</h3>
+              <p class="col-md-3">S$0.00</p>
+            </div>
+            <div class="row gy-2">
+              <h3 class="col-md-7">Shipping</h3>
+              <p class="col-md-3">S$0.00</p>
+            </div>
+            <div class="row gy-2">
+              <h3 class="col-md-7">Cashback Rebate</h3>
+              <p class="col-md-3">- S$0.00</p>
+            </div>
+          </div>
+        </div>
+        <div class="line col-md-10 mt-3 mb-2"></div>
+      </div>
+      <div class="row">
+        <div class="col container">
+          <div class="row gy-2 mt-3">
+            <h2 class="col-md-7">
+              Total
+              <small>Including GST</small>
+            </h2>
+            <h3 class="col-md-3">S$0.00</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="col-12 mt-5" id="submitBtn">
+      <button class="btn btn-primary" type="submit">Place Order</button>
+    </div>
   </body>
 </html>
