@@ -32,26 +32,26 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/navbarFooter.css" />
-    <link rel="stylesheet" href="css/progressBars.css">
+    <link rel="stylesheet" href="css/progressBars.css" />
     <link rel="stylesheet" href="css/checkoutDelivery-components.css" />
 
     <!-- Linking JS -->
     <script src="js/script.js" defer></script>
     <script src="js/navbarFooter.js" defer></script>
     <script src="js/checkoutDelivery.js" defer></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-      
-    ></script>
+    <script src="js/formValidation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- Google Maps JavaScript library -->
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyAfODrfyamagW_DLjezjgVJRZ8XsXSkUCQ" defer></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyAfODrfyamagW_DLjezjgVJRZ8XsXSkUCQ"
+      defer
+    ></script>
   </head>
   <body>
     <header>
       <div id="navbar-container"></div>
     </header>
-
 
     <section>
       <div class="container-fluid py-3">
@@ -114,17 +114,105 @@
         </div>
       </div>
     </section>
-    <div class="container">
-      <div class="row">
-          <div class="col-lg-12">
-              <p><h1>Google Maps JavaScript API with Places Library Autocomplete Address Field</h1></p>
-     <!-- Autocomplete location search input --> 
-     <div class="form-group">
-      <label>Location:</label>
-      <input type="text" class="form-control" id="search_input" placeholder="Type address..." />
-     </div>
-       </div>
-     </div>
-  </div>
+
+    <form class="row g-3 needs-validation" novalidate>
+      <!-- First Name Input Field -->
+      <div class="col-md-5">
+        <input
+          type="text"
+          class="form-control"
+          id="fname"
+          placeholder="First Name"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <!-- Last Name Input Field -->
+      <div class="col-md-5">
+        <input
+          type="text"
+          class="form-control"
+          id="lname"
+          placeholder="Last Name"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <!-- Address Input Field -->
+      <div class="col-md-10">
+        <div class="input-group has-validation">
+          <!-- Autocomplete location search input -->
+          <input
+            type="text"
+            class="form-control"
+            id="search_input"
+            placeholder="Address"
+          />
+          <div class="invalid-feedback">Please choose an address.</div>
+        </div>
+      </div>
+
+      <!-- Unit Number Input Field -->
+      <div class="col-md-5">
+        <input
+          type="text"
+          class="form-control"
+          id="unitNo"
+          placeholder="Unit Number"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <!-- Phone Number Input Field -->
+      <div class="col-md-5">
+        <input
+          type="text"
+          class="form-control"
+          id="phoneNo"
+          placeholder="Phone Number"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <!-- Agree to Delivery T&C -->
+      <div class="col-12">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="deliveryTC"
+            required
+          />
+          <label class="form-check-label" for="deliveryTC">
+            Agree to terms and conditions
+          </label>
+          <div class="invalid-feedback">You must agree before submitting.</div>
+        </div>
+      </div>
+
+      <!-- Agree to save user delivery details -->
+      <div class="col-12">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="saveUserInfo"
+            checked
+          />
+          <label class="form-check-label" for="saveUserInfo">
+            Save my details for faster checkout
+          </label>
+        </div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" type="submit">Submit form</button>
+      </div>
+    </form>
   </body>
 </html>

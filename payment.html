@@ -41,6 +41,7 @@
 
     <!-- Linking JS -->
     <script src="js/script.js" defer></script>
+    <script src="js/formValidation.js"></script>
     <script src="js/searchFunction.js"></script>
   </head>
   <body>
@@ -135,9 +136,13 @@
           </label>
         </div>
 
-        <div id="credDebtForm" class="accordion-body collapse">
+        <div
+          id="credDebtForm"
+          class="accordion-body collapse"
+          data-bs-parent="#paymentModeAccordian"
+        >
           <!-- Form to fill in for credit and debit card -->
-          <form class="row g-3 needs-validation mt-2" novalidate>
+          <form class="row g-3 needs-validation" novalidate>
             <div class="col-md-10">
               <input
                 type="text"
@@ -220,16 +225,16 @@
             aria-expanded="false"
             aria-controls="cashNotification"
           />
-          <label
-            class="form-check-label"
-            for="cashNotification"
-            data-bs-parent="#paymentModeAccordian"
-          >
+          <label class="form-check-label" for="cashNotification">
             Cash On Delivery
           </label>
         </div>
 
-        <div id="cashNotification" class="accordion-body collapse">
+        <div
+          id="cashNotification"
+          class="accordion-body collapse"
+          data-bs-parent="#paymentModeAccordian"
+        >
           <small>Payment will be made when product is delivered.</small>
         </div>
       </div>
