@@ -1,0 +1,33 @@
+/* Checkout Progress Bar */
+.circle,
+.completed {
+  width: 1.8vw;
+  height: 1.8vw;
+  min-width: 1.3em;
+  min-height: 1.3em;
+
+  /* Center the content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto; /* for demonstration */
+}
+
+.circle {
+  background-color: var(--font-color); /* Bootstrap primary color */
+  border-radius: 50%;
+}
+
+.circle.inactive {
+  background-color: lightgray;
+}
+
+.line {
+  background-color: var(--font-color);
+  height: 2px;
+}
+
+#checkout-progressBar-top {
+  padding: 0 8.4vw;
+  margin-bottom: 1.5em;
+}

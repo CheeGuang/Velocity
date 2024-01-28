@@ -36,11 +36,12 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/navbarFooter.css" />
+    <link rel="stylesheet" href="css/progressBars.css" />
     <link rel="stylesheet" href="css/payment-components.css" />
 
     <!-- Linking JS -->
     <script src="js/script.js" defer></script>
-    <script src="js/navbarFooter.js" defer></script>
+    <script src="js/searchFunction.js"></script>
   </head>
   <body>
     <header>
@@ -60,9 +61,7 @@
               class="list-unstyled d-flex justify-content-between align-items-center"
             >
               <li class="step-indicator active" style="width: 10vw">
-                <div class="circle">
-                  <!-- Content here -->
-                </div>
+                <i class="fa-regular fa-circle-check fa-2xl"></i>
               </li>
               <li class="step-indicator" style="width: 25vw">
                 <div class="line"></div>
@@ -76,7 +75,7 @@
                 <div class="line"></div>
               </li>
               <li class="step-indicator" style="width: 10vw">
-                <div class="circle">
+                <div class="circle inactive">
                   <!-- Content here -->
                 </div>
               </li>
@@ -115,7 +114,7 @@
       </div>
     </section>
 
-    <section class="accordion" id="accordionExample">
+    <section class="accordion" id="paymentModeAccordian">
       <!-- First Option -->
       <div class="form-check accordion-item">
         <div class="accordian-header">
@@ -224,7 +223,7 @@
           <label
             class="form-check-label"
             for="cashNotification"
-            data-bs-parent="#accordionExample"
+            data-bs-parent="#paymentModeAccordian"
           >
             Cash On Delivery
           </label>

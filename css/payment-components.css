@@ -1,5 +1,7 @@
 .accordion-item .accordian-header {
-  height: 50px;
+  height: 100px;
+  display: flex;
+  align-items: center;
 }
 
 #submitBtn {
