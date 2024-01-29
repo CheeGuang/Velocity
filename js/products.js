@@ -57,22 +57,35 @@ function getProductsData() {
 function insertProductHTML(productData) {
   // Create a new HTML element, for example, a div
   var newElement = document.createElement("div");
-
+  newElement.style.display = "flex";
+  newElement.style.alignItems = "center";
+  newElement.className = "card-flip";
   // Add content to the new element
   newElement.innerHTML = `
-<a class="card" href="productDetail.html">
-    <div class="card-body">
-        <div class="itemSummary">
-            <h2 class="card-title">${productData["name"]}</h2>
-            <p class="card-text">${productData["price"]} SGD</p>
+  <div class="content">
+    <div class="front">
+      <a class="card front" href="productDetail.html">
+        <div class="card-body">
+            <div class="itemSummary">
+                <h2 class="card-title" style="height:75px">${
+                  productData["name"]
+                }</h2>
+                <p class="card-text">SGD$ ${productData["price"]}</p>
+            </div>
+            <img src="../images/ShoePicture${
+              productData["gender"]
+            }/${productData["imagePath"].split(",")[0].trim()}" alt="..." />
         </div>
-        <img src="../images/ShoePicture${productData["gender"]}/${productData[
-    "imagePath"
-  ]
-    .split(",")[0]
-    .trim()}" alt="..." />
+      </a>
     </div>
-</a>
+    <div class="back">
+    <h2 class="card-title" style="height:75px">${productData["name"]}</h2>
+    <p class="card-text">${productData["price"]}</p>
+    <p class="card-text">${productData["type"]}</p>
+    <p class="card-text">${productData["color"]}</p>
+    <p class="card-text">${productData["gender"]}</p>
+    </div>
+  </div>
 `;
   // onclick="addToCart()"
   // Find the section element with the id "productListing"
