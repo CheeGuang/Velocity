@@ -1,0 +1,9 @@
+.col-md-3 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+small {
+  font-size: clamp(10px, 1vw, 12px);
+  font-weight: 400;
+}

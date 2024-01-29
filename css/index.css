@@ -1,0 +1,81 @@
+.carousel-item {
+  width: 100%;
+  height: 400px;
+}
+
+.tagline {
+  margin: 4rem 40px;
+}
+
+.shortcuts {
+  display: flex;
+  flex-direction: row;
+}
+
+.shortcuts .shortcut {
+  margin: 0 100px;
+  width: 200px;
+  height: 200px;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 100px 200px 100px;
+  border-color: transparent transparent #ff4400 transparent;
+}
+
+.carousel-fade .carousel-item {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 1s ease-in-out,
+    transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.carousel-fade .carousel-item.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* Slide over transition effect */
+.carousel-fade .carousel-item {
+  opacity: 0;
+  transform: translateX(0); /* Initial position */
+  transition: opacity 0.4s ease-in-out,
+    transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.carousel-fade .carousel-item.active {
+  opacity: 1;
+  transform: translateX(0); /* Stay in position */
+  z-index: 1; /* Ensure new slide is on top */
+}
+.carousel-fade .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item.active {
+  display: block;
+}
+.carousel-fade .carousel-item-left.active {
+  transform: translateX(0); /* Slide out to the right */
+  opacity: 0;
+  z-index: 0; /* Move old slide to the background */
+}
+/* Adjust image size to fit the carousel */
+.carousel-inner {
+  object-fit: cover; /* Maintain image aspect ratio and cover the container */
+}
+
+.carousel {
+  margin-top: 100px;
+}
+.carousel,
+.carousel-inner,
+.carousel-item,
+.carousel-inner img {
+  max-height: 85vh;
+  height: 100%;
+  min-width: 70vw;
+}
+.carousel-inner img {
+  max-height: 80vh;
+  border-radius: 50px;
+  height: 1000vh;
+}

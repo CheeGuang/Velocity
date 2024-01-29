@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Ownership Verification -->
+    <meta
+      name="google-site-verification"
+      content="d2_qi_7JJuLlqM-m5MiGvf_a2yXjse2yF3qygItovD0"
+    />
+
+    <!-- Bootstrap Link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/4f6d96e165.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Payment</title>
+
+    <!-- Linking CSS -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/navbarFooter.css" />
+    <link rel="stylesheet" href="css/progressBars.css" />
+    <link rel="stylesheet" href="css/payment-components.css" />
+
+    <!-- Linking JS -->
+    <script src="js/script.js" defer></script>
+    <script src="js/navbarFooter.js"></script>
+    <script src="js/formValidation.js"></script>
+    <script src="js/searchFunction.js"></script>
+
+    <!-- Add a favicon to the tab bar -->
+    <link rel="icon" type="image/x-icon" href="images/Logo/Logo-short.png" />
+  </head>
+  <body>
+    <nav>
+      <div id="navbar-container"></div>
+    </nav>
+
+    <div class="topbox"></div>
+
+    <section>
+      <div class="container-fluid py-3">
+        <div class="container text-center">
+          <!-- Content in the middle at the top -->
+          <h1>Checkout</h1>
+          <div class="container mt-5">
+            <ul
+              id="checkout-progressBar-top"
+              class="list-unstyled d-flex justify-content-between align-items-center"
+            >
+              <li class="step-indicator active" style="width: 10vw">
+                <i class="fa-regular fa-circle-check fa-2xl"></i>
+              </li>
+              <li class="step-indicator" style="width: 25vw">
+                <div class="line"></div>
+              </li>
+              <li class="step-indicator" style="width: 10vw">
+                <div class="circle">
+                  <!-- Content here -->
+                </div>
+              </li>
+              <li class="step-indicator" style="width: 25vw">
+                <div class="line"></div>
+              </li>
+              <li class="step-indicator" style="width: 10vw">
+                <div class="circle inactive">
+                  <!-- Content here -->
+                </div>
+              </li>
+            </ul>
+            <ul
+              class="list-unstyled d-flex justify-content-between align-items-center"
+            >
+              <li class="step-indicator active" style="width: 25vw">
+                <p>Cart</p>
+              </li>
+              <li class="step-indicator" style="width: 25vw">
+                <p>Payment</p>
+              </li>
+              <li class="step-indicator" style="width: 25vw">
+                <p>Review</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="container mt-5">
+            <p>Spend $50 more and get free shipping</p>
+
+            <!-- Progress Bar -->
+            <div id="checkout-freeShippingBar-bar" class="progress mt-3">
+              <div
+                class="progress-bar"
+                role="progressbar"
+                style="width: 85%; background-color: #44403c"
+                aria-valuenow="50"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="accordion" id="paymentModeAccordian">
+      <!-- First Option -->
+      <div class="form-check accordion-item">
+        <div class="accordian-header">
+          <input
+            class="form-check-input collapsed"
+            type="radio"
+            name="exampleRadios"
+            id="credDebtCard"
+            value="cardOpt"
+            checked
+            data-bs-toggle="collapse"
+            data-bs-target="#credDebtForm"
+            aria-expanded="false"
+            aria-controls="credDebtForm"
+          />
+          <label class="form-check-label" for="credDebtCard">
+            Credit / Debit Card
+          </label>
+        </div>
+
+        <div
+          id="credDebtForm"
+          class="accordion-body collapse"
+          data-bs-parent="#paymentModeAccordian"
+        >
+          <!-- Form to fill in for credit and debit card -->
+          <form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-10">
+              <input
+                type="text"
+                class="form-control"
+                id="cardNumberHolder"
+                placeholder="Card Number"
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+
+            <div class="col-md-5">
+              <input
+                type="text"
+                class="form-control"
+                id="expirationDateHolder"
+                placeholder="Expiration Date"
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+
+            <div class="col-md-5">
+              <input
+                type="text"
+                class="form-control"
+                id="securityCodeHolder"
+                placeholder="CVC / CVV"
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+
+            <div class="col-md-10">
+              <input
+                type="text"
+                class="form-control"
+                id="cardNameHolder"
+                placeholder="Card Name"
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="saveCardInfo"
+                  required
+                />
+                <label class="form-check-label" for="saveCardInfo">
+                  Securely save card for a quicker checkout.
+                </label>
+              </div>
+            </div>
+
+            <small
+              >You will not be charged until you have reviewed and placed your
+              order in the next step</small
+            >
+          </form>
+        </div>
+      </div>
+
+      <!-- Second Option -->
+      <div class="form-check accordion-item">
+        <div class="accordian-header collapsed">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="exampleRadios"
+            id="cashOnDev"
+            value="cashOpt"
+            checked
+            data-bs-toggle="collapse"
+            data-bs-target="#cashNotification"
+            aria-expanded="false"
+            aria-controls="cashNotification"
+          />
+          <label class="form-check-label" for="cashNotification">
+            Cash On Delivery
+          </label>
+        </div>
+
+        <div
+          id="cashNotification"
+          class="accordion-body collapse"
+          data-bs-parent="#paymentModeAccordian"
+        >
+          <small>Payment will be made when product is delivered.</small>
+        </div>
+      </div>
+    </section>
+
+    <div class="col-12" id="submitBtn">
+      <button class="btn btn-primary" type="submit">Review Order</button>
+    </div>
+  </body>
+</html>

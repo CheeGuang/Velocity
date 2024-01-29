@@ -1,0 +1,52 @@
+.prodList {
+  list-style: none;
+  margin: 0;
+}
+
+.prodList .itemCard {
+  padding: 1em;
+  display: flex;
+}
+
+.prodList .itemImageContainer,
+.itemDetailContainer {
+  display: inline-block;
+  justify-self: center;
+}
+
+.itemImageContainer {
+  padding-right: 1em;
+}
+
+.prodList .itemImg {
+  width: 3em;
+  height: 3em;
+}
+
+.prodList .actionCount {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-top: 10px;
+}
+
+.prodList .itemCount {
+  color: #242424;
+  font-size: 18px;
+  padding: 0 15px;
+  display: flex;
+  width: 45px;
+  max-width: 45px;
+  min-width: 45px;
+}
+.prodList .delBtn,
+.prodList .addItemBtnBag {
+  color: var(--logo-color);
+  display: flex;
+}
+
+.pop-up .moreItemDetail {
+  color: #000000;
+  font-size: small;
+  padding: 0;
+}

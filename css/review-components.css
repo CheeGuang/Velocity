@@ -1,0 +1,29 @@
+.form-check-label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 1em;
+}
+
+.form-check-input {
+  margin-top: 0;
+}
+
+.checkForm {
+  display: inline-block;
+}
+
+section {
+  margin: auto;
+}
+
+#submitBtn {
+  display: flex;
+  justify-content: center;
+}
+
+.separator {
+  width: 100%;
+  height: 1px;
+  background-color: var(--font-color);
+}
