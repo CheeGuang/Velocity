@@ -60,7 +60,7 @@ function insertProductHTML(productData) {
 
   // Add content to the new element
   newElement.innerHTML = `
-<div class="card">
+<a class="card" href="productDetail.html">
     <div class="card-body">
         <div class="itemSummary">
             <h2 class="card-title">${productData["name"]}</h2>
@@ -70,16 +70,9 @@ function insertProductHTML(productData) {
     "imagePath"
   ]
     .split(",")[0]
-    .trim()}" class="card-img-top" alt="..." />
-        <a href="productDetail.html" class="btn btn-primary" style="background-color: #b6b6b6" >
-            <!-- <span></span>
-                <span></span>
-                <span></span>
-                <span></span> -->
-            Learn More
-        </a>
+    .trim()}" alt="..." />
     </div>
-</div>
+</a>
 `;
   // onclick="addToCart()"
   // Find the section element with the id "productListing"

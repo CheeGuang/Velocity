@@ -1,12 +1,4 @@
 #productListing {
-  /* max-width: 1400px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  grid-gap: 2em;
-  width: 100%;
-  padding: 4vw;
-  align-content: center; */
-
   width: 100%;
   max-width: 1400px;
   display: grid;
@@ -25,48 +17,9 @@
   color: var(--font-color);
   background-color: #d7d7d7;
   border-radius: 15px;
-  /* min-width: 280px;
-  min-height: 350px;
-  max-width: 300px;
-  max-height: 360px; */
   width: 240px;
   height: 288px;
 }
-
-/* .card:hover::before {
-  opacity: 1;
-}
-
-.card::before,
-.card::after {
-  border-radius: inherit;
-  content: "";
-  height: 100%;
-  left: 0px;
-  opacity: 0;
-  position: absolute;
-  top: 0px;
-  transition: opacity 500ms;
-  width: 100%;
-}
-
-.card::before {
-  background: radial-gradient(
-    500px circle at var(--mouse-x) var(--mouse-y),
-    rgba(255, 177, 0, 0.7),
-    transparent 40%
-  );
-  z-index: 3;
-}
-
-.card::after {
-  background: radial-gradient(
-    200px circle at var(--mouse-x) var(--mouse-y),
-    rgba(255, 177, 0, 0.7),
-    transparent 40%
-  );
-  z-index: 1;
-} */
 
 .card > .card-body {
   border-radius: inherit;
@@ -88,109 +41,10 @@
 }
 
 .card img {
-  width: 90%;
   height: 50%;
   object-fit: cover;
 }
 
-.btn {
-  display: block;
-  position: relative;
-  align-self: end;
-  text-align: center;
-  text-decoration: none;
-  color: var(--font-color);
-  padding: 0.7em;
-  border-radius: 10px;
-  background-color: none;
-  border-style: none;
-  overflow: hidden;
-  font-weight: 600;
-  z-index: 3;
+h2 {
+  font-size: 1.5em;
 }
-
-/* .btn:hover,
-.btn:active {
-  color: var(--font-color);
-  background-color: var(--primary-color) !important;
-  box-shadow: 0 0 200px var(--primary-color), 0 0 25px var(--primary-color),
-    0 0 50px var(--primary-color), 0 0 200px var(--primary-color);
-} */
-
-/* This is for span */
-/* .btn span {
-  position: absolute;
-  display: block;
-}
-.btn span:nth-child(1) {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--primary-color));
-  animation: animate1 1.5s linear infinite;
-}
-@keyframes animate1 {
-  0% {
-    left: -100%;
-  }
-  50%,
-  100% {
-    left: 100%;
-  }
-}
-.btn span:nth-child(2) {
-  top: -100%;
-  right: 0;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(180deg, transparent, var(--primary-color));
-  animation: animate2 1.5s linear infinite;
-  animation-delay: 0.25s;
-}
-@keyframes animate2 {
-  0% {
-    top: -100%;
-  }
-  50%,
-  100% {
-    top: 100%;
-  }
-}
-.btn span:nth-child(3) {
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(270deg, transparent, var(--primary-color));
-  animation: animate3 1.5s linear infinite;
-  animation-delay: 0.5s;
-}
-@keyframes animate3 {
-  0% {
-    right: -100%;
-  }
-  50%,
-  100% {
-    right: 100%;
-  }
-}
-
-.btn span:nth-child(4) {
-  bottom: -100%;
-  left: 0;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(360deg, transparent, var(--primary-color));
-  animation: animate4 1.5s linear infinite;
-  animation-delay: 0.75s;
-}
-@keyframes animate4 {
-  0% {
-    bottom: -100%;
-  }
-  50%,
-  100% {
-    bottom: 100%;
-  }
-} */
