@@ -45,6 +45,7 @@
 }
 
 .shortcutDetail p {
+  color: var(--font-color);
   bottom: -30px;
   left: 20px;
   font-weight: 400;
