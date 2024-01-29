@@ -2,6 +2,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-left: 1em;
+}
+
+.form-check-input {
+  margin-top: 0;
 }
 
 .checkForm {
