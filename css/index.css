@@ -8,14 +8,48 @@
 }
 
 .shortcuts {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-rows: 300px 300px 300px;
+  align-content: center;
+  margin: auto;
+  padding-top: 0;
 }
 
 .shortcuts .shortcut {
-  margin: 0 100px;
+  margin: 0;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.shortcutDetail {
+  position: relative;
+}
+
+.shortcutDetail img,
+.shortcutDetail p {
+  position: absolute;
+}
+
+.shortcutDetail img {
   width: 200px;
   height: 200px;
+  top: -10px;
+  right: -20px;
+  transform: rotate(-20deg);
+  opacity: 20%;
+  z-index: 2;
+}
+
+.shortcutDetail p {
+  bottom: -30px;
+  left: 20px;
+  font-weight: 400;
+  font-size: 25px;
+  z-index: 3;
 }
 
 .triangle {
@@ -23,7 +57,7 @@
   height: 0;
   border-style: solid;
   border-width: 0 100px 200px 100px;
-  border-color: transparent transparent #ff4400 transparent;
+  border-color: transparent transparent #d7d7d7 transparent;
 }
 
 .carousel-fade .carousel-item {
