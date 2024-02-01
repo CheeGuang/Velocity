@@ -8,6 +8,14 @@ fetch("navbar.html")
   })
   .catch((error) => console.error(error));
 
+// Fetch and insert the footer HTML using JavaScript
+fetch("footer.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("footer").innerHTML = data;
+  })
+  .catch((error) => console.error(error));
+
 // Search Function
 // This is for the search bar pop up
 
@@ -135,14 +143,6 @@ function select(element) {
   inputBox.value = selectUserData; //Passing user selected li data into text field
   searchWrapper.classList.remove("active"); // Then close the autocomplete box
 }
-
-// Fetch and insert the footer HTML using JavaScript
-// fetch("footer.html")
-//   .then((response) => response.text())
-//   .then((data) => {
-//     document.getElementById("footer").innerHTML = data;
-//   })
-//   .catch((error) => console.error(error));
 
 function initialiseProfilePicture() {
   let customerDataJSONString = localStorage.getItem("customerData");
