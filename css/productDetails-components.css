@@ -1,0 +1,19 @@
+/* CSS to style the progress bar */
+.progress {
+  height: 30px; /* Set the height of the progress bar */
+  margin-top: 20px; /* Add some margin for spacing */
+}
+
+.progress-bar {
+  font-size: 18px; /* Increase the font size for readability */
+  line-height: 30px; /* Center the text vertically */
+}
+
+.stats-row {
+  height: 20%;
+}
+
+/* CSS to style the Product Details */
+.row {
+  height: 20vh;
+}

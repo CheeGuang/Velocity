@@ -64,7 +64,7 @@ function insertProductHTML(productData) {
   newElement.innerHTML = `
   <div class="content">
     <div class="front">
-      <a class="card front" href="productDetail.html">
+       <a class="card front" href="#" onClick="redirectToProductDetail(event)">
         <div class="card-body">
             <div class="itemSummary">
                 <h2 class="card-title" style="height:75px">${
@@ -93,4 +93,24 @@ function insertProductHTML(productData) {
 
   // Append the new element as a child to the section
   productListing.appendChild(newElement);
+}
+
+function redirectToProductDetail(event) {
+  event.preventDefault();
+
+  // Get the product name from the clicked element
+  var productName =
+    event.currentTarget.querySelector(".card-title").textContent;
+
+  // Encode the product name for further processing or sending to another page
+  var encodedProductName = encodeURIComponent(productName);
+
+  // Construct the URL with query parameters
+  var redirectUrl = "productDetail.html" + "?name=" + encodedProductName;
+  console.log(productName);
+  console.log(encodedProductName);
+  console.log(redirectUrl);
+
+  // Redirect to the product detail page with the query parameters
+  window.location.href = redirectUrl;
 }
