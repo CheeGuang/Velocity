@@ -39,6 +39,7 @@
     <script src="js/script.js" defer></script>
     <script src="js/navbarFooter.js" defer></script>
     <script src="js/productDetail.js" defer></script>
+    <script src="js/cart.js" defer></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
       defer
@@ -120,9 +121,7 @@
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="sizing" role="tabpanel" aria-labelledby="sizing-tab">
-                  <button type="button" class="btn btn-outline-primary me-2">3 UK</button>
-                  <button type="button" class="btn btn-outline-primary me-2">3.5 UK</button>
-                  <button type="button" class="btn btn-outline-primary me-2">4 UK</button>
+                  <!-- Available sizes to be inserted -->
                 </div>
                 <div class="tab-pane fade" id="product-info" role="tabpanel" aria-labelledby="product-info-tab">
                     <!-- Product information content -->
@@ -134,12 +133,12 @@
         </div>
     </div>
 
-    <div class="row mt-4">
-        <div class="col-md-4">
-            <div class="input-group mb-3">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Add To Cart</button>
-            </div>
-        </div>
+    <div id="add-to-cart"class="row mt-4">
+      <div class="col-md-4">
+          <div id="add-to-cart-button"class="input-group mb-3">
+              <button onclick="addToCart()" class="btn btn-outline-secondary" type="button" id="button-addon2">Add To Cart</button>
+          </div>
+      </div>
     </div>
     </div>
 
