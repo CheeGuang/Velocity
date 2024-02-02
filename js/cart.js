@@ -100,4 +100,7 @@ function addToCart() {
   localStorage.setItem("cartData", JSON.stringify(cartArray));
   console.log(JSON.parse(localStorage.getItem("cartData")));
   updateOverlayText();
+
+  // Redirect to productPage.html
+  window.location.href = "productPage.html";
 }
