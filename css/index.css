@@ -8,14 +8,49 @@
 }
 
 .shortcuts {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  align-content: center;
+  margin: auto;
+  padding-top: 0;
 }
 
 .shortcuts .shortcut {
-  margin: 0 100px;
+  margin: 0;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.shortcutDetail {
+  position: relative;
+}
+
+.shortcutDetail img,
+.shortcutDetail p {
+  position: absolute;
+}
+
+.shortcutDetail img {
   width: 200px;
   height: 200px;
+  object-fit: cover;
+  top: -10px;
+  right: -20px;
+  transform: rotate(-20deg);
+  z-index: 2;
+}
+
+.shortcutDetail p {
+  color: var(--font-color);
+  bottom: 0px;
+  left: 20px;
+  font-weight: 400;
+  font-size: 25px;
+  z-index: 3;
 }
 
 .triangle {
@@ -23,7 +58,7 @@
   height: 0;
   border-style: solid;
   border-width: 0 100px 200px 100px;
-  border-color: transparent transparent #ff4400 transparent;
+  border-color: transparent transparent #d7d7d7 transparent;
 }
 
 .carousel-fade .carousel-item {
@@ -78,4 +113,18 @@
   max-height: 80vh;
   border-radius: 50px;
   height: 1000vh;
+}
+
+#shoeFinderQuizPrompt {
+  width: 100%;
+  height: 200px;
+  background-color: #d7d7d7;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#shoeFinderQuizPrompt a {
+  color: var(--font-color);
 }
