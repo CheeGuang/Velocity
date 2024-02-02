@@ -14,13 +14,16 @@ if (localStorage.getItem("productData") == null) {
 
 var productData = JSON.parse(localStorage.getItem("productData"));
 
+if (window.location.pathname == "/bag.html") {
+  displayCart();
+}
+
 // Add to Cart Logic
 function addToCart() {
   // Get name of Product added
-  //   let itemName = $("#productName").text();
+  let itemName = $("#product-name").text();
 
   // Adding to cartArray
-  let itemName = "Nike Cortez - Blue -";
   for (let i = 0; i < productData.length; i++) {
     console.log(productData[i]["name"]);
     if (itemName == productData[i]["name"]) {
@@ -103,4 +106,86 @@ function addToCart() {
 
   // Redirect to productPage.html
   window.location.href = "productPage.html";
+}
+
+function displayCart() {
+  var cart = JSON.parse(localStorage.getItem("cartData"));
+  var cartProductInfoContent = ``;
+  var subtotal = 0;
+  var deliveryPrice = 20;
+  console.log(cart);
+
+  for (let i = 0; i < cart.length; i++) {
+    console.log(cart[0]);
+    // Adding product info
+    cartProductInfoContent += `
+    <div class="card product-card">
+        <div class="card-body" >
+          <div class="d-flex">
+            <img src="images/ShoePicture${cart[i][0]["gender"]}/${
+      cart[i][0]["imagePath"].split(",")[0]
+    }" class="product-image" alt="${
+      cart[i][0]["name"]
+    } Image" style="width: 220px; height: 220px">
+            <div class="flex-grow-1">
+              <h3 class="card-title product-name">${cart[i][0]["name"]}</h3>
+              <p class="card-text">${
+                cart[i][0]["gender"] == "M" ? "Men's" : "Women's"
+              } Shoe</p>
+              <p class="card-text">${cart[i][0]["color"]}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="size-quantity mt-3">
+                  <span style="font-size: 20px; margin-right: 30px" class="product-size">Size 6.5</span> <span style="font-size: 20px">Quantity ${
+                    cart[i][1]
+                  }</span>
+                </div>
+              </div>
+              <button class="btn btn-danger" onclick="removeIteFromCart(this)">
+                Remove
+                <i class="bi bi-trash"></i>
+              </button>
+            </div>
+            <div class="d-flex justify-content-between align-items-start mt-2">
+              <div class="price"><h4>$${cart[i][0]["price"].toFixed(
+                2
+              )}</h4></div>
+            </div>
+          </div>
+        </div>
+    </div>
+    `;
+
+    subtotal += cart[i][0]["price"];
+  }
+
+  if (subtotal == 0) {
+    cartProductInfoContent += `<p>Your Bag is Empty. Proceed to shop!</p>`;
+  }
+  $("#cart-items").html(cartProductInfoContent);
+  $("#subtotal-price").text("$" + subtotal.toFixed(2));
+  $("#delivery-price").text("$" + deliveryPrice.toFixed(2));
+  $("#total-price").text("$" + (subtotal + deliveryPrice).toFixed(2));
+}
+function removeIteFromCart(buttonElement) {
+  var productName = $(buttonElement)
+    .closest(".card-body")
+    .find(".product-name")
+    .text();
+  var productSize = $(buttonElement)
+    .closest(".card-body")
+    .find(".product-size")
+    .text()
+    .replace("Size ", "");
+
+  // Remove Item from Cart on Local Storage
+  localCart = JSON.parse(localStorage.getItem("cartData"));
+  for (let i = 0; i < localCart.length; i++) {
+    if (localCart[i][0]["name"] == productName) {
+      localCart.splice(i, 1);
+      break;
+    }
+  }
+  localStorage.setItem("cartData", JSON.stringify(localCart));
+  displayCart();
+  updateOverlayText();
 }

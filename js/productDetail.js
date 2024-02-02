@@ -1,6 +1,11 @@
 let productName;
 let selectedItem;
 
+// Call the retrieve ProductDetails function when the productDetails.html loads
+if (window.location.pathname == "/productDetail.html") {
+  window.onload = retrieveProductDetails;
+}
+
 function getQueryParam(name) {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get(name);
@@ -24,9 +29,6 @@ function retrieveProductDetails() {
   }
   displayProduct(selectedItem);
 }
-
-// Call the retrieveProductDetails function when the page loads
-window.onload = retrieveProductDetails;
 
 function displayProduct(productObject) {
   console.log(productObject);

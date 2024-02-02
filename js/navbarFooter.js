@@ -4,7 +4,9 @@ fetch("navbar.html")
   .then((data) => {
     document.getElementById("navbar-container").innerHTML = data;
     initialiseProfilePicture();
-    updateOverlayText(); // Change the overlay text to "5"
+    if (localStorage.getItem("cartData") != null) {
+      updateOverlayText();
+    }
   })
   .catch((error) => console.error(error));
 
@@ -173,5 +175,8 @@ function updateOverlayText() {
         overlayText.textContent = "99+";
       }
     }
+  }
+  if (NoOfItemsInCart == 0) {
+    $("#shoppingCart-overlay-text").css("display", "none");
   }
 }
