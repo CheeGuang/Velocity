@@ -139,7 +139,7 @@ function updateProductAbout(productObject) {
     productObject["name"]
   );
   var productAboutContent = `
-    <p><strong>Type:</strong> ${productDescription}</p>
+    <p>${productDescription}</p>
   `;
 
   $("#product-about").html(productAboutContent);
