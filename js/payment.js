@@ -55,7 +55,7 @@ $(document).ready(function () {
         customerData = JSON.stringify(customerData);
         console.log(customerData);
         // Store new customerData in local storage
-        localStorage.setItem(customerData);
+        localStorage.setItem("customerData", customerData);
 
         var settings = {
           async: true,
