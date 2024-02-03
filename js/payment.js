@@ -66,7 +66,7 @@ $(document).ready(function () {
           method: "PUT",
           headers: {
             "content-type": "application/json",
-            "x-apikey": "58c028f9c481812dde4624100ed946691f4e5",
+            "x-apikey": "65b03b109eb5ba00e57fa24e",
             "cache-control": "no-cache",
           },
           processData: false,
