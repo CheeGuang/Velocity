@@ -14,7 +14,10 @@ if (localStorage.getItem("productData") == null) {
 
 var productData = JSON.parse(localStorage.getItem("productData"));
 
-if (window.location.pathname == "/bag.html") {
+if (
+  window.location.pathname == "/bag.html" ||
+  window.location.pathname == "/checkout.html"
+) {
   displayCart();
 }
 
@@ -112,7 +115,7 @@ function displayCart() {
   var cart = JSON.parse(localStorage.getItem("cartData"));
   var cartProductInfoContent = ``;
   var subtotal = 0;
-  var deliveryPrice = 20;
+  var deliveryPrice = 5.9;
   console.log(cart);
 
   for (let i = 0; i < cart.length; i++) {
@@ -145,10 +148,13 @@ function displayCart() {
                 <i class="bi bi-trash"></i>
               </button>
             </div>
-            <div class="d-flex justify-content-between align-items-start mt-2">
+            <div class="d-flex align-items-start mt-2 flex-column">
               <div class="price"><h4>$${cart[i][0]["price"].toFixed(
                 2
               )}</h4></div>
+              <div class="price"><h4 style="color: #FF6B00;">+${Math.floor(
+                cart[i][0]["price"]
+              )} Points</h4></div>
             </div>
           </div>
         </div>
@@ -161,6 +167,8 @@ function displayCart() {
   if (subtotal == 0) {
     cartProductInfoContent += `<p>Your Bag is Empty. Proceed to shop!</p>`;
   }
+  console.log("Hi");
+  console.log($("#cart-items"));
   $("#cart-items").html(cartProductInfoContent);
   $("#subtotal-price").text("$" + subtotal.toFixed(2));
   $("#delivery-price").text("$" + deliveryPrice.toFixed(2));

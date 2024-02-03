@@ -121,7 +121,9 @@
 
     <section class="accordion" id="paymentModeAccordian">
       <!-- First Option -->
-      <div class="form-check accordion-item">
+      <div
+        class="form-check accordion-item d-flex flex-column justify-content-center"
+      >
         <div class="accordian-header">
           <input
             class="form-check-input collapsed"
@@ -142,11 +144,15 @@
 
         <div
           id="credDebtForm"
-          class="accordion-body collapse"
+          class="accordion-body collapse show"
           data-bs-parent="#paymentModeAccordian"
         >
           <!-- Form to fill in for credit and debit card -->
-          <form class="row g-3 needs-validation" novalidate>
+          <form
+            class="row g-3 needs-validation d-flex align-items-center justify-content-center"
+            style="height: 40vh"
+            novalidate
+          >
             <div class="col-md-10">
               <input
                 type="text"
@@ -191,7 +197,7 @@
               <div class="valid-feedback">Looks good!</div>
             </div>
 
-            <div class="col-12">
+            <div class="col-md-10">
               <div class="form-check">
                 <input
                   class="form-check-input"
@@ -206,7 +212,7 @@
               </div>
             </div>
 
-            <small
+            <small class="col-md-10 mb-4"
               >You will not be charged until you have reviewed and placed your
               order in the next step</small
             >
@@ -215,7 +221,7 @@
       </div>
 
       <!-- Second Option -->
-      <div class="form-check accordion-item">
+      <div class="form-check accordion-item" style="padding-bottom: 25px">
         <div class="accordian-header collapsed">
           <input
             class="form-check-input"
@@ -223,7 +229,6 @@
             name="exampleRadios"
             id="cashOnDev"
             value="cashOpt"
-            checked
             data-bs-toggle="collapse"
             data-bs-target="#cashNotification"
             aria-expanded="false"
@@ -239,17 +244,25 @@
           class="accordion-body collapse"
           data-bs-parent="#paymentModeAccordian"
         >
-          <small>Payment will be made when product is delivered.</small>
+          <div class="row d-fliex justify-content-center">
+            <div class="col-md-10">
+              <small style="padding-bottom: 10px"
+                >Payment will be made when product is delivered.</small
+              >
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
+    <div class="col-12" id="submitBtn">
+      <a href="review.html">
+        <button class="btn btn-secondary" type="submit">Review Order</button>
+      </a>
+    </div>
+
     <footer>
       <div id="footer"></div>
     </footer>
-
-    <div class="col-12" id="submitBtn">
-      <button class="btn btn-primary" type="submit">Review Order</button>
-    </div>
   </body>
 </html>
