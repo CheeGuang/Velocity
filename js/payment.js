@@ -61,7 +61,7 @@ $(document).ready(function () {
           async: true,
           crossDomain: true,
           url: `https://velocity-554e.restdb.io/rest/customer/${
-            JSON.parse(customerData)["customerId"]
+            JSON.parse(customerData)["_id"]
           }`,
           method: "PUT",
           headers: {
