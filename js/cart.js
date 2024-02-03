@@ -152,9 +152,9 @@ function displayCart() {
               <div class="price"><h4>$${cart[i][0]["price"].toFixed(
                 2
               )}</h4></div>
-              <div class="price"><h4 style="color: #FF6B00;">+${Math.floor(
-                cart[i][0]["price"]
-              )} Points</h4></div>
+              <div class="price"><h4 style="color: #FF6B00;">+${
+                Math.floor(cart[i][0]["price"]) * cart[i][1]
+              } Points</h4></div>
             </div>
           </div>
         </div>

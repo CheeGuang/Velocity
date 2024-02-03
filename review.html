@@ -25,6 +25,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <title>Checkout Review</title>
 
     <!-- Linking CSS -->
@@ -42,7 +44,7 @@
     <script src="js/navbarFooter.js" defer></script>
     <script src="js/checkoutDelivery.js" defer></script>
     <script src="js/formValidation.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/checkout.js" defer></script>
 
     <!-- Google Maps JavaScript library -->
     <script
@@ -104,11 +106,14 @@
           </div>
 
           <div class="container mt-5">
-            <p>Spend $50 more and get free shipping</p>
+            <p id="checkout-freeShippingBar-message">
+              Congratualtions! You are entitled for Free Express Shipping!
+            </p>
 
             <!-- Progress Bar -->
-            <div id="checkout-freeShippingBar-bar" class="progress mt-3">
+            <div class="progress mt-3">
               <div
+                id="checkout-freeShippingBar-bar"
                 class="progress-bar"
                 role="progressbar"
                 style="width: 85%; background-color: #44403c"
@@ -132,6 +137,7 @@
           type="radio"
           name="flexRadioDefault"
           id="standardShippingOpt"
+          checked
         />
         <label class="form-check-label" for="standardShippingOpt">
           <p>Standard Shipping</p>
@@ -148,7 +154,6 @@
           type="radio"
           name="flexRadioDefault"
           id="expressShippingOpt"
-          checked
         />
         <label class="form-check-label" for="expressShippingOpt">
           <p>
@@ -235,25 +240,6 @@
           <div class="valid-feedback">Looks good!</div>
         </div>
 
-        <!-- Agree to Delivery T&C -->
-        <div class="checkForm col-md-12">
-          <div class="form-check d-flex align-items-center">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id="deliveryTC"
-              required
-            />
-            <label class="form-check-label" for="deliveryTC">
-              Agree to terms and conditions
-            </label>
-            <div class="invalid-feedback">
-              You must agree before submitting.
-            </div>
-          </div>
-        </div>
-
         <!-- Agree to save user delivery details -->
         <div class="checkForm col-md-12">
           <div class="form-check d-flex align-items-center">
@@ -305,6 +291,22 @@
               S$0.00
             </h3>
           </div>
+        </div>
+      </div>
+      <!-- Agree to Delivery T&C -->
+      <div class="checkForm col-md-12" style="margin-top: 50px">
+        <div class="form-check d-flex align-items-center">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="deliveryTC"
+            required
+          />
+          <label class="form-check-label" for="deliveryTC">
+            I have read and agree to the terms and conditions
+          </label>
+          <div class="invalid-feedback">You must agree before submitting.</div>
         </div>
       </div>
     </section>

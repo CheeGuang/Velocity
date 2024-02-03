@@ -89,6 +89,18 @@ img {
   object-fit: cover;
 }
 
+.form-check-input:checked {
+  color: #fff;
+  border-color: var(--font-color);
+  background-color: var(--font-color);
+}
+
+.form-check-input:focus {
+  border-color: #4b4b4b;
+  -webkit-box-shadow: 0 0 3px 0 #4b4b4b;
+  box-shadow: 0 0 3px 0 #4b4b4b;
+}
+
 @media screen and (min-width: 769px) {
   p {
     font-size: 1.2em;
