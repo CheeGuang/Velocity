@@ -26,55 +26,55 @@ $(document).ready(function () {
       paymentDetails["saveCardInfo"] == true
     ) {
       customerData = JSON.parse(localStorage.getItem("customerData"));
-      //   if (customerData == null) {
-      //     $("#membershipModal").modal("show"); // Show the modal
-      //   } else {
-      //   }
-      // Get the credit card details from the form
-      var cardNumber = $("#cardNumberHolder").val();
-      var expirationDate = $("#expirationDateHolder").val();
-      var securityCode = $("#securityCodeHolder").val();
-      var cardName = $("#cardNameHolder").val();
-      var saveCardInfo = $("#saveCardInfo").is(":checked"); // true if checked, false otherwise
+      if (customerData == null) {
+        $("#membershipModal").modal("show"); // Show the modal
+      } else {
+        // Get the credit card details from the form
+        var cardNumber = $("#cardNumberHolder").val();
+        var expirationDate = $("#expirationDateHolder").val();
+        var securityCode = $("#securityCodeHolder").val();
+        var cardName = $("#cardNameHolder").val();
+        var saveCardInfo = $("#saveCardInfo").is(":checked"); // true if checked, false otherwise
 
-      // Now you can use the credit card details for further processing
-      console.log({
-        cardNumber: cardNumber,
-        expirationDate: expirationDate,
-        securityCode: securityCode,
-        cardName: cardName,
-        saveCardInfo: saveCardInfo,
-      });
+        // Now you can use the credit card details for further processing
+        console.log({
+          cardNumber: cardNumber,
+          expirationDate: expirationDate,
+          securityCode: securityCode,
+          cardName: cardName,
+          saveCardInfo: saveCardInfo,
+        });
 
-      // Assigning card details to customerData object
-      customerData["cardName"] = cardName;
-      customerData["cardNumber"] = cardNumber;
-      customerData["cvv"] = securityCode;
-      customerData["expiryDate"] = expirationDate;
+        // Assigning card details to customerData object
+        customerData["cardName"] = cardName;
+        customerData["cardNumber"] = cardNumber;
+        customerData["cvv"] = securityCode;
+        customerData["expiryDate"] = expirationDate;
 
-      // Stringtify customerData
-      customerData = JSON.stringify(customerData);
-      console.log(customerData);
-      // Store new customerData in local storage
-      //   localStorage.setItem(customerData);
+        // Stringtify customerData
+        customerData = JSON.stringify(customerData);
+        console.log(customerData);
+        // Store new customerData in local storage
+        localStorage.setItem(customerData);
 
-      //   var settings = {
-      //     async: true,
-      //     crossDomain: true,
-      //     url: "https://velocity-554e.restdb.io/rest/customer/(ObjectID)",
-      //     method: "PUT",
-      //     headers: {
-      //       "content-type": "application/json",
-      //       "x-apikey": "<your CORS apikey here>",
-      //       "cache-control": "no-cache",
-      //     },
-      //     processData: false,
-      //     data: customerData,
-      //   };
+        var settings = {
+          async: true,
+          crossDomain: true,
+          url: `https://velocity-554e.restdb.io/rest/customer/${customerData["customerId"]}`,
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+            "x-apikey": "58c028f9c481812dde4624100ed946691f4e5",
+            "cache-control": "no-cache",
+          },
+          processData: false,
+          data: customerData,
+        };
 
-      //   $.ajax(settings).done(function (response) {
-      //     console.log(response);
-      //   });
+        $.ajax(settings).done(function (response) {
+          console.log(response);
+        });
+      }
     }
   });
 
