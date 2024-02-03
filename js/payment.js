@@ -25,7 +25,9 @@ $(document).ready(function () {
       paymentDetails["paymentMethod"] == "cardOpt" &&
       paymentDetails["saveCardInfo"] == true
     ) {
-      $("#membershipModal").modal("show"); // Show the modal
+      if (JSON.parse(localStorage.getItem("customerData")) == null) {
+        $("#membershipModal").modal("show"); // Show the modal
+      }
     }
   });
 
