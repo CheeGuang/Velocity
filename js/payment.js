@@ -53,16 +53,23 @@ $(document).ready(function () {
 
         // Stringtify customerData
         customerData = JSON.stringify(customerData);
-        console.log(customerData);
+
+        // Get customer _id
+        var customersData = JSON.parse(localStorage.getItem("customersData"));
+        let customer_id;
+        for (let i = 0; i < customersData.length; i++) {
+          if (customersData[i]["email"] == customersData["email"]) {
+            customer_id = customersData[i]["_id"];
+          }
+        }
+        console.log(customer_id);
         // Store new customerData in local storage
         localStorage.setItem("customerData", customerData);
 
         var settings = {
           async: true,
           crossDomain: true,
-          url: `https://velocity-554e.restdb.io/rest/customer/${
-            JSON.parse(customerData)["_id"]
-          }`,
+          url: `https://velocity-554e.restdb.io/rest/customer/${customer_id}`,
           method: "PUT",
           headers: {
             "content-type": "application/json",
