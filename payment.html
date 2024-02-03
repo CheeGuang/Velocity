@@ -63,17 +63,12 @@
         <div class="container text-center">
           <!-- Content in the middle at the top -->
           <h1>Checkout</h1>
-          <div class="container mt-5">
+          <div class="container mt-5 d-flex flex-column align-items-center">
             <ul
               id="checkout-progressBar-top"
               class="list-unstyled d-flex justify-content-between align-items-center"
+              style="width: 80vw;"
             >
-              <li class="step-indicator active" style="width: 10vw">
-                <i class="fa-regular fa-circle-check fa-2xl"></i>
-              </li>
-              <li class="step-indicator" style="width: 25vw">
-                <div class="line"></div>
-              </li>
               <li class="step-indicator" style="width: 10vw">
                 <div class="circle">
                   <!-- Content here -->
@@ -87,15 +82,23 @@
                   <!-- Content here -->
                 </div>
               </li>
+              <li class="step-indicator" style="width: 25vw">
+                <div class="line"></div>
+              </li>
+              <li class="step-indicator" style="width: 10vw">
+                <div class="circle inactive">
+                  <!-- Content here -->
+                </div>
+              </li>
             </ul>
             <ul
-              class="list-unstyled d-flex justify-content-between align-items-center"
+              class="list-unstyled d-flex justify-content-between align-items-center" style="width: 80vw;"
             >
               <li class="step-indicator active" style="width: 25vw">
-                <p>Cart</p>
+                <p>Payment</p>
               </li>
               <li class="step-indicator" style="width: 25vw">
-                <p>Payment</p>
+                <p>Shipping</p>
               </li>
               <li class="step-indicator" style="width: 25vw">
                 <p>Review</p>
@@ -280,7 +283,7 @@
             <p>Be a Member to save card details. <br> Join us now!</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Login / Sign up</button>
+            <button type="button" class="btn btn-primary" onclick="redirectToSignIn(event)">Login / Sign up</button>
           </div>
         </div>
       </div>

@@ -67,37 +67,43 @@
         <div class="container text-center">
           <!-- Content in the middle at the top -->
           <h1>Checkout</h1>
-          <div class="container mt-5">
+          <div class="container mt-5 d-flex flex-column align-items-center">
             <ul
               id="checkout-progressBar-top"
               class="list-unstyled d-flex justify-content-between align-items-center"
+              style="width: 80vw"
             >
-              <li class="step-indicator active" style="width: 10vw">
-                <i class="fa-regular fa-circle-check fa-2xl"></i>
+              <li class="step-indicator" style="width: 10vw">
+                <div class="circle">
+                  <!-- Content here -->
+                </div>
               </li>
               <li class="step-indicator" style="width: 25vw">
                 <div class="line"></div>
               </li>
               <li class="step-indicator" style="width: 10vw">
-                <i class="fa-regular fa-circle-check fa-2xl"></i>
+                <div class="circle inactive">
+                  <!-- Content here -->
+                </div>
               </li>
               <li class="step-indicator" style="width: 25vw">
                 <div class="line"></div>
               </li>
               <li class="step-indicator" style="width: 10vw">
-                <div class="circle active">
+                <div class="circle inactive">
                   <!-- Content here -->
                 </div>
               </li>
             </ul>
             <ul
               class="list-unstyled d-flex justify-content-between align-items-center"
+              style="width: 80vw"
             >
               <li class="step-indicator active" style="width: 25vw">
-                <p>Cart</p>
+                <p>Payment</p>
               </li>
               <li class="step-indicator" style="width: 25vw">
-                <p>Payment</p>
+                <p>Shipping</p>
               </li>
               <li class="step-indicator" style="width: 25vw">
                 <p>Review</p>

@@ -1,5 +1,5 @@
 const APIKEY = "65b03b109eb5ba00e57fa24e";
-
+let previousPath;
 globalThis.handleCredentialResponse = async (response) => {
   // decodeJwtResponse() is a custom function defined by you
   // to decode the credential response.
@@ -60,7 +60,10 @@ globalThis.handleCredentialResponse = async (response) => {
 
     $.ajax(settings).done(function (response) {
       console.log(response);
+      window.location.href = previousPath;
     });
+  } else {
+    window.location.href = previousPath;
   }
 };
 
@@ -113,4 +116,21 @@ function getCustomersData() {
       }
     }
   });
+}
+
+// Retrieve Previous Path
+// Call the retrieve ProductDetails function when the productDetails.html loads
+window.onload = retrieveProductDetails;
+
+function getQueryParam(previousPath) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(previousPath);
+}
+
+function retrieveProductDetails() {
+  // Get the encoded URI parameters
+  const encodedProductName = getQueryParam("previousPath");
+
+  // Decode the URI parameters
+  previousPath = decodeURIComponent(encodedProductName);
 }
