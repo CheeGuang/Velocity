@@ -58,9 +58,7 @@ $(document).ready(function () {
         var customersData = JSON.parse(localStorage.getItem("customersData"));
         let customer_id;
         for (let i = 0; i < customersData.length; i++) {
-          console.log(customersData[i]["email"]);
-          console.log(customerData["email"]);
-          if (customersData[i]["email"] == customerData["email"]) {
+          if (customersData[i]["email"] == JSON.parse(customerData)["email"]) {
             customer_id = customersData[i]["_id"];
             break;
           }
