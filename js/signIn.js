@@ -66,7 +66,7 @@ window.handleCredentialResponse = (response) => {
   for (let i = 0; i < customersData.length; i++) {
     if (customerId == customersData[i]["customerId"]) {
       if (customersData[i]["cart"] != null) {
-        localStorage.setItem("cart", JSON.parse(customersData[i]["cart"]));
+        localStorage.setItem("cart", JSON.stringify(customersData[i]["cart"]));
       }
     }
   }
@@ -93,7 +93,7 @@ function decodeJwtResponse(token) {
 function getCustomersData() {
   //[STEP 7]: Create our AJAX settings
   let settings = {
-    async: true,
+    async: false,
     crossDomain: true,
     url: "https://velocity-554e.restdb.io/rest/customer",
     method: "GET", // use GET to retrieve info
