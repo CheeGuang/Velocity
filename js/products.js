@@ -10,7 +10,7 @@ const PRODUCTDATAJSON = JSON.parse(localStorage.getItem("productData"));
 console.log(window.location.pathname);
 if (
   window.location.pathname == "/productPage.html" ||
-  window.location.pathname == "/productPage"
+  window.location.pathname == "/productpage"
 ) {
   console.log("Entered window.location.pathname == /productPage.html");
   if (JSON.parse(localStorage.getItem("searchedImage")) != null) {
