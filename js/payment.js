@@ -108,14 +108,14 @@ $(document).ready(function () {
           };
 
           $.ajax(settings).done(function () {
-            window.location.href = "review.html";
+            window.location.href = "shipping.html";
           });
         }
       } else {
-        window.location.href = "review.html";
+        window.location.href = "shipping.html";
       }
     } else {
-      window.location.href = "review.html";
+      window.location.href = "shipping.html";
     }
   });
 
@@ -123,9 +123,6 @@ $(document).ready(function () {
   $("#closePopup").on("click", function () {
     $("#membershipModal").modal("hide"); // Close the modal
   });
-
-  // Redirect to Next Page
-  // window.location.href = 'review.html';
 });
 
 function saveCardDetails() {

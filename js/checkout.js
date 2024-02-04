@@ -17,13 +17,32 @@ function updateProgressBar() {
   // Select the progress bar using jQuery and update its width and aria-valuenow attribute
   $("#checkout-freeShippingBar-bar").css("width", `${value}%`);
   $("#checkout-freeShippingBar-bar").attr("aria-valuenow", value);
+
+  // Update Next-Day Delivery Price if window.location.pathname == "/shipping.html" and value == 100
+  if (window.location.pathname == "/shipping.html" && value == 100) {
+    // Disable the radio button for the first option
+    $("#standardShippingOpt").prop("disabled", true);
+
+    // Updating Price
+    $("#nextDayShippingText").text("Next-Day Delivery (FREE)");
+
+    // Checking nextDayShippingOpt Radio button
+    $("#nextDayShippingOpt").prop("checked", true);
+
+    // Collapse the accordion body for the first option
+    $("#standardShippingDetails").collapse("hide");
+
+    // Expand the accordion body for the second option
+    $("#nextDayShippingDetails").collapse("show");
+  }
 }
 
-// Example usage:
-updateProgressBar(); // Updates the progress bar to 50%
 function updateProgressBawr(amount, progressBar) {
   const percentage = (amount / 10) * 100;
   progressBar.css("width", percentage + "%");
   progressBar.text(amount + "/" + 10);
   progressBar.attr("aria-valuenow", amount);
 }
+
+// Update Progress Bar
+updateProgressBar();

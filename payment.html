@@ -41,6 +41,7 @@
     <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/progressBars.css" />
     <link rel="stylesheet" href="css/payment-components.css" />
+    <link rel="stylesheet" href="css/accordian-components.css" />
 
     <!-- Linking JS -->
     <script src="js/script.js" defer></script>
@@ -53,7 +54,7 @@
     <!-- Add a favicon to the tab bar -->
     <link rel="icon" type="image/x-icon" href="images/Logo/Logo-short.png" />
   </head>
-  <body>
+  <body class="d-flex flex-column align-items-center">
     <nav>
       <div id="navbar-container"></div>
     </nav>
@@ -69,7 +70,7 @@
             <ul
               id="checkout-progressBar-top"
               class="list-unstyled d-flex justify-content-between align-items-center"
-              style="width: 80vw;"
+              style="width: 80vw"
             >
               <li class="step-indicator" style="width: 10vw">
                 <div class="circle">
@@ -94,7 +95,8 @@
               </li>
             </ul>
             <ul
-              class="list-unstyled d-flex justify-content-between align-items-center" style="width: 80vw;"
+              class="list-unstyled d-flex justify-content-between align-items-center"
+              style="width: 80vw"
             >
               <li class="step-indicator active" style="width: 25vw">
                 <p>Payment</p>
@@ -130,103 +132,147 @@
       </div>
     </section>
 
-    <section class="accordion" id="paymentModeAccordian">
-      <!-- First Option -->
-      <div
-        class="form-check accordion-item d-flex flex-column justify-content-center"
-      >
-        <div class="accordian-header">
-          <input
-            class="form-check-input collapsed"
-            type="radio"
-            name="exampleRadios"
-            id="credDebtCard"
-            value="cardOpt"
-            checked
-            data-bs-toggle="collapse"
-            data-bs-target="#credDebtForm"
-            aria-expanded="false"
-            aria-controls="credDebtForm"
-          />
-          <label class="form-check-label" for="credDebtCard">
-            Credit / Debit Card
-          </label>
-        </div>
+    <section class="accordion col-md-10 mt-5" id="paymentModeAccordian">
+      <h2 class="mb-3 ms-5">Payment Method</h2>
+      <div class="row">
+        <div class="col-md-12 px-5">
+          <!-- First Option -->
+          <div
+            class="form-check accordion-item d-flex flex-column justify-content-center"
+          >
+            <div class="accordian-header">
+              <input
+                class="form-check-input collapsed"
+                type="radio"
+                name="exampleRadios"
+                id="credDebtCard"
+                value="cardOpt"
+                checked
+                data-bs-toggle="collapse"
+                data-bs-target="#credDebtForm"
+                aria-expanded="false"
+                aria-controls="credDebtForm"
+              />
+              <label class="form-check-label" for="credDebtCard">
+                Credit / Debit Card
+              </label>
+            </div>
 
-        <div
-          id="credDebtForm"
-          class="accordion-body collapse show"
-          data-bs-parent="#paymentModeAccordian"
-        >
-          <!-- Form to fill in for credit and debit card -->
-          <form id="creditCardForm"class="row g-3 needs-validation d-flex align-items-center justify-content-center" novalidate style="height: 40vh">
-            <div class="col-md-10">
-                <input type="text" class="form-control" id="cardNumberHolder" placeholder="Card Number (16 Digit)" pattern="^\d{16}$" required />
-                <div class="valid-feedback">Looks good!</div>
-                <div class="invalid-feedback">Please enter a valid credit card number</div>
-            </div>
-        
-            <div class="col-md-5">
-                <input type="text" class="form-control" id="expirationDateHolder" placeholder="Expiration Date (MM/YY)" pattern="^(0[1-9]|1[0-2])\/([0-9]{2})$" required />
-                <div class="valid-feedback">Looks good!</div>
-                <div class="invalid-feedback">Please enter a valid date</div>
-            </div>
-        
-            <div class="col-md-5">
-                <input type="text" class="form-control" id="securityCodeHolder" placeholder="CVV (3 Digit)" pattern="^\d{3}$" required />
-                <div class="valid-feedback">Looks good!</div>
-                <div class="invalid-feedback">Please enter a valid CVV</div>
-            </div>
-        
-            <div class="col-md-10">
-                <input type="text" class="form-control" id="cardNameHolder" placeholder="Card Name (Only Alphabets)" pattern="^[a-zA-Z\s]+$" required />
-                <div class="valid-feedback">Looks good!</div>
-                <div class="invalid-feedback">Please enter a valid card holder name</div>
-            </div>
-        
-            <div class="col-md-10">
-                <div class="form-check d-flex align-items-center">
-                    <input class="form-check-input" type="checkbox" value="" id="saveCardInfo" />
-                    <label class="form-check-label" for="saveCardInfo">
-                        Securely save card for a quicker checkout (Members Exclusive)
-                    </label>
+            <div
+              id="credDebtForm"
+              class="accordion-body collapse show"
+              data-bs-parent="#paymentModeAccordian"
+            >
+              <!-- Form to fill in for credit and debit card -->
+              <form
+                id="creditCardForm"
+                class="row g-3 needs-validation d-flex align-items-center justify-content-center"
+                novalidate
+                style="height: 40vh"
+              >
+                <div class="col-md-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cardNumberHolder"
+                    placeholder="Card Number* (16 Digit)"
+                    pattern="^\d{16}$"
+                    required
+                  />
+                  <div class="valid-feedback">Looks good!</div>
+                  <div class="invalid-feedback">
+                    Please enter a valid credit card number
+                  </div>
                 </div>
+
+                <div class="col-md-5">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="expirationDateHolder"
+                    placeholder="Expiration Date* (MM/YY)"
+                    pattern="^(0[1-9]|1[0-2])\/([0-9]{2})$"
+                    required
+                  />
+                  <div class="valid-feedback">Looks good!</div>
+                  <div class="invalid-feedback">Please enter a valid date</div>
+                </div>
+
+                <div class="col-md-5">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="securityCodeHolder"
+                    placeholder="CVV* (3 Digit)"
+                    pattern="^\d{3}$"
+                    required
+                  />
+                  <div class="valid-feedback">Looks good!</div>
+                  <div class="invalid-feedback">Please enter a valid CVV</div>
+                </div>
+
+                <div class="col-md-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cardNameHolder"
+                    placeholder="Card Name* (Only Alphabets)"
+                    pattern="^[a-zA-Z\s]+$"
+                    required
+                  />
+                  <div class="valid-feedback">Looks good!</div>
+                  <div class="invalid-feedback">
+                    Please enter a valid card holder name
+                  </div>
+                </div>
+
+                <div class="col-md-10">
+                  <div class="form-check d-flex align-items-center">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="saveCardInfo"
+                    />
+                    <label class="form-check-label" for="saveCardInfo">
+                      Securely save card for a quicker checkout (Members
+                      Exclusive)
+                    </label>
+                  </div>
+                </div>
+              </form>
             </div>
-        </form>
-        
-        
-        </div>
-      </div>
+          </div>
 
-      <!-- Second Option -->
-      <div class="form-check accordion-item" style="padding-bottom: 25px">
-        <div class="accordian-header collapsed">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="exampleRadios"
-            id="cashOnDev"
-            value="cashOpt"
-            data-bs-toggle="collapse"
-            data-bs-target="#cashNotification"
-            aria-expanded="false"
-            aria-controls="cashNotification"
-          />
-          <label class="form-check-label" for="cashNotification">
-            Cash On Delivery
-          </label>
-        </div>
+          <!-- Second Option -->
+          <div class="form-check accordion-item">
+            <div class="accordian-header collapsed">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="exampleRadios"
+                id="cashOnDev"
+                value="cashOpt"
+                data-bs-toggle="collapse"
+                data-bs-target="#cashNotification"
+                aria-expanded="false"
+                aria-controls="cashNotification"
+              />
+              <label class="form-check-label" for="cashNotification">
+                Cash On Delivery
+              </label>
+            </div>
 
-        <div
-          id="cashNotification"
-          class="accordion-body collapse"
-          data-bs-parent="#paymentModeAccordian"
-        >
-          <div class="row d-fliex justify-content-center">
-            <div class="col-md-10">
-              <p style="padding-bottom: 10px"></p>
-                Payment will be made when product is delivered.
-              </p>
+            <div
+              id="cashNotification"
+              class="accordion-body collapse"
+              data-bs-parent="#paymentModeAccordian"
+            >
+              <div class="row d-fliex justify-content-center">
+                <div class="col-md-10" style="padding-bottom: 25px">
+                  Payment will be made when product is delivered.
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -235,24 +281,50 @@
 
     <div class="col-12" id="submitBtn">
       <a href="#">
-        <button id="reviewOrderButton"class="btn btn-secondary" type="submit">Review Order</button>
+        <button id="reviewOrderButton" class="btn btn-secondary" type="submit">
+          Review Order
+        </button>
       </a>
     </div>
     <!-- Bootstrap Modal for Popup -->
-    <div class="modal fade" id="membershipModal" tabindex="-1" role="dialog" aria-labelledby="membershipModalLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="membershipModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="membershipModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="membershipModalLabel">Membership Required</h5>
-            <button id="closePopup" type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true" >&times;</span>
+            <h5 class="modal-title" id="membershipModalLabel">
+              Membership Required
+            </h5>
+            <button
+              id="closePopup"
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <p>Be a Member to save card details. <br> Join us now!</p>
+            <p>
+              Be a Member to save card details. <br />
+              Join us now!
+            </p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" onclick="redirectToSignIn(event)">Login / Sign up</button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="redirectToSignIn(event)"
+            >
+              Login / Sign up
+            </button>
           </div>
         </div>
       </div>
