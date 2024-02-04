@@ -55,6 +55,11 @@ function getProductsData() {
 }
 
 function insertProductHTML(productData) {
+  let gender = "Women's";
+  if (productData["gender"] == "M") {
+    gender = "Men's";
+  }
+
   // Create a new HTML element, for example, a div
   var newElement = document.createElement("div");
   newElement.style.display = "flex";
@@ -80,10 +85,12 @@ function insertProductHTML(productData) {
     </div>
     <div class="back">
     <h2 class="card-title" style="height:75px">${productData["name"]}</h2>
-    <p class="card-text">${productData["price"]}</p>
-    <p class="card-text">${productData["type"]}</p>
-    <p class="card-text">${productData["color"]}</p>
-    <p class="card-text">${productData["gender"]}</p>
+    <p class="card-text mt-4">SGD $${productData["price"]}</p>
+    <p class="card-text mt-4">${gender} ${productData["type"]}</p>
+    <p class="card-text mt-4">Colour: ${productData["color"]}</p>
+    <p class="card-text mt-4">Available Size: <br> ${
+      productData["sizesAvailable"]
+    }</p>
     </div>
   </div>
 `;
