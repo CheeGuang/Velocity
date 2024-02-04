@@ -47,19 +47,12 @@ $(document).ready(function () {
         customerData["unitNumber"] = unitNumber;
         customerData["phoneNumber"] = phoneNumber;
 
+        // Get customer _id
+        customer_id = customerData["_id"];
+        console.log(customer_id);
+
         // Stringtify customerData
         customerData = JSON.stringify(customerData);
-
-        // Get customer _id
-        var customersData = JSON.parse(localStorage.getItem("customersData"));
-        let customer_id;
-        for (let i = 0; i < customersData.length; i++) {
-          if (customersData[i]["email"] == JSON.parse(customerData)["email"]) {
-            customer_id = customersData[i]["_id"];
-            break;
-          }
-        }
-        console.log(customer_id);
 
         // Store new customerData in local storage
         localStorage.setItem("customerData", customerData);
