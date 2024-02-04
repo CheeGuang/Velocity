@@ -1,6 +1,6 @@
 const APIKEY = "65b03b109eb5ba00e57fa24e";
 let previousPath;
-globalThis.handleCredentialResponse = async (response) => {
+window.handleCredentialResponse = (response) => {
   // decodeJwtResponse() is a custom function to decode the encrypted response
   const responsePayload = decodeJwtResponse(response.credential);
 
@@ -66,7 +66,7 @@ globalThis.handleCredentialResponse = async (response) => {
   for (let i = 0; i < customersData.length; i++) {
     if (customerId == customersData[i]["customerId"]) {
       if (customersData[i]["cart"] != null) {
-        localStorage.setItem("cart", customersData[i]["cart"]);
+        localStorage.setItem("cart", JSON.parse(customersData[i]["cart"]));
       }
     }
   }
