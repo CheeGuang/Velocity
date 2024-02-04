@@ -12,8 +12,10 @@ if (
   window.location.pathname == "/productPage.html" ||
   window.location.pathname == "/productPage"
 ) {
+  console.log("Entered window.location.pathname == /productPage.html");
   if (JSON.parse(localStorage.getItem("searchedImage")) != null) {
     for (let i = 0; i < PRODUCTDATAJSON.length; i++) {
+      console.log("Iterating Shoe " + i);
       console.log(PRODUCTDATAJSON[i]["type"]);
       console.log(JSON.parse(localStorage.getItem("searchedImage"))["type"]);
       console.log(PRODUCTDATAJSON[i]["color"]);
