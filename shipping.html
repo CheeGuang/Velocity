@@ -41,6 +41,7 @@
     <link rel="stylesheet" href="css/orderSummary.css" />
     <link rel="stylesheet" href="css/checkoutDelivery-components.css" />
     <link rel="stylesheet" href="css/accordian-components.css" />
+    <link rel="stylesheet" href="css/memberRequired-components.css" />
 
     <!-- Linking JS -->
     <script src="js/script.js" defer></script>
@@ -113,7 +114,7 @@
 
           <div class="container mt-5">
             <p id="checkout-freeShippingBar-message">
-              Congratualtions! You are entitled for Free Express Shipping!
+              Congratualtions! You are entitled for the Free Next-Day Delivery!
             </p>
 
             <!-- Progress Bar -->
@@ -171,6 +172,13 @@
                   class="col-md-10"
                   style="padding-bottom: 25px; margin-left: -100px"
                 >
+                  Delivery Time: 3-5 working days
+                </div>
+                <div
+                  id="standardShippingDetailsText"
+                  class="col-md-10"
+                  style="padding-bottom: 25px; margin-left: -100px"
+                >
                   Estimated Arrival Date: 20 Feb 2024 - 24 Feb 2024
                 </div>
               </div>
@@ -207,6 +215,13 @@
             >
               <div class="row d-fliex justify-content-center">
                 <div
+                  class="col-md-10"
+                  style="padding-bottom: 25px; margin-left: -100px"
+                >
+                  Delivery Time: 1 working day
+                </div>
+                <div
+                  id="nextDayShippingDetailsText"
                   class="col-md-10"
                   style="padding-bottom: 25px; margin-left: -100px"
                 >
@@ -312,5 +327,49 @@
     <footer>
       <div id="footer"></div>
     </footer>
+
+    <!-- Bootstrap Modal for Popup when Membership Required -->
+    <div
+      class="modal fade"
+      id="membershipModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="membershipModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="membershipModalLabel">
+              Membership Required
+            </h5>
+            <button
+              id="closePopup"
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Be a Member to save card details. <br />
+              Join us now!
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="redirectToSignIn(event)"
+            >
+              Login / Sign up
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

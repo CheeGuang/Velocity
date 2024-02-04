@@ -58,16 +58,6 @@ $(document).ready(function () {
           var expirationDate = $("#expirationDateHolder").val();
           var securityCode = $("#securityCodeHolder").val();
           var cardName = $("#cardNameHolder").val();
-          var saveCardInfo = $("#saveCardInfo").is(":checked"); // true if checked, false otherwise
-
-          // Now you can use the credit card details for further processing
-          console.log({
-            cardNumber: cardNumber,
-            expirationDate: expirationDate,
-            securityCode: securityCode,
-            cardName: cardName,
-            saveCardInfo: saveCardInfo,
-          });
 
           // Assigning card details to customerData object
           customerData["cardName"] = cardName;
@@ -93,6 +83,7 @@ $(document).ready(function () {
           // Store new customerData in local storage
           localStorage.setItem("customerData", customerData);
 
+          // Storing new customerData in database
           var settings = {
             async: true,
             crossDomain: true,
