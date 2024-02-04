@@ -60,10 +60,10 @@ globalThis.handleCredentialResponse = async (response) => {
 
     $.ajax(settings).done(function (response) {
       console.log(response);
-      window.location.href = previousPath;
+      // window.location.href = previousPath;
     });
   } else {
-    window.location.href = previousPath;
+    // window.location.href = previousPath;
   }
 };
 
