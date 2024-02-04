@@ -1,4 +1,15 @@
 $(document).ready(function () {
+  // If customer already has saved credit card details previously, auto fill the form with those info
+  let customerData = JSON.parse(localStorage.getItem("customerData"));
+  if (customerData != null) {
+    if (customerData["cardNumber"] != null) {
+      $("#cardNumberHolder").val(customerData["cardNumber"]);
+      $("#expirationDateHolder").val(customerData["expiryDate"]);
+      $("#securityCodeHolder").val(customerData["cvv"]);
+      $("#cardNameHolder").val(customerData["cardName"]);
+    }
+  }
+
   /**
    * Function to get the selected payment method and the checkbox status.
    */
@@ -21,70 +32,90 @@ $(document).ready(function () {
     e.preventDefault(); // Prevent the default button action if necessary
     var paymentDetails = getPaymentDetails();
     console.log(paymentDetails);
-    if (
-      paymentDetails["paymentMethod"] == "cardOpt" &&
-      paymentDetails["saveCardInfo"] == true
-    ) {
-      customerData = JSON.parse(localStorage.getItem("customerData"));
-      if (customerData == null) {
-        $("#membershipModal").modal("show"); // Show the modal
-      } else {
-        // Get the credit card details from the form
-        var cardNumber = $("#cardNumberHolder").val();
-        var expirationDate = $("#expirationDateHolder").val();
-        var securityCode = $("#securityCodeHolder").val();
-        var cardName = $("#cardNameHolder").val();
-        var saveCardInfo = $("#saveCardInfo").is(":checked"); // true if checked, false otherwise
+    if (paymentDetails["paymentMethod"] == "cardOpt") {
+      // Check if the form is not valid
+      var form = document.getElementById("creditCardForm");
+      if (!form.checkValidity()) {
+        event.preventDefault(); // Prevent default button behavior
+        event.stopPropagation(); // Stop the event from propagating further
+        form.classList.add("was-validated"); // Add Bootstrap validation class to show validation feedback
 
-        // Now you can use the credit card details for further processing
-        console.log({
-          cardNumber: cardNumber,
-          expirationDate: expirationDate,
-          securityCode: securityCode,
-          cardName: cardName,
-          saveCardInfo: saveCardInfo,
-        });
+        // Optionally, alert the user or log to console
+        // alert("Please correct the errors before proceeding.");
+        console.log("Form is invalid. Stopping further processing.");
 
-        // Assigning card details to customerData object
-        customerData["cardName"] = cardName;
-        customerData["cardNumber"] = cardNumber;
-        customerData["cvv"] = securityCode;
-        customerData["expiryDate"] = expirationDate;
-
-        // Stringtify customerData
-        customerData = JSON.stringify(customerData);
-
-        // Get customer _id
-        var customersData = JSON.parse(localStorage.getItem("customersData"));
-        let customer_id;
-        for (let i = 0; i < customersData.length; i++) {
-          if (customersData[i]["email"] == JSON.parse(customerData)["email"]) {
-            customer_id = customersData[i]["_id"];
-            break;
-          }
-        }
-        console.log(customer_id);
-        // Store new customerData in local storage
-        localStorage.setItem("customerData", customerData);
-
-        var settings = {
-          async: true,
-          crossDomain: true,
-          url: `https://velocity-554e.restdb.io/rest/customer/${customer_id}`,
-          method: "PUT",
-          headers: {
-            "content-type": "application/json",
-            "x-apikey": "65b03b109eb5ba00e57fa24e",
-            "cache-control": "no-cache",
-          },
-          processData: false,
-          data: customerData,
-        };
-
-        $.ajax(settings).done(function (response) {
-          console.log(response);
-        });
+        return; // Stop further processing
       }
+
+      // Check if customer has saved Credit Card details
+      if (paymentDetails["saveCardInfo"] == true) {
+        if (customerData == null) {
+          console.log("Hi");
+          $("#membershipModal").modal("show"); // Show the modal
+        } else {
+          // Get the credit card details from the form
+          var cardNumber = $("#cardNumberHolder").val();
+          var expirationDate = $("#expirationDateHolder").val();
+          var securityCode = $("#securityCodeHolder").val();
+          var cardName = $("#cardNameHolder").val();
+          var saveCardInfo = $("#saveCardInfo").is(":checked"); // true if checked, false otherwise
+
+          // Now you can use the credit card details for further processing
+          console.log({
+            cardNumber: cardNumber,
+            expirationDate: expirationDate,
+            securityCode: securityCode,
+            cardName: cardName,
+            saveCardInfo: saveCardInfo,
+          });
+
+          // Assigning card details to customerData object
+          customerData["cardName"] = cardName;
+          customerData["cardNumber"] = cardNumber;
+          customerData["cvv"] = securityCode;
+          customerData["expiryDate"] = expirationDate;
+
+          // Stringtify customerData
+          customerData = JSON.stringify(customerData);
+
+          // Get customer _id
+          var customersData = JSON.parse(localStorage.getItem("customersData"));
+          let customer_id;
+          for (let i = 0; i < customersData.length; i++) {
+            if (
+              customersData[i]["email"] == JSON.parse(customerData)["email"]
+            ) {
+              customer_id = customersData[i]["_id"];
+              break;
+            }
+          }
+          console.log(customer_id);
+          // Store new customerData in local storage
+          localStorage.setItem("customerData", customerData);
+
+          var settings = {
+            async: true,
+            crossDomain: true,
+            url: `https://velocity-554e.restdb.io/rest/customer/${customer_id}`,
+            method: "PUT",
+            headers: {
+              "content-type": "application/json",
+              "x-apikey": "65b03b109eb5ba00e57fa24e",
+              "cache-control": "no-cache",
+            },
+            processData: false,
+            data: customerData,
+          };
+
+          $.ajax(settings).done(function () {
+            window.location.href = "review.html";
+          });
+        }
+      } else {
+        window.location.href = "review.html";
+      }
+    } else {
+      window.location.href = "review.html";
     }
   });
 
