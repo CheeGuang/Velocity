@@ -7,6 +7,7 @@ if (localStorage.getItem("productData") == null) {
   console.log(JSON.parse(localStorage.getItem("productData")));
 }
 const PRODUCTDATAJSON = JSON.parse(localStorage.getItem("productData"));
+console.log(window.location.pathname);
 if (
   window.location.pathname == "/productPage.html" ||
   window.location.pathname == "/productPage"
