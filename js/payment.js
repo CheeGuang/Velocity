@@ -10,6 +10,8 @@ $(document).ready(function () {
     }
   }
 
+  let applyCashback = retrieveApplyCashback();
+
   /**
    * Function to get the selected payment method and the checkbox status.
    */
@@ -103,10 +105,10 @@ $(document).ready(function () {
           });
         }
       } else {
-        redirectToShipping(paymentDetails["paymentMethod"]);
+        redirectToShipping(paymentDetails["paymentMethod"], applyCashback);
       }
     } else {
-      redirectToShipping(paymentDetails["paymentMethod"]);
+      redirectToShipping(paymentDetails["paymentMethod"], applyCashback);
     }
   });
 
@@ -138,11 +140,30 @@ function saveCardDetails() {
     console.log(response);
   });
 }
-function redirectToShipping(selectedPaymentMethod) {
+function redirectToShipping(selectedPaymentMethod, applyCashback) {
   // Encode the selected payment method in the URI
   var uri =
-    "shipping.html?paymentMethod=" + encodeURIComponent(selectedPaymentMethod);
+    "shipping.html?applyCashback=" +
+    encodeURIComponent(applyCashback) +
+    "&paymentMethod=" +
+    encodeURIComponent(selectedPaymentMethod);
 
   // Redirect the user to the shipping page with the selected payment method
   window.location.href = uri;
+}
+
+// Function to get a query parameter by name
+function getQueryParam(paramName) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(paramName);
+}
+
+// Example function that uses getQueryParam to retrieve and use the paymentMethod parameter
+function retrieveApplyCashback() {
+  // Get the encoded URI parameter for paymentMethod
+  const encodedApplyCashback = getQueryParam("applyCashback");
+
+  // Assuming the value is already URL-decoded by URLSearchParams, but if you need to decode:
+  const ApplyCashback = decodeURIComponent(encodedApplyCashback || "");
+  return ApplyCashback;
 }

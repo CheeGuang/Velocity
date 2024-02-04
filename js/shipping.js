@@ -10,7 +10,8 @@ $(document).ready(function () {
     }
   }
 
-  let paymentMethod = retrievePaymentMethod();
+  // Retrieve Query Parameters
+  let DecodedQueryParams = retrieveAndDecodeQueryParams();
 
   // Submitting Form logic
   $("#submitBtn").click(function (event) {
@@ -69,11 +70,11 @@ $(document).ready(function () {
         };
 
         $.ajax(settings).done(function () {
-          redirectToReview(paymentMethod, shippingDetails);
+          redirectToReview(DecodedQueryParams, shippingDetails);
         });
       }
     } else {
-      redirectToReview(paymentMethod, shippingDetails);
+      redirectToReview(DecodedQueryParams, shippingDetails);
     }
 
     // Function to close the popup
@@ -135,33 +136,35 @@ function getShippingDetails() {
 }
 
 // Redirect to review.html logic
-function redirectToReview(selectedPaymentMethod, selectedShippingMethod) {
+function redirectToReview(DecodedQueryParams, selectedShippingMethod) {
   // Convert shippingDetails object into a query string
   var queryString = $.param(selectedShippingMethod);
   // Encode the selected payment and shipping methods in the URI
   var uri =
-    "review.html?paymentMethod=" +
-    encodeURIComponent(selectedPaymentMethod) +
+    "review.html?applyCashback=" +
+    encodeURIComponent(DecodedQueryParams["applyCashback"]) +
+    "&paymentMethod=" +
+    encodeURIComponent(DecodedQueryParams["paymentMethod"]) +
     "&shippingDetails=" +
     encodeURIComponent(queryString);
-  console.log(uri);
   // Redirect the user to the shipping page with the selected payment and shipping methods
   window.location.href = uri;
 }
 
-// Function to get a query parameter by name
+// Function to get a query parameter by name, with explicit decoding
 function getQueryParam(paramName) {
+  // Use URLSearchParams to parse query parameters
   const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get(paramName);
+  // Retrieve the parameter and explicitly decode it
+  const value = urlParams.get(paramName);
+  return value ? decodeURIComponent(value) : null;
 }
 
-// Example function that uses getQueryParam to retrieve and use the paymentMethod parameter
-function retrievePaymentMethod() {
-  // Get the encoded URI parameter for paymentMethod
-  const encodedPaymentMethod = getQueryParam("paymentMethod");
+// Function to retrieve, decode, and display query parameters
+function retrieveAndDecodeQueryParams() {
+  // Decode the applyCashback and paymentMethod parameters from the URI
+  const applyCashback = getQueryParam("applyCashback");
+  const paymentMethod = getQueryParam("paymentMethod");
 
-  // Assuming the value is already URL-decoded by URLSearchParams, but if you need to decode:
-  const paymentMethod = decodeURIComponent(encodedPaymentMethod || "");
-
-  return paymentMethod;
+  return { applyCashback: applyCashback, paymentMethod: paymentMethod };
 }

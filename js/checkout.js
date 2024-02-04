@@ -10,7 +10,7 @@ function updateProgressBar() {
     value = 200;
   } else {
     $("#checkout-freeShippingBar-message").text(
-      `Spend $${200 - value} more and get free shipping`
+      `Spend $${200 - value} more to enjoy get Free Next-Day Delivery`
     );
   }
   value = value / 2;

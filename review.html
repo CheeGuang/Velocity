@@ -37,17 +37,14 @@
     <link rel="stylesheet" href="css/progressBars.css" />
     <link rel="stylesheet" href="css/review-components.css" />
     <link rel="stylesheet" href="css/orderSummary.css" />
-    <link rel="stylesheet" href="css/checkoutDelivery-components.css" />
-    <link rel="stylesheet" href="css/accordian-components.css" />
     <link rel="stylesheet" href="css/bag-components.css" />
 
     <!-- Linking JS -->
     <script src="js/script.js" defer></script>
     <script src="js/navbarFooter.js" defer></script>
-    <script src="js/checkoutDelivery.js" defer></script>
-    <script src="js/formValidation.js"></script>
     <script src="js/checkout.js" defer></script>
     <script src="js/cart.js" defer></script>
+    <script src="js/review.js" defer></script>
 
     <!-- Add a favicon to the tab bar -->
     <link rel="icon" type="image/x-icon" href="images/Logo/Logo-short.png" />
@@ -125,183 +122,119 @@
     </section>
 
     <section id="bag" class="col-md-10 mt-5">
-      <h2 class="mb-5">Bag</h2>
-      <div id="cart-items" class="row">
-        <!-- Use JS to insert cart products -->
-      </div>
-    </section>
-
-    <section id="paymentMethod" class="col-md-10 mt-5">
-      <h2 class="mb-5">Payment Method</h2>
-      <div id="cart-items" class="row">
-        <!-- Use JS to insert cart products -->
-      </div>
-    </section>
-
-    <section id="ShippingOptSect" class="col-md-10 mt-5">
-      <h2 class="mb-5">Shipping Options</h2>
-
-      <!-- Shipping Options -->
-      <div class="form-check col-md-10" style="width: 100%">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="flexRadioDefault"
-          id="standardShippingOpt"
-          checked
-        />
-        <label class="form-check-label" for="standardShippingOpt">
-          <p>Standard Shipping</p>
-          <p class="text-end">$5.00</p>
-        </label>
-      </div>
-
-      <!-- Separator -->
-      <div class="separator col-md-10 mt-3 mb-3"></div>
-
-      <div class="form-check col-md-10" style="width: 100%">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="flexRadioDefault"
-          id="expressShippingOpt"
-        />
-        <label class="form-check-label" for="expressShippingOpt">
-          <p>
-            Express Shipping: Order by 8pm to get your order in the next working
-            day
-          </p>
-          <p>$10.90</p>
-        </label>
-      </div>
-
-      <!-- Separator -->
-      <div class="separator mt-3 mb-3"></div>
-    </section>
-
-    <section id="DeliveryInfoSect" class="col-md-10 mt-5">
-      <h2 class="mb-5">Delivery Address</h2>
-
-      <!-- Form for user to fill in  -->
-      <form class="row g-3 needs-validation" novalidate>
-        <!-- First Name Input Field -->
-        <div class="col-md-6">
-          <input
-            type="text"
-            class="form-control"
-            id="fname"
-            placeholder="First Name"
-            required
-          />
-          <div class="valid-feedback">Looks good!</div>
-        </div>
-
-        <!-- Last Name Input Field -->
-        <div class="col-md-6">
-          <input
-            type="text"
-            class="form-control"
-            id="lname"
-            placeholder="Last Name"
-            required
-          />
-          <div class="valid-feedback">Looks good!</div>
-        </div>
-
-        <!-- Address Input Field -->
-        <div class="col-md-12">
-          <div class="input-group has-validation">
-            <!-- Autocomplete location search input -->
-            <input
-              type="text"
-              class="form-control"
-              id="search_input"
-              placeholder="Address"
-            />
-            <div class="invalid-feedback">Please choose an address.</div>
+      <div class="row">
+        <div class="col-md-12 px-5">
+          <h2 class="mb-3 ms-5">Bag</h2>
+          <div id="cart-items" class="row mb-3 mx-5 d-flex align-items-center">
+            <!-- Use JS to insert cart products -->
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Unit Number Input Field -->
-        <div class="col-md-6">
-          <input
-            type="text"
-            class="form-control"
-            id="unitNo"
-            placeholder="Unit Number"
-            required
-          />
-          <div class="valid-feedback">Looks good!</div>
-        </div>
+    <section id="paymentDetails" class="col-md-10 mt-5">
+      <div class="row">
+        <div class="col-md-12 px-5">
+          <h2 class="mb-4 ms-5">Payment Details</h2>
+          <div
+            class="row d-flex justify-content-between align-items-center mx-5"
+          >
+            <div class="row d-flex justify-content-between pb-4">
+              <p id="paymentMethodText" class="col-md-7">
+                Payment Method: Credit Card
+              </p>
+            </div>
 
-        <!-- Phone Number Input Field -->
-        <div class="col-md-6">
-          <input
-            type="text"
-            class="form-control"
-            id="phoneNo"
-            placeholder="Phone Number"
-            required
-          />
-          <div class="valid-feedback">Looks good!</div>
-        </div>
-
-        <!-- Agree to save user delivery details -->
-        <div class="checkForm col-md-12">
-          <div class="form-check d-flex align-items-center">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id="saveUserInfo"
-              checked
-            />
-            <label class="form-check-label" for="saveUserInfo">
-              Save my details for faster checkout
-            </label>
+            <hr class="mt-4" />
           </div>
         </div>
-      </form>
+      </div>
+    </section>
+    <section id="shippingDetails" class="col-md-10 mt-5">
+      <div class="row">
+        <div class="col-md-12 px-5">
+          <h2 class="mb-4 ms-5">Shipping Details</h2>
+          <div
+            class="row d-flex justify-content-between align-items-center mx-5"
+          >
+            <div class="row d-flex justify-content-between pb-4">
+              <p id="shippingOptionText" class="col-md-7">Shipping Option:</p>
+            </div>
+            <div class="row d-flex justify-content-between pb-4">
+              <p id="firstNameText" class="col-md-7">First Name:</p>
+            </div>
+            <div class="row d-flex justify-content-between pb-4">
+              <p id="lastNameText" class="col-md-7">Last Name:</p>
+            </div>
+            <div class="row d-flex justify-content-between pb-4">
+              <p id="addressText" class="col-md-7">Address:</p>
+            </div>
+            <div class="row d-flex justify-content-between pb-4">
+              <p id="unitNumberText" class="col-md-7">Unit Number:</p>
+            </div>
+            <div class="row d-flex justify-content-between pb-4">
+              <p id="phoneNumberText" class="col-md-7">Phone Number:</p>
+            </div>
+
+            <hr class="mt-4" />
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Order Summary -->
     <section id="orderSummary" class="col-md-10 mt-5">
       <div class="row">
-        <div class="container">
-          <h2 class="mb-5">Order Summary</h2>
-          <div class="row d-flex justify-content-between align-items-center">
-            <div class="row d-flex justify-content-between">
-              <h3 class="col-md-7">Subtotal</h3>
-              <p class="col-md-3">S$0.00</p>
+        <div class="col-md-12 px-5">
+          <h2 class="mb-4 ms-5">Order Summary</h2>
+          <div
+            class="row d-flex justify-content-between align-items-center mx-5"
+          >
+            <div class="row d-flex justify-content-between pb-3">
+              <h3 id="subtotalText" class="col-md-7">Subtotal</h3>
+              <p id="subtotal-price" class="col-md-2 text-end">S$0.00</p>
             </div>
-            <div class="row gy-2 d-flex justify-content-between">
-              <h3 class="col-md-7">Shipping</h3>
-              <p class="col-md-3">S$0.00</p>
+            <div class="row gy-2 d-flex justify-content-between pb-3">
+              <h3 id="shippingFeeText" class="col-md-7">Shipping Fee</h3>
+              <p id="shippingFeeAmount" class="col-md-2 text-end">S$0.00</p>
             </div>
-            <div class="row gy-2 d-flex justify-content-between">
-              <h3 class="col-md-7">Cashback Rebate</h3>
-              <p class="col-md-3">- S$0.00</p>
+            <div class="row gy-2 d-flex justify-content-between pb-3">
+              <h3 id="cashbackRebateText" class="col-md-7">Cashback Rebate</h3>
+              <p id="cashbackRebateAmount" class="col-md-2 text-end">
+                - S$0.00
+              </p>
             </div>
+            <hr class="mt-4" />
           </div>
         </div>
-        <div class="line col-md-12 mt-3 mb-2"></div>
       </div>
       <div class="row">
-        <div class="col container">
-          <div class="row gy-2 mt-3 d-flex justify-content-between">
-            <h2 class="col-md-7">
+        <div class="col container mx-4">
+          <div class="row gy-2 mt-3 d-flex justify-content-between mx-5">
+            <h2 id="totalText" class="col-md-7 mb-2">
               Total
               <small>Including GST</small>
             </h2>
-            <h3 class="col-md-2 text-end" style="padding-right: 30px">
-              S$0.00
-            </h3>
+            <div
+              class="col-md-2 d-flex justify-content-end flex-column align-items-end"
+            >
+              <h3 id="totalAmount" class="row mb-2" style="margin-right: 0px">
+                S$0.00
+              </h3>
+              <h4
+                id="total-points"
+                class="row"
+                style="margin-right: 0px; color: #ff6b00"
+              >
+                +0 Points
+              </h4>
+            </div>
           </div>
         </div>
       </div>
       <!-- Agree to Delivery T&C -->
-      <div class="checkForm col-md-12" style="margin-top: 50px">
-        <div class="form-check d-flex align-items-center">
+      <div class="checkForm col-md-12 mx-5" style="margin-top: 70px">
+        <div class="form-check d-flex align-items-center mx-4">
           <input
             class="form-check-input"
             type="checkbox"

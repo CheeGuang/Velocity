@@ -13,6 +13,7 @@ if (localStorage.getItem("productData") == null) {
 }
 
 var productData = JSON.parse(localStorage.getItem("productData"));
+var customerData = JSON.parse(localStorage.getItem("customerData"));
 
 if (
   window.location.pathname == "/bag.html" ||
@@ -116,49 +117,57 @@ function displayCart() {
   var cartProductInfoContent = ``;
   var subtotal = 0;
   var deliveryPrice = 5.9;
-  console.log(cart);
+  let totalPointsEarned = 0;
 
   for (let i = 0; i < cart.length; i++) {
     console.log(cart[0]);
     // Adding product info
+    let pointsEarned = Math.floor(cart[i][0]["price"]) * cart[i][1];
+    totalPointsEarned += pointsEarned;
     cartProductInfoContent += `
     <div class="card product-card">
-        <div class="card-body" >
-          <div class="d-flex">
+    <div class="card-body">
+        <div class="d-flex">
             <img src="images/ShoePicture${cart[i][0]["gender"]}/${
       cart[i][0]["imagePath"].split(",")[0]
-    }" class="product-image" alt="${
-      cart[i][0]["name"]
-    } Image" style="width: 220px; height: 220px">
-            <div class="flex-grow-1">
-              <h3 class="card-title product-name">${cart[i][0]["name"]}</h3>
-              <p class="card-text">${
-                cart[i][0]["gender"] == "M" ? "Men's" : "Women's"
-              } Shoe</p>
-              <p class="card-text">${cart[i][0]["color"]}</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="size-quantity mt-3">
-                  <span style="font-size: 20px; margin-right: 30px" class="product-size">Size 6.5</span> <span style="font-size: 20px">Quantity ${
-                    cart[i][1]
-                  }</span>
-                </div>
-              </div>
-              <button class="btn btn-danger" onclick="removeIteFromCart(this)">
-                Remove
-                <i class="bi bi-trash"></i>
-              </button>
+    }" class="product-image" alt="${cart[i][0]["name"]} Image" 
+                 style="max-width: 30%; max-height: 180px; margin-right: 40px; margin-top: -14px; display: block;">
+            <div class="flex-grow-1 mt-4">
+                <h3 class="card-title product-name mb-3">${
+                  cart[i][0]["name"]
+                }</h3>
+                <p class="card-text">${
+                  cart[i][0]["gender"] == "M" ? "Men's" : "Women's"
+                } ${
+      cart[i][0]["type"] == "sportswear"
+        ? "Sports Shoe"
+        : cart[i][0]["type"] == "sneakers"
+        ? "Sneakers"
+        : "Walking Shoe"
+    }</p>
+                <p class="card-text">${cart[i][0]["color"]}</p>
+                <div class="d-flex justify-content-between align-items-center" style="width: 10vw">
+                    <div class="size-quantity mt-3 d-flex flex-row">
+                        <span class="product-size" style="min-width:8.5vw"><p class="card-text">Size 6.5</p></span>
+                        <span style="width:10vw"><p class="card-text">Quantity ${
+                          cart[i][1]
+                        }</p></span>
+                    </div>
+                </div>              
             </div>
-            <div class="d-flex align-items-start mt-2 flex-column">
-              <div class="price"><h4>$${cart[i][0]["price"].toFixed(
-                2
-              )}</h4></div>
-              <div class="price"><h4 style="color: #FF6B00;">+${
-                Math.floor(cart[i][0]["price"]) * cart[i][1]
-              } Points</h4></div>
+            <div class="d-flex align-items-start mt-4 flex-column mt-3">
+                <div class="price mb-2"><h4>$${cart[i][0]["price"].toFixed(
+                  2
+                )}</h4></div>
+                <div class="price"><h4 style="color: #FF6B00;">+${pointsEarned} Points</h4></div>
+                <button class="btn btn-outline-danger mt-4" onclick="removeItemFromCart(this)" 
+                        style="padding: 6% 12%; font-size: 1rem;">
+                    <p style="margin-bottom: 0;">Remove</p>
+                </button>
             </div>
-          </div>
         </div>
     </div>
+</div>
     `;
 
     subtotal += cart[i][0]["price"];
@@ -167,14 +176,33 @@ function displayCart() {
   if (subtotal == 0) {
     cartProductInfoContent += `<p>Your Bag is Empty. Proceed to shop!</p>`;
   }
-  console.log("Hi");
   console.log($("#cart-items"));
   $("#cart-items").html(cartProductInfoContent);
   $("#subtotal-price").text("$" + subtotal.toFixed(2));
-  $("#delivery-price").text("$" + deliveryPrice.toFixed(2));
-  $("#total-price").text("$" + (subtotal + deliveryPrice).toFixed(2));
+  $("#total-points").text("+" + totalPointsEarned + " Points");
+
+  // Display Shipping Fee if totalPointsEarned is less than 200
+  if (totalPointsEarned < 200) {
+    $("#delivery-price").text("$" + deliveryPrice.toFixed(2));
+    $("#total-price").text("$" + (subtotal + deliveryPrice).toFixed(2));
+  } else {
+    $("#total-price").text("$" + subtotal.toFixed(2));
+  }
+
+  // Disable cashback button if customer has points to redeem
+  if (customerData != null) {
+    if (customerData["points"] != null) {
+      $("#applyCashbackText").text(
+        "Apply Cashback: $" + (customerData["points"] / 100).toFixed(2)
+      );
+    } else {
+      $("#applyCashbackButton").prop("disabled", true);
+    }
+  } else {
+    $("#applyCashbackButton").prop("disabled", true);
+  }
 }
-function removeIteFromCart(buttonElement) {
+function removeItemFromCart(buttonElement) {
   var productName = $(buttonElement)
     .closest(".card-body")
     .find(".product-name")
@@ -196,4 +224,5 @@ function removeIteFromCart(buttonElement) {
   localStorage.setItem("cartData", JSON.stringify(localCart));
   displayCart();
   updateOverlayText();
+  updateProgressBar();
 }
