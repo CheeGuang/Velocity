@@ -85,10 +85,10 @@ function insertProductHTML(productData) {
     </div>
     <div class="back">
     <h2 class="card-title" style="height:75px">${productData["name"]}</h2>
-    <p class="card-text mt-4">SGD $${productData["price"]}</p>
-    <p class="card-text mt-4">${gender} ${productData["type"]}</p>
-    <p class="card-text mt-4">Colour: ${productData["color"]}</p>
-    <p class="card-text mt-4">Available Size: <br> ${
+    <p class="card-text col-10 mt-4">SGD $${productData["price"]}</p>
+    <p class="card-text col-10 mt-4">${gender} ${productData["type"]}</p>
+    <p class="card-text col-10 mt-4">Colour: ${productData["color"]}</p>
+    <p class="card-text col-10 mt-4">Available Size: <br> ${
       productData["sizesAvailable"]
     }</p>
     </div>
