@@ -7,7 +7,10 @@ if (localStorage.getItem("productData") == null) {
   console.log(JSON.parse(localStorage.getItem("productData")));
 }
 const PRODUCTDATAJSON = JSON.parse(localStorage.getItem("productData"));
-if (window.location.pathname == "/productPage.html") {
+if (
+  window.location.pathname == "/productPage.html" ||
+  window.location.pathname == "/productPage"
+) {
   if (JSON.parse(localStorage.getItem("searchedImage")) != null) {
     for (let i = 0; i < PRODUCTDATAJSON.length; i++) {
       console.log(PRODUCTDATAJSON[i]["type"]);
