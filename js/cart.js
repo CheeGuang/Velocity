@@ -16,7 +16,7 @@ var productData = JSON.parse(localStorage.getItem("productData"));
 
 if (
   window.location.pathname == "/bag.html" ||
-  window.location.pathname == "/checkout.html"
+  window.location.pathname == "/review.html"
 ) {
   displayCart();
 }

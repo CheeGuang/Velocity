@@ -99,14 +99,14 @@ $(document).ready(function () {
           };
 
           $.ajax(settings).done(function () {
-            window.location.href = "shipping.html";
+            redirectToShipping(paymentDetails["paymentMethod"]);
           });
         }
       } else {
-        window.location.href = "shipping.html";
+        redirectToShipping(paymentDetails["paymentMethod"]);
       }
     } else {
-      window.location.href = "shipping.html";
+      redirectToShipping(paymentDetails["paymentMethod"]);
     }
   });
 
@@ -137,4 +137,12 @@ function saveCardDetails() {
   $.ajax(settings).done(function (response) {
     console.log(response);
   });
+}
+function redirectToShipping(selectedPaymentMethod) {
+  // Encode the selected payment method in the URI
+  var uri =
+    "shipping.html?paymentMethod=" + encodeURIComponent(selectedPaymentMethod);
+
+  // Redirect the user to the shipping page with the selected payment method
+  window.location.href = uri;
 }

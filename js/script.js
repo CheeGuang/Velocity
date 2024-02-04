@@ -1,3 +1,4 @@
+// Allow customers to get redirected back to the page they left off before clicking Sign In
 function redirectToSignIn(event) {
   event.preventDefault();
 

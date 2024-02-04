@@ -10,6 +10,8 @@ $(document).ready(function () {
     }
   }
 
+  let paymentMethod = retrievePaymentMethod();
+
   // Submitting Form logic
   $("#submitBtn").click(function (event) {
     event.preventDefault(); // Prevent the default form submission
@@ -24,6 +26,9 @@ $(document).ready(function () {
     }
     form.addClass("was-validated");
 
+    // Get shipping details
+    let shippingDetails = getShippingDetails();
+
     // Saving Address
     // Check if the "Save my details" checkbox is checked
     if ($("#saveUserInfo").is(":checked")) {
@@ -31,21 +36,12 @@ $(document).ready(function () {
         $("#membershipModal").modal("show"); // Show the modal
         event.stopPropagation();
       } else {
-        // Collect all the input values
-
-        var firstName = $("#fname").val();
-        var lastName = $("#lname").val();
-        var address = $("#search_input").val();
-        var unitNumber = $("#unitNo").val();
-        var phoneNumber = $("#phoneNo").val();
-        // Add any other fields you need here
-
         // Assigning card details to customerData object
-        customerData["firstName"] = firstName;
-        customerData["lastName"] = lastName;
-        customerData["address"] = address;
-        customerData["unitNumber"] = unitNumber;
-        customerData["phoneNumber"] = phoneNumber;
+        customerData["firstName"] = shippingDetails["firstName"];
+        customerData["lastName"] = shippingDetails["lastName"];
+        customerData["address"] = shippingDetails["address"];
+        customerData["unitNumber"] = shippingDetails["unitNumber"];
+        customerData["phoneNumber"] = shippingDetails["phoneNumber"];
 
         // Get customer _id
         customer_id = customerData["_id"];
@@ -73,11 +69,11 @@ $(document).ready(function () {
         };
 
         $.ajax(settings).done(function () {
-          window.location.href = "review.html";
+          redirectToReview(paymentMethod, shippingDetails);
         });
       }
     } else {
-      window.location.href = "review.html";
+      redirectToReview(paymentMethod, shippingDetails);
     }
 
     // Function to close the popup
@@ -119,3 +115,53 @@ $(document).ready(function () {
     `Estimated Arrival Date: ${formattedTomorrow}`
   );
 });
+
+// Get Shipping Method
+function getShippingDetails() {
+  // Get the selected shipping method
+  var selectedShippingMethod = $('input[name="exampleRadios"]:checked').val(); // Assuming value attribute holds the method identifier
+
+  // Collect shipping details
+  var shippingDetails = {
+    firstName: $("#fname").val(),
+    lastName: $("#lname").val(),
+    address: $("#search_input").val(),
+    unitNumber: $("#unitNo").val(),
+    phoneNumber: $("#phoneNo").val(),
+    saveInfo: $("#saveUserInfo").is(":checked") ? "yes" : "no", // Encode as 'yes' or 'no'
+    selectedShippingMethod: selectedShippingMethod, // Including the shipping method in the details
+  };
+  return shippingDetails;
+}
+
+// Redirect to review.html logic
+function redirectToReview(selectedPaymentMethod, selectedShippingMethod) {
+  // Convert shippingDetails object into a query string
+  var queryString = $.param(selectedShippingMethod);
+  // Encode the selected payment and shipping methods in the URI
+  var uri =
+    "review.html?paymentMethod=" +
+    encodeURIComponent(selectedPaymentMethod) +
+    "&shippingDetails=" +
+    encodeURIComponent(queryString);
+  console.log(uri);
+  // Redirect the user to the shipping page with the selected payment and shipping methods
+  window.location.href = uri;
+}
+
+// Function to get a query parameter by name
+function getQueryParam(paramName) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(paramName);
+}
+
+// Example function that uses getQueryParam to retrieve and use the paymentMethod parameter
+function retrievePaymentMethod() {
+  // Get the encoded URI parameter for paymentMethod
+  const encodedPaymentMethod = getQueryParam("paymentMethod");
+
+  // Assuming the value is already URL-decoded by URLSearchParams, but if you need to decode:
+  const paymentMethod = decodeURIComponent(encodedPaymentMethod || "");
+
+  return paymentMethod;
+}

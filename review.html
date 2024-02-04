@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="css/orderSummary.css" />
     <link rel="stylesheet" href="css/checkoutDelivery-components.css" />
     <link rel="stylesheet" href="css/accordian-components.css" />
+    <link rel="stylesheet" href="css/bag-components.css" />
 
     <!-- Linking JS -->
     <script src="js/script.js" defer></script>
@@ -46,12 +47,7 @@
     <script src="js/checkoutDelivery.js" defer></script>
     <script src="js/formValidation.js"></script>
     <script src="js/checkout.js" defer></script>
-
-    <!-- Google Maps JavaScript library -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyAfODrfyamagW_DLjezjgVJRZ8XsXSkUCQ"
-      defer
-    ></script>
+    <script src="js/cart.js" defer></script>
 
     <!-- Add a favicon to the tab bar -->
     <link rel="icon" type="image/x-icon" href="images/Logo/Logo-short.png" />
@@ -128,6 +124,20 @@
       </div>
     </section>
 
+    <section id="bag" class="col-md-10 mt-5">
+      <h2 class="mb-5">Bag</h2>
+      <div id="cart-items" class="row">
+        <!-- Use JS to insert cart products -->
+      </div>
+    </section>
+
+    <section id="paymentMethod" class="col-md-10 mt-5">
+      <h2 class="mb-5">Payment Method</h2>
+      <div id="cart-items" class="row">
+        <!-- Use JS to insert cart products -->
+      </div>
+    </section>
+
     <section id="ShippingOptSect" class="col-md-10 mt-5">
       <h2 class="mb-5">Shipping Options</h2>
 
@@ -167,11 +177,6 @@
 
       <!-- Separator -->
       <div class="separator mt-3 mb-3"></div>
-    </section>
-
-    <section id="ProductSelected">
-      <!-- Use JS to populate -->
-      <ul class="prodList"></ul>
     </section>
 
     <section id="DeliveryInfoSect" class="col-md-10 mt-5">
