@@ -65,38 +65,63 @@ function insertProductHTML(productData) {
   newElement.style.display = "flex";
   newElement.style.alignItems = "center";
   newElement.className = "card-flip";
-  // Add content to the new element
+
+  // let prodCard = document.createElement("div");
+  // prodCard.className = "card";
+
+  // let image = document.createElement("div");
+  // image.className = "image";
+
+  // let title = document.createElement("div");
+  // title.className = "card-title";
+
+  // let price = document.createElement("div");
+  // price.className = "card-text";
+
+  // prodCard.appendChild(image);
+  // prodCard.appendChild(title);
+  // prodCard.appendChild(price);
+
+  // // Add the data into the divs
+  // image.innerHTML = `<img src="../images/ShoePicture
+  //     ${productData["gender"]}/${productData["imagePath"]
+  //   .split(",")[0]
+  //   .trim()}" alt="..." />`;
+  // title.innerHTML = `${productData["name"]}`;
+  // price.innerHTML = `SGD $${productData["price"]}`;
+
+  //Add content to the new element
   newElement.innerHTML = `
-  <div class="content">
-    <div class="front">
-       <a class="card front" href="#" onClick="redirectToProductDetail(event)">
-        <div class="card-body">
-            <div class="itemSummary">
-                <h2 class="card-title" style="height:75px">${
-                  productData["name"]
-                }</h2>
-                <p class="card-text">SGD$ ${productData["price"]}</p>
-            </div>
-            <img src="../images/ShoePicture${
-              productData["gender"]
-            }/${productData["imagePath"].split(",")[0].trim()}" alt="..." />
-        </div>
-      </a>
+    <div class="content">
+      <div class="front">
+         <a class="card front" href="#" onClick="redirectToProductDetail(event)">
+          <div class="card-body">
+              <div class="itemSummary">
+                  <h2 class="card-title" style="height:75px">${
+                    productData["name"]
+                  }</h2>
+                  <p class="card-text">SGD$ ${productData["price"]}</p>
+              </div>
+              <img src="../images/ShoePicture${
+                productData["gender"]
+              }/${productData["imagePath"].split(",")[0].trim()}" alt="..." />
+          </div>
+        </a>
+      </div>
+      <div class="back">
+      <h2 class="card-title" style="height:75px">${productData["name"]}</h2>
+      <p class="card-text col-10 mt-4">SGD $${productData["price"]}</p>
+      <p class="card-text col-10 mt-4">${gender} ${productData["type"]}</p>
+      <p class="card-text col-10 mt-4">Colour: ${productData["color"]}</p>
+      <p class="card-text col-10 mt-4">Available Size: <br> ${
+        productData["sizesAvailable"]
+      }</p>
+      </div>
     </div>
-    <div class="back">
-    <h2 class="card-title" style="height:75px">${productData["name"]}</h2>
-    <p class="card-text col-10 mt-4">SGD $${productData["price"]}</p>
-    <p class="card-text col-10 mt-4">${gender} ${productData["type"]}</p>
-    <p class="card-text col-10 mt-4">Colour: ${productData["color"]}</p>
-    <p class="card-text col-10 mt-4">Available Size: <br> ${
-      productData["sizesAvailable"]
-    }</p>
-    </div>
-  </div>
-`;
-  // onclick="addToCart()"
+  `;
+  onclick = "addToCart()";
   // Find the section element with the id "productListing"
-  var productListing = document.getElementById("productListing");
+  let productListing = document.getElementById("productListing");
 
   // Append the new element as a child to the section
   productListing.appendChild(newElement);

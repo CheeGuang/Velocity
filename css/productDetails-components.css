@@ -1,7 +1,7 @@
 /* CSS to style the progress bar */
 .progress {
   height: 30px; /* Set the height of the progress bar */
-  margin-top: 20px; /* Add some margin for spacing */
+  margin-top: 5px; /* Add some margin for spacing */
 }
 
 .progress-bar {
@@ -16,7 +16,9 @@
 /* CSS to style the Product Details */
 
 .clickable-image {
-  border-style: 2px solid #fff;
+  border: 2px solid #fff;
+  width: 100px;
+  aspect-ratio: 1/1;
 }
 
 .prodDetailBody .row {
@@ -40,4 +42,21 @@
 
 .tab-pane p {
   font-size: clamp(15px, 2vw, 10px);
+}
+
+#main-product-image {
+  width: 100%;
+  max-height: 500px;
+  object-position: 50% 75%;
+}
+
+#product-images {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#productshowcase {
+  display: flex;
+  align-items: flex-end;
 }
