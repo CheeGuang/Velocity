@@ -120,9 +120,17 @@ function getCustomersData() {
     localStorage.setItem("customersData", JSON.stringify(response));
     for (var i = 0; i < response.length; i++) {
       if (customerDataJSON["customerId"] == response[i]["customerId"]) {
+        // Assign retrieved customer data to customerData in localStorage
+        for (const key in response[i]) {
+          if (response[i].hasOwnProperty(key)) {
+            // Check to avoid inherited properties
+            console.log(key, response[i][key]);
+            customerDataJSON[key] = response[i][key];
+          }
+        }
+        localStorage.setItem("customerData", JSON.stringify(customerDataJSON));
+        // return customer is Not New
         isNew = false;
-        console.log(isNew);
-
         return isNew;
       }
     }
