@@ -1,8 +1,7 @@
 const APIKEY = "65b03b109eb5ba00e57fa24e";
 let previousPath;
 globalThis.handleCredentialResponse = async (response) => {
-  // decodeJwtResponse() is a custom function defined by you
-  // to decode the credential response.
+  // decodeJwtResponse() is a custom function to decode the encrypted response
   const responsePayload = decodeJwtResponse(response.credential);
 
   // Storing New Google Account Information
@@ -32,7 +31,6 @@ globalThis.handleCredentialResponse = async (response) => {
   localStorage.setItem("customerData", customerJSONString);
 
   if (getCustomersData() == true) {
-    console.log("Hi");
     // Storing Information as a JSON
     let jsondata = {
       customerId: customerId,
@@ -60,11 +58,21 @@ globalThis.handleCredentialResponse = async (response) => {
 
     $.ajax(settings).done(function (response) {
       console.log(response);
-      // window.location.href = previousPath;
     });
-  } else {
-    // window.location.href = previousPath;
   }
+
+  // If customer has a cart in the database, make this cart his current cart.
+  let customersData = JSON.parse(localStorage.getItem("customersData"));
+  for (let i = 0; i < customersData.length; i++) {
+    if (customerId == customersData[i]["customerId"]) {
+      if (customersData[i]["cart"] != null) {
+        localStorage.setItem("cart", customersData[i]["cart"]);
+      }
+    }
+  }
+
+  // redirect user back to where he came from
+  window.location.href = previousPath;
 };
 
 function decodeJwtResponse(token) {
