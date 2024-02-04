@@ -1,5 +1,5 @@
-var productName;
-var selectedItem;
+let productName;
+let selectedItem;
 
 function getQueryParam(name) {
   const urlParams = new URLSearchParams(window.location.search);
@@ -13,7 +13,7 @@ function retrieveProductDetails() {
   // Decode the URI parameters
   productName = decodeURIComponent(encodedProductName);
   console.log(productName);
-  var productsDetail = JSON.parse(localStorage.getItem("productData"));
+  let productsDetail = JSON.parse(localStorage.getItem("productData"));
 
   for (let i = 0; i < productsDetail.length; i++) {
     // console.log(productsDetail[i]["name"]);
@@ -66,7 +66,7 @@ function createSizeButtons(sizes) {
   $.each(sizes, function (index, size) {
     const $button = $("<button></button>", {
       type: "button",
-      class: "btn btn-outline-primary me-2 size-btn",
+      class: "btn btn-outline-primary me-2 mb-2 size-btn",
       text: size,
     }).click(function () {
       // Remove 'active' class from all size buttons
@@ -99,7 +99,7 @@ function insertProductImages(productObject) {
       productObject["gender"]
     }/${
       productImagePathList[i - 1]
-    }" alt="Shoe Image ${i}"class="row clickable-image" style="height: 25%"></img>`;
+    }" alt="Shoe Image ${i}"class="row mb-2 clickable-image" style="height: 25%">`;
   }
   $("#product-images").html(productInfoContent);
 
@@ -122,11 +122,11 @@ function makeImagesClickable() {
 }
 function updateProductInfo(productObject) {
   var productInfoContent = `
-    <p><strong>Type:</strong> ${productObject["type"]}</p>
-    <p><strong>Color:</strong> ${productObject["color"]}</p>
-    <p><strong>Comfort:</strong> ${productObject["comfort"]}</p>
-    <p><strong>Speed:</strong> ${productObject["speed"]}</p>
-    <p><strong>Quality:</strong> ${productObject["quality"]}</p>
+    <p class="mb-2"><strong>Type:</strong> ${productObject["type"]}</p>
+    <p class="mb-2"><strong>Color:</strong> ${productObject["color"]}</p>
+    <p class="mb-2"><strong>Comfort:</strong> ${productObject["comfort"]}</p>
+    <p class="mb-2"><strong>Speed:</strong> ${productObject["speed"]}</p>
+    <p class="mb-2"><strong>Quality:</strong> ${productObject["quality"]}</p>
   `;
 
   $("#product-info").html(productInfoContent);

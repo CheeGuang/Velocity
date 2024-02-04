@@ -14,6 +14,30 @@
 }
 
 /* CSS to style the Product Details */
-.row {
-  height: 20vh;
+
+.clickable-image {
+  border-style: 2px solid #fff;
+}
+
+.prodDetailBody .row {
+  height: 300px;
+}
+
+.row.prodTitle {
+  height: 18vh;
+}
+
+.prodTitle #product-name {
+  font-size: clamp(28px, 1vw, 15px);
+}
+.prodTitle #product-price {
+  font-size: clamp(20px, 1vw, 10px);
+}
+
+#add-to-cart {
+  height: 100px;
+}
+
+.tab-pane p {
+  font-size: clamp(15px, 2vw, 10px);
 }
