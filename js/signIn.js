@@ -66,7 +66,10 @@ window.handleCredentialResponse = (response) => {
   for (let i = 0; i < customersData.length; i++) {
     if (customerId == customersData[i]["customerId"]) {
       if (customersData[i]["cart"] != null) {
-        localStorage.setItem("cart", JSON.stringify(customersData[i]["cart"]));
+        localStorage.setItem(
+          "cartData",
+          JSON.stringify(customersData[i]["cart"])
+        );
       }
     }
   }
