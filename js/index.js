@@ -1,4 +1,5 @@
 // For Carousell
+console.log("Running index.js");
 $(document).ready(function () {
   // Initialize the carousel
   $("#myCarousel").carousel({
@@ -21,6 +22,7 @@ $(document).ready(function () {
 });
 
 function getCustomersData() {
+  console.log("Getting Customer Data");
   //[STEP 7]: Create our AJAX settings
   let settings = {
     async: false,
