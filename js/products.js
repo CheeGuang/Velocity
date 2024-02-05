@@ -61,65 +61,40 @@ function insertProductHTML(productData) {
   }
 
   // Create a new HTML element, for example, a div
-  var newElement = document.createElement("div");
+  let newElement = document.createElement("div");
   newElement.style.display = "flex";
   newElement.style.alignItems = "center";
-  newElement.className = "card-flip";
+  newElement.className = "card";
 
-  // let prodCard = document.createElement("div");
-  // prodCard.className = "card";
+  let content = document.createElement("div");
+  content.className = "content";
 
-  // let image = document.createElement("div");
-  // image.className = "image";
+  let image = document.createElement("div");
+  image.className = "image mb-4";
 
-  // let title = document.createElement("div");
-  // title.className = "card-title";
+  let title = document.createElement("div");
+  title.className = "card-title mb-2";
 
-  // let price = document.createElement("div");
-  // price.className = "card-text";
+  let shoeDesc = document.createElement("div");
+  shoeDesc.className = "card-text mb-2 text-muted";
 
-  // prodCard.appendChild(image);
-  // prodCard.appendChild(title);
-  // prodCard.appendChild(price);
+  let price = document.createElement("div");
+  price.className = "card-text";
 
-  // // Add the data into the divs
-  // image.innerHTML = `<img src="../images/ShoePicture
-  //     ${productData["gender"]}/${productData["imagePath"]
-  //   .split(",")[0]
-  //   .trim()}" alt="..." />`;
-  // title.innerHTML = `${productData["name"]}`;
-  // price.innerHTML = `SGD $${productData["price"]}`;
+  content.appendChild(image);
+  content.appendChild(title);
+  content.appendChild(shoeDesc);
+  content.appendChild(price);
+  newElement.appendChild(content);
 
-  //Add content to the new element
-  newElement.innerHTML = `
-    <div class="content">
-      <div class="front">
-         <a class="card front" href="#" onClick="redirectToProductDetail(event)">
-          <div class="card-body">
-              <div class="itemSummary">
-                  <h2 class="card-title" style="height:75px">${
-                    productData["name"]
-                  }</h2>
-                  <p class="card-text">SGD$ ${productData["price"]}</p>
-              </div>
-              <img src="../images/ShoePicture${
-                productData["gender"]
-              }/${productData["imagePath"].split(",")[0].trim()}" alt="..." />
-          </div>
-        </a>
-      </div>
-      <div class="back">
-      <h2 class="card-title" style="height:75px">${productData["name"]}</h2>
-      <p class="card-text col-10 mt-4">SGD $${productData["price"]}</p>
-      <p class="card-text col-10 mt-4">${gender} ${productData["type"]}</p>
-      <p class="card-text col-10 mt-4">Colour: ${productData["color"]}</p>
-      <p class="card-text col-10 mt-4">Available Size: <br> ${
-        productData["sizesAvailable"]
-      }</p>
-      </div>
-    </div>
-  `;
-  onclick = "addToCart()";
+  // Add the data into the divs
+  image.innerHTML = `<img src="../images/ShoePicture${
+    productData["gender"]
+  }/${productData["imagePath"].split(",")[0].trim()}" alt="..." />`;
+  title.innerHTML = `${productData["name"]}`;
+  shoeDesc.innerHTML = `${gender} ${productData["type"]}`;
+  price.innerHTML = `SGD $${productData["price"]}`;
+
   // Find the section element with the id "productListing"
   let productListing = document.getElementById("productListing");
 
