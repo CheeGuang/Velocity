@@ -17,8 +17,11 @@ $(document).ready(function () {
     e.preventDefault();
     $("#myCarousel").carousel("next");
   });
-  getCustomersData();
-  updateOverlayText();
+  let customerData = JSON.parse(localStorage.getItem("customerData"));
+  if (customerData != null) {
+    getCustomersData();
+    updateOverlayText();
+  }
 });
 
 function getCustomersData() {
@@ -61,8 +64,8 @@ function getCustomersData() {
         // return customer is Not New
       }
     }
-    console.log(`HI ${JSON.parse(localStorage.getItem("cartData"))}`);
-    if (JSON.parse(localStorage.getItem("cartData")) == JSON.parse({})) {
+    console.log(`HI ${localStorage.getItem("cartData")}`);
+    if (localStorage.getItem("cartData") == {}) {
       localStorage.removeItem("cartData");
     }
   });
