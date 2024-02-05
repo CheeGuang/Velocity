@@ -50,10 +50,18 @@ $(document).ready(function () {
       $("#orderForm").addClass("was-validated");
     } else {
       // The checkbox is checked, proceed with further processing here
-      // For demonstration, just showing an alert
-      alert("Form is valid, proceed with order placement.");
+      // Remove customer's cart object in local storage
+      localStorage.removeItem("cartData");
 
-      // Here you can add your code to process the form (e.g., using AJAX to submit form data)
+      let customerData = JSON.parse(localStorage.getItem("customerdata"));
+      if (customerData != null) {
+        customerData["cart"] = null;
+        customerData["points"] = parseFloat(
+          $("#total-points").text().replace("+ ", "").replace("Points", "")
+        );
+        localStorage.setItem("customerData", JSON.stringify(customerData));
+        updateCustomerDataToRestDB();
+      }
     }
   });
 });
@@ -124,29 +132,27 @@ function parseURLParams() {
 
   return { paymentMethod, applyCashback, shippingDetails };
 }
-// JavaScript for disabling form submissions if there are invalid fields
-(function () {
-  "use strict";
-  window.addEventListener(
-    "load",
-    function () {
-      // Fetch all the forms we want to apply custom Bootstrap validation styles to
-      var forms = document.getElementsByClassName("needs-validation");
-      // Loop over them and prevent submission
-      var validation = Array.prototype.filter.call(forms, function (form) {
-        form.addEventListener(
-          "submit",
-          function (event) {
-            if (form.checkValidity() === false) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
-            form.classList.add("was-validated");
-          },
-          false
-        );
-      });
+
+function updateCustomerDataToRestDB() {
+  var newCustomerJSON = JSON.parse(localStorage.getItem("customerData"));
+  // Updating cart of customer's account with cartArray in RestDB
+  var settings = {
+    async: true,
+    crossDomain: true,
+    url: `https://velocity-554e.restdb.io/rest/customer/${
+      JSON.parse(localStorage.getItem("customerRestDBData"))["_id"]
+    }`,
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+      "x-apikey": "65b03b109eb5ba00e57fa24e",
+      "cache-control": "no-cache",
     },
-    false
-  );
-})();
+    processData: false,
+    data: JSON.stringify(newCustomerJSON),
+  };
+
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
+}
