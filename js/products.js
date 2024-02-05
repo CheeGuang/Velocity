@@ -66,6 +66,10 @@ function insertProductHTML(productData) {
   newElement.style.alignItems = "center";
   newElement.className = "card";
 
+  let redirectLink = document.createElement("a");
+  redirectLink.setAttribute("href", "#");
+  redirectLink.setAttribute("onclick", "redirectToProductDetail(event)");
+
   let content = document.createElement("div");
   content.className = "content";
 
@@ -76,15 +80,16 @@ function insertProductHTML(productData) {
   title.className = "card-title mb-2";
 
   let shoeDesc = document.createElement("div");
-  shoeDesc.className = "card-text mb-2 text-muted";
+  shoeDesc.className = "card-text mb-4 text-muted";
 
   let price = document.createElement("div");
-  price.className = "card-text";
+  price.className = "card-text price";
 
-  content.appendChild(image);
-  content.appendChild(title);
-  content.appendChild(shoeDesc);
-  content.appendChild(price);
+  redirectLink.appendChild(image);
+  redirectLink.appendChild(title);
+  redirectLink.appendChild(shoeDesc);
+  redirectLink.appendChild(price);
+  content.appendChild(redirectLink);
   newElement.appendChild(content);
 
   // Add the data into the divs

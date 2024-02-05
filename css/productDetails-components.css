@@ -36,7 +36,7 @@
 
 .nav-tabs {
   border: 0;
-  padding: 15px 0.7rem;
+  padding: 15px 0;
 }
 
 .nav-tabs:not(.nav-tabs-neutral) > .nav-item > .nav-link.active {
