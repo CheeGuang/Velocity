@@ -239,16 +239,6 @@ function updateShippingFee() {
   }
   // Update Order Summary
   $("#shippingFeeAmount").text(`$${shippingFee.toFixed(2)}`);
-
-  $("#cashbackRebateAmount").text(`-$${cashbackRebate.toFixed(2)}`);
-
-  $("#totalAmount").text(
-    `$${(
-      parseFloat($("#subtotal-price").text().replace("$", "")) -
-      parseFloat($("#shippingFeeAmount").text().replace("$", "")) -
-      cashbackRebate
-    ).toFixed(2)}`
-  );
 }
 
 function parseURLParams() {
