@@ -62,6 +62,7 @@ $(document).ready(function () {
         localStorage.setItem("customerData", JSON.stringify(customerData));
         updateCustomerDataToRestDB();
       }
+      window.location.href = "index.html";
     }
   });
 });
@@ -152,7 +153,7 @@ function updateCustomerDataToRestDB() {
     data: JSON.stringify(newCustomerJSON),
   };
 
-  $.ajax(settings).done(function (response) {
-    console.log(response);
+  $.ajax(settings).done(function () {
+    window.location.href = "index.html";
   });
 }
