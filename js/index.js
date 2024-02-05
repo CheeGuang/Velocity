@@ -62,7 +62,7 @@ function getCustomersData() {
       }
     }
     console.log(`HI ${JSON.parse(localStorage.getItem("cartData"))}`);
-    if (JSON.parse(localStorage.getItem("cartData")) == {}) {
+    if (JSON.parse(localStorage.getItem("cartData")) == JSON.parse({})) {
       localStorage.removeItem("cartData");
     }
   });
