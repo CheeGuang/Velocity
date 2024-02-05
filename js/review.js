@@ -140,7 +140,7 @@ function updateCustomerDataToRestDB() {
     async: true,
     crossDomain: true,
     url: `https://velocity-554e.restdb.io/rest/customer/${
-      JSON.parse(localStorage.getItem("customerRestDBData"))["_id"]
+      JSON.parse(localStorage.getItem("customerData"))["_id"]
     }`,
     method: "PUT",
     headers: {
