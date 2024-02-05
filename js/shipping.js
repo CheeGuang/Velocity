@@ -3,10 +3,11 @@ $(document).ready(function () {
   let customerData = JSON.parse(localStorage.getItem("customerData"));
   if (customerData != null) {
     if (customerData["cardNumber"] != null) {
-      $("#cardNumberHolder").val(customerData["cardNumber"]);
-      $("#expirationDateHolder").val(customerData["expiryDate"]);
-      $("#securityCodeHolder").val(customerData["cvv"]);
-      $("#cardNameHolder").val(customerData["cardName"]);
+      $("#fname").val(customerData["firstName"]);
+      $("#lname").val(customerData["lastName"]);
+      $("#search_input").val(customerData["address"]);
+      $("#unitNo").val(customerData["unitNumber"]);
+      $("#phoneNo").val(customerData["phoneNumber"]);
     }
   }
 
