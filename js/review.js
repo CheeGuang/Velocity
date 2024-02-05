@@ -55,7 +55,7 @@ $(document).ready(function () {
 
       let customerData = JSON.parse(localStorage.getItem("customerData"));
       if (customerData != null) {
-        customerData["cart"] = JSON.stringify({});
+        customerData["cart"] = "";
         customerData["points"] = parseFloat(
           $("#total-points").text().replace("+ ", "").replace("Points", "")
         );
