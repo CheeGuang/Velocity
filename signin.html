@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,19 +10,36 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/4f6d96e165.js"
+      crossorigin="anonymous"
+    ></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <title>Sign In</title>
+    <title>Checkout Delivery</title>
 
     <!-- Linking CSS -->
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/signin-components.css" />
 
     <!-- Linking JS -->
     <script src="js/script.js" defer></script>
-    <script src="js/signIn.js"></script>
+    <script src="js/navbarFooter.js" defer></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      defer
+    ></script>
 
     <!-- Google Sign-In Libraries -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -32,44 +48,68 @@
     <link rel="icon" type="image/x-icon" href="images/Logo/Logo-short.png" />
   </head>
   <body>
-    <div
-      class="d-flex flex-column align-items-center justify-content-center"
-      style="height: 100vh"
-    >
-      <img
-        src="images/Logo/Logo-full.png"
-        alt=""
-        class="img-fluid mb-5"
-        style="max-width: 35vw"
-      />
-      <!-- Google Sign In Button -->
-      <script src="https://accounts.google.com/gsi/client" async defer></script>
-      <div
-        id="g_id_onload"
-        data-client_id="669052276058-pjj021iq10hvib472q7bl42db1jclh9s.apps.googleusercontent.com"
-        data-context="signin"
-        data-ux_mode="popup"
-        data-callback="handleCredentialResponse"
-        data-auto_prompt="false"
-      ></div>
+    <header>
+      <div id="navbar-container"></div>
+    </header>
+    <div class="container">
+      <div class="row justify-content-center mx-5">
+        <div class="col-md-6 col-lg-4">
+          <div class="card login-form pt-5 pb-5 shadow">
+            <div class="card-body">
+              <h3 class="text-center mb-5">Log In / Sign Up</h3>
+              <div class="card-text">
+                <!-- Alert message can go here -->
+                <form>
+                  <div class="text-center">
+                    <img
+                      src="images/Logo/Logo-full.png"
+                      alt=""
+                      class="img-fluid mb-5 mt-2"
+                      style="max-width: 70%"
+                    />
+                  </div>
 
-      <div
-        class="g_id_signin"
-        data-type="standard"
-        data-shape="pill"
-        data-theme="outline"
-        data-text="continue_with"
-        data-size="large"
-        data-logo_alignment="left"
-      ></div>
-      <!-- Google Sign In Button -->
+                  <!-- Google Sign In Button -->
+                  <div
+                    class="text-center mb-3 mt-4"
+                    style="margin-left: 67px; margin-right: 67px"
+                  >
+                    <div
+                      id="g_id_onload"
+                      data-client_id="669052276058-pjj021iq10hvib472q7bl42db1jclh9s.apps.googleusercontent.com"
+                      data-context="signin"
+                      data-ux_mode="popup"
+                      data-callback="handleCredentialResponse"
+                      data-auto_prompt="false"
+                    ></div>
+                    <div
+                      class="g_id_signin"
+                      data-type="standard"
+                      data-shape="pill"
+                      data-theme="outline"
+                      data-text="continue_with"
+                      data-size="large"
+                      data-logo_alignment="left"
+                    ></div>
+                  </div>
+                  <!-- Google Sign In Button -->
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <!-- Google Sign-In script -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <footer>
+      <div id="footer"></div>
+    </footer>
   </body>
 </html>

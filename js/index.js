@@ -57,9 +57,10 @@ function getCustomersData() {
         }
         localStorage.setItem("customerData", JSON.stringify(customerDataJSON));
         // return customer is Not New
-        isNew = false;
-        return isNew;
       }
+    }
+    if (JSON.parse(localStorage.getItem("cartData")) == {}) {
+      localStorage.removeItem("cartData");
     }
   });
 }
