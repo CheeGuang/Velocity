@@ -65,7 +65,7 @@ function getCustomersData() {
       }
     }
     console.log(`HI ${localStorage.getItem("cartData")}`);
-    if (localStorage.getItem("cartData") == {}) {
+    if (localStorage.getItem("cartData") == "{}") {
       localStorage.removeItem("cartData");
     }
   });
