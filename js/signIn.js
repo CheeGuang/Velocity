@@ -92,7 +92,7 @@ function decodeJwtResponse(token) {
 
   return JSON.parse(jsonPayload);
 }
-// getCustomersData();
+
 function getCustomersData() {
   //[STEP 7]: Create our AJAX settings
   let settings = {

@@ -53,7 +53,7 @@ $(document).ready(function () {
       // Remove customer's cart object in local storage
       localStorage.removeItem("cartData");
 
-      let customerData = JSON.parse(localStorage.getItem("customerdata"));
+      let customerData = JSON.parse(localStorage.getItem("customerData"));
       if (customerData != null) {
         delete customerData.cart;
         customerData["points"] = parseFloat(
