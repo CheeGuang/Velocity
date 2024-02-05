@@ -206,9 +206,7 @@ function updateOrderSummary() {
   var decodedParams = parseURLParams();
   let cashbackRebate =
     decodedParams.applyCashback == true
-      ? (
-          JSON.parse(localStorage.getItem("customerData"))["points"] / 100
-        ).toFixed(2)
+      ? JSON.parse(localStorage.getItem("customerData"))["points"] / 100
       : 0;
   // Update Order Summary
   $("#cashbackRebateAmount").text(`-$${cashbackRebate.toFixed(2)}`);
