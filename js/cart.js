@@ -50,12 +50,6 @@ function addToCart() {
           i < JSON.parse(localStorage.getItem("customersData").length);
           i++
         ) {
-          console.log(
-            JSON.parse(localStorage.getItem("customerData"))["customerId"]
-          );
-          console.log(
-            JSON.parse(localStorage.getItem("customersData"))[i]["customerId"]
-          );
           if (
             JSON.parse(localStorage.getItem("customerData"))["customerId"] ==
             JSON.parse(localStorage.getItem("customersData"))[i]["customerId"]
@@ -69,33 +63,7 @@ function addToCart() {
             break;
           }
         }
-        var newCustomerJSON = JSON.parse(localStorage.getItem("customerData"));
-        console.log(newCustomerJSON);
-        newCustomerJSON["cart"] = cartArray;
-        console.log(newCustomerJSON);
-        console.log(
-          JSON.parse(localStorage.getItem("customerRestDBData"))["_id"]
-        );
-        // Updating cart of customer's account with cartArray in RestDB
-        var settings = {
-          async: true,
-          crossDomain: true,
-          url: `https://velocity-554e.restdb.io/rest/customer/${
-            JSON.parse(localStorage.getItem("customerRestDBData"))["_id"]
-          }`,
-          method: "PUT",
-          headers: {
-            "content-type": "application/json",
-            "x-apikey": "65b03b109eb5ba00e57fa24e",
-            "cache-control": "no-cache",
-          },
-          processData: false,
-          data: JSON.stringify(newCustomerJSON),
-        };
-
-        $.ajax(settings).done(function (response) {
-          console.log(response);
-        });
+        updateCustomerDataToRestDB();
       }
 
       break;
@@ -180,7 +148,11 @@ function displayCart() {
   $("#cart-items").html(cartProductInfoContent);
   $("#subtotal-price").text("$" + subtotal.toFixed(2));
   $("#total-points").text("+" + totalPointsEarned + " Points");
-
+  if (window.location.pathname == "/review.html") {
+    var decodedParams = parseURLParams();
+    updateOrderSummary();
+    updateShippingFee();
+  }
   // Display Shipping Fee if totalPointsEarned is less than 200
   if (totalPointsEarned < 200) {
     $("#delivery-price").text("$" + deliveryPrice.toFixed(2));
@@ -225,4 +197,147 @@ function removeItemFromCart(buttonElement) {
   displayCart();
   updateOverlayText();
   updateProgressBar();
+  if (localStorage.getItem("customersData") != null) {
+    updateCustomerDataToRestDB();
+  }
+}
+
+function updateOrderSummary() {
+  var decodedParams = parseURLParams();
+  let cashbackRebate =
+    decodedParams.applyCashback == true
+      ? (
+          JSON.parse(localStorage.getItem("customerData"))["points"] / 100
+        ).toFixed(2)
+      : 0;
+  // Update Order Summary
+  $("#cashbackRebateAmount").text(`-$${cashbackRebate.toFixed(2)}`);
+
+  $("#totalAmount").text(
+    `$${(
+      parseFloat($("#subtotal-price").text().replace("$", "")) -
+      parseFloat($("#shippingFeeAmount").text().replace("$", "")) -
+      cashbackRebate
+    ).toFixed(2)}`
+  );
+}
+
+function updateShippingFee() {
+  var decodedParams = parseURLParams();
+  let shippingMethod = decodedParams.shippingDetails["shippingMethod"];
+
+  let shippingFee;
+
+  if (shippingMethod == "standardShipping") {
+    shippingFee = 5.9;
+  } else {
+    if (parseFloat($("#subtotal-price").text().replace("$", "")) < 200) {
+      shippingFee = 10.9;
+    } else {
+      shippingFee = 0;
+    }
+  }
+  // Update Order Summary
+  $("#shippingFeeAmount").text(`$${shippingFee.toFixed(2)}`);
+
+  $("#cashbackRebateAmount").text(`-$${cashbackRebate.toFixed(2)}`);
+
+  $("#totalAmount").text(
+    `$${(
+      parseFloat($("#subtotal-price").text().replace("$", "")) -
+      parseFloat($("#shippingFeeAmount").text().replace("$", "")) -
+      cashbackRebate
+    ).toFixed(2)}`
+  );
+}
+
+function parseURLParams() {
+  var params = new URLSearchParams(window.location.search);
+  var paymentMethod = params.get("paymentMethod");
+  var shippingDetails = {};
+
+  // Extract all parameters, assuming those not 'paymentMethod' belong to shippingDetails
+  for (let [key, value] of params.entries()) {
+    if (key !== "paymentMethod") {
+      shippingDetails[key] = decodeURIComponent(value);
+      console.log(shippingDetails[key]);
+    }
+  }
+  // Function to convert the query string to an object
+  function processShippingDetails(detailsString) {
+    const details = {};
+
+    // Split the string into key-value pairs
+    detailsString.split("&").forEach((part) => {
+      const [key, value] = part.split("=");
+      // Decode URI component to handle spaces and special characters
+      details[key] = decodeURIComponent(value);
+    });
+
+    return details;
+  }
+
+  shippingDetails = processShippingDetails(shippingDetails["shippingDetails"]);
+
+  return { paymentMethod, shippingDetails };
+}
+
+function parseURLParams() {
+  var params = new URLSearchParams(window.location.search);
+
+  // Directly get 'paymentMethod' and 'applyCashback' parameters
+  var paymentMethod = params.get("paymentMethod");
+  var applyCashback = params.get("applyCashback") === "true"; // Convert to boolean
+
+  var shippingDetails = {};
+
+  // Extract all parameters
+  for (let [key, value] of params.entries()) {
+    if (key !== "paymentMethod" && key !== "applyCashback") {
+      // Directly assign decoded values to shippingDetails if not processing as a single string
+      shippingDetails[key] = decodeURIComponent(value);
+    }
+  }
+
+  // Function to convert the query string to an object
+  function processShippingDetails(detailsString) {
+    const details = {};
+
+    // Split the string into key-value pairs
+    detailsString.split("&").forEach((part) => {
+      const [key, value] = part.split("=");
+      // Decode URI component to handle spaces and special characters
+      details[key] = decodeURIComponent(value);
+    });
+
+    return details;
+  }
+
+  shippingDetails = processShippingDetails(shippingDetails["shippingDetails"]);
+
+  return { paymentMethod, applyCashback, shippingDetails };
+}
+
+function updateCustomerDataToRestDB() {
+  var newCustomerJSON = JSON.parse(localStorage.getItem("customerData"));
+  // Updating cart of customer's account with cartArray in RestDB
+  var settings = {
+    async: true,
+    crossDomain: true,
+    url: `https://velocity-554e.restdb.io/rest/customer/${
+      JSON.parse(localStorage.getItem("customerRestDBData"))["_id"]
+    }`,
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+      "x-apikey": "65b03b109eb5ba00e57fa24e",
+      "cache-control": "no-cache",
+    },
+    processData: false,
+    data: JSON.stringify(newCustomerJSON),
+  };
+
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
 }

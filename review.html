@@ -192,17 +192,15 @@
           >
             <div class="row d-flex justify-content-between pb-3">
               <h3 id="subtotalText" class="col-md-7">Subtotal</h3>
-              <p id="subtotal-price" class="col-md-2 text-end">S$0.00</p>
+              <p id="subtotal-price" class="col-md-2 text-end">$0.00</p>
             </div>
             <div class="row gy-2 d-flex justify-content-between pb-3">
               <h3 id="shippingFeeText" class="col-md-7">Shipping Fee</h3>
-              <p id="shippingFeeAmount" class="col-md-2 text-end">S$0.00</p>
+              <p id="shippingFeeAmount" class="col-md-2 text-end">$0.00</p>
             </div>
             <div class="row gy-2 d-flex justify-content-between pb-3">
               <h3 id="cashbackRebateText" class="col-md-7">Cashback Rebate</h3>
-              <p id="cashbackRebateAmount" class="col-md-2 text-end">
-                - S$0.00
-              </p>
+              <p id="cashbackRebateAmount" class="col-md-2 text-end">-$0.00</p>
             </div>
             <hr class="mt-4" />
           </div>
@@ -219,7 +217,7 @@
               class="col-md-2 d-flex justify-content-end flex-column align-items-end"
             >
               <h3 id="totalAmount" class="row mb-2" style="margin-right: 0px">
-                S$0.00
+                $0.00
               </h3>
               <h4
                 id="total-points"
@@ -232,26 +230,29 @@
           </div>
         </div>
       </div>
-      <!-- Agree to Delivery T&C -->
-      <div class="checkForm col-md-12 mx-5" style="margin-top: 70px">
-        <div class="form-check d-flex align-items-center mx-4">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            value=""
-            id="deliveryTC"
-            required
-          />
-          <label class="form-check-label" for="deliveryTC">
-            I have read and agree to the terms and conditions
-          </label>
-          <div class="invalid-feedback">You must agree before submitting.</div>
-        </div>
-      </div>
-    </section>
-
+      <form id="orderForm" class="needs-validation" novalidate>
+            <!-- Agree to Delivery T&C -->
+            <div class="checkForm col-md-12 mx-5" style="margin-top: 70px">
+                <div class="form-check d-flex align-items-center mx-4">
+                    <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="deliveryTC"
+                        required
+                    />
+                    <label class="form-check-label" for="deliveryTC">
+                        I have read and agree to the terms and conditions*
+                    </label>
+                </div>
+                <!-- Position invalid feedback here, directly below the checkbox and label -->
+                <div class="invalid-feedback">You must agree before submitting.</div>
+            </div>
+        </section>
+    </form>
+    
     <div class="col-12 mt-5" id="submitBtn">
-      <button class="btn btn-secondary" type="submit">Place Order</button>
+        <button class="btn btn-secondary" type="button" id="placeOrderButton">Place Order</button>
     </div>
 
     <footer>

@@ -39,6 +39,23 @@ $(document).ready(function () {
   $("#phoneNumberText").text(
     `Phone Number: ${decodedParams.shippingDetails["phoneNumber"]}`
   );
+
+  $("#placeOrderButton").click(function (event) {
+    // Prevent the default form submit action
+    event.preventDefault();
+
+    // Check if the form is valid
+    if ($("#orderForm")[0].checkValidity() === false) {
+      event.stopPropagation();
+      $("#orderForm").addClass("was-validated");
+    } else {
+      // The checkbox is checked, proceed with further processing here
+      // For demonstration, just showing an alert
+      alert("Form is valid, proceed with order placement.");
+
+      // Here you can add your code to process the form (e.g., using AJAX to submit form data)
+    }
+  });
 });
 
 function parseURLParams() {
@@ -107,3 +124,29 @@ function parseURLParams() {
 
   return { paymentMethod, applyCashback, shippingDetails };
 }
+// JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  "use strict";
+  window.addEventListener(
+    "load",
+    function () {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName("needs-validation");
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function (form) {
+        form.addEventListener(
+          "submit",
+          function (event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add("was-validated");
+          },
+          false
+        );
+      });
+    },
+    false
+  );
+})();
