@@ -65,7 +65,7 @@ function createSizeButtons(sizes) {
   $.each(sizes, function (index, size) {
     const $button = $("<button></button>", {
       type: "button",
-      class: "btn btn-outline-primary me-2 mb-2 size-btn",
+      class: "btn me-2 mb-2 size-btn",
       text: size,
     }).click(function () {
       // Remove 'active' class from all size buttons
@@ -149,10 +149,10 @@ function insertAddToCartLogic(productObject) {
   if (productObject["memberReq"]) {
     if (JSON.parse(localStorage.getItem("customerDate")) == null) {
       productAboutContent = `
-      <h3>Unlock this design</h3>
+      <h3 class="mb-2">Unlock this design</h3>
       <p>Now available for members only. Join the club for free and be the first to catch our latest series.</p>
-      <div class="col-md-4">
-          <div id="add-to-cart-button"class="input-group mb-3">
+      <div>
+          <div id="add-to-cart-button" class="input-group mt-3 mb-3">
           <a href="signin.html">
             <button class="btn btn-outline-secondary" type="button" id="button-addon2">Login / Sign Up</button>
           <a/>
