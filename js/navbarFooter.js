@@ -21,16 +21,20 @@ fetch("footer.html")
 // Search Function
 // This is for the search bar pop up
 
-const nav = document.querySelector("#navbar"),
-  searchIcon = document.querySelector("#navbar-searchIcon");
+// Define the search icon using jQuery
+var searchIcon = $("#navbar-searchIcon");
 
-searchIcon.addEventListener("click", () => {
-  nav.classList.toggle("openSearch");
+// Use jQuery's 'on' method to handle click event
+searchIcon.on("click", function () {
+  // Toggle 'openSearch' class on the navbar
+  $("#navbar").toggleClass("openSearch");
 
-  if (nav.classList.contains("openSearch")) {
-    return searchIcon.classList.replace("fa-magnifying-glass", "fa-xmark"); // '.replace' only replaces first match
+  // Check if the 'openSearch' class is applied and toggle icon classes accordingly
+  if ($("#navbar").hasClass("openSearch")) {
+    searchIcon.removeClass("fa-magnifying-glass").addClass("fa-xmark");
+  } else {
+    searchIcon.removeClass("fa-xmark").addClass("fa-magnifying-glass");
   }
-  searchIcon.classList.replace("fa-xmark", "fa-magnifying-glass");
 });
 
 // This is for autocomplete function
@@ -82,9 +86,9 @@ let suggestions = [
   "Yellow Walking Shoe",
 ];
 
-const searchWrapper = document.querySelector(".search-bar"); //This is to access the entire search bar + autocom-box
-const inputBox = searchWrapper.querySelector("input"); // This is to track user input in search field
-const suggBox = searchWrapper.querySelector(".autocom-box"); //  This is to track the autocomplete box area
+const searchWrapper = $("#search-bar-div"); //This is to access the entire search bar + autocom-box
+const inputBox = $("#search-bar-input"); // This is to track user input in search field
+const suggBox = $(".autocom-box"); //  This is to track the autocomplete box area
 
 // Track if user presses any key and releases them (.onkeyup)
 // Shorthand => is for function(){} calling a function statement

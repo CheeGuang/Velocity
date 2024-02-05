@@ -4,31 +4,19 @@
       ><img src="images/Logo/Logo-full.png" alt=""
     /></a>
 
-    <button
-      class="navbar-toggler order-2 order-md-1"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
     <!-- The navLinks to be collapsed -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <!-- The navLinks -->
       <ul class="navbar-nav">
         <!-- NavLink 1 -->
         <li class="nav-item d-flex justify-content-center">
-          <a class="nav-link" href="productPage.html">Men</a>
+          <a class="nav-link" href="productPage.html">Men Shoes</a>
         </li>
         <!-- End of NavLink 1 -->
 
         <!-- NavLink 2 -->
         <li class="nav-item d-flex justify-content-center">
-          <a class="nav-link" href="productPage.html">Women</a>
+          <a class="nav-link" href="productPage.html">Women Shoes</a>
         </li>
         <!-- End of NavLink 2 -->
 
@@ -43,11 +31,13 @@
     <!-- The navLinks to be collapsed -->
 
     <!-- Icon Container (These 3 cannot collapse!!!) -->
-    <div class="icons d-flex align-items-center order-md-2">
-      <i
-        class="icon fa-solid fa-magnifying-glass d-flex align-items-center"
-        id="navbar-searchIcon"
-      ></i>
+    <div class="icons d-flex align-items-center order-lg-2">
+      <a href="imageSearch.html" style="text-decoration: none">
+        <i
+          class="icon fa-solid fa-camera d-flex align-items-center"
+          id="navbar-searchIcon"
+        ></i>
+      </a>
       <!-- <a href="signin.html"><i class="icon fa-solid fa-user"></i></a> -->
       <a href="bag.html" class="shoppingCart-icon-container">
         <!-- Bag Icon -->
@@ -80,24 +70,20 @@
           id="profile-image-login"
         />
       </a>
+      <button
+        id="nav-hamburger"
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        style="background-color: black"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </div>
     <!-- End of Icon Container -->
-
-    <!-- Search Bar (This also cannot collape!!!) -->
-    <div class="search-bar">
-      <i class="fa-solid fa-magnifying-glass" id="navbar-searchIcon"></i>
-      <input type="text" placeholder="Search" />
-
-      <!-- This is for autocomplete search box -->
-      <div class="autocom-box">
-        <li>Men</li>
-        <li>Women</li>
-        <li>Running</li>
-        <li>Walking</li>
-        <li>White Shoes</li>
-      </div>
-      <!-- This is the end for autocomplete search box -->
-    </div>
-    <!-- End of Search Bar -->
   </div>
 </nav>

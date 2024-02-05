@@ -10,3 +10,35 @@
 .drag-over {
   border-color: #007bff;
 }
+
+.card-body {
+  background-color: var(--body-color);
+  height: 300px !important;
+}
+
+.card {
+  border: var(--body-color);
+}
+
+#imageSearch-image {
+  max-width: 450px;
+  width: 100%;
+  background-color: #070218;
+}
+
+@media screen and (max-width: 1050px) {
+  #imageSearch-col {
+    height: 200px;
+  }
+}
+@media screen and (max-width: 767px) {
+  #imageSearch-col {
+    height: 300px;
+  }
+  #imageSearch-title {
+    margin-top: 25px;
+  }
+  #imageSearch-image {
+    display: none;
+  }
+}
