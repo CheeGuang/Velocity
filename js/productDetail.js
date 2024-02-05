@@ -57,7 +57,6 @@ function displayProduct(productObject) {
 function updateProgressBar(amount, progressBar) {
   const percentage = (amount / 10) * 100;
   progressBar.css("width", percentage + "%");
-  progressBar.text(amount + "/" + 10);
   progressBar.attr("aria-valuenow", amount);
 }
 

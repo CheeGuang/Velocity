@@ -13,11 +13,22 @@
   height: 20%;
 }
 
+#comfort {
+  background-color: #d96523;
+}
+#speed {
+  background-color: #d98289;
+}
+#quality {
+  background-color: #73c6d9;
+}
+
 /* CSS to style the Product Details */
 
 .clickable-image {
   border: 2px solid #fff;
-  width: 100px;
+  width: 20%;
+  max-width: 180px;
   aspect-ratio: 1/1;
 }
 
@@ -26,7 +37,7 @@
 }
 
 .row.prodTitle {
-  height: 18vh;
+  height: 150px;
 }
 
 .prodTitle #product-name {
@@ -53,7 +64,7 @@
 #product-images {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 #productshowcase {
