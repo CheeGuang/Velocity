@@ -163,7 +163,7 @@ function displayCart() {
 
   // Disable cashback button if customer has points to redeem
   if (customerData != null) {
-    if (customerData["points"] != null) {
+    if (customerData["points"] != null || customerData["points"] != 0) {
       $("#applyCashbackText").text(
         "Apply Cashback: $" + (customerData["points"] / 100).toFixed(2)
       );
