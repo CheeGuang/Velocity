@@ -59,6 +59,7 @@ function getCustomersData() {
         // return customer is Not New
       }
     }
+    console.log(`HI ${JSON.parse(localStorage.getItem("cartData"))}`);
     if (JSON.parse(localStorage.getItem("cartData")) == {}) {
       localStorage.removeItem("cartData");
     }
