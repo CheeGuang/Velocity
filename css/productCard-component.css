@@ -2,8 +2,8 @@
   width: 100%;
   max-width: 1400px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  grid-gap: 4em;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  grid-gap: 2em;
   align-content: center;
   margin: auto;
   margin-top: 90px;
