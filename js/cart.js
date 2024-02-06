@@ -72,7 +72,7 @@ function displayCart() {
                   cart[i][0]["price"] * cart[i][1]
                 ).toFixed(2)}</h4></div>
                 <div class="price"><h4 style="color: #FF6B00;">+${pointsEarned} Points</h4></div>
-                <button class="btn btn-outline-danger mt-4" onclick="removeItemFromCart(this)" 
+                <button class="btn btn-danger mt-4" onclick="removeItemFromCart(this)" 
                         style="padding: 6% 12%; font-size: 1rem;">
                     <p style="margin-bottom: 0;">Remove</p>
                 </button>
@@ -86,7 +86,7 @@ function displayCart() {
     }
   }
 
-  if ($("#subtotal-price").text() == "$0.00") {
+  if (JSON.parse(localStorage.getItem("cartData")) == null) {
     cartProductInfoContent += `<p>Your Bag is Empty. Proceed to shop!</p>`;
   }
   console.log($("#cart-items"));

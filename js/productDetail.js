@@ -151,14 +151,16 @@ function insertAddToCartLogic(productObject) {
   if (productObject["memberReq"]) {
     if (JSON.parse(localStorage.getItem("customerDate")) == null) {
       productAboutContent = `
+      <div class="col-11" style="margin: auto">
       <h3 class="mb-2">Unlock this design</h3>
       <p>Now available for members only. Join the club for free and be the first to catch our latest series.</p>
       <div>
           <div id="add-to-cart-button" class="input-group mt-3 mb-3">
           <a href="signin.html">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Login / Sign Up</button>
+            <button class="btn btn-primary" type="button" id="button-addon2">Login / Sign Up</button>
           <a/>
           </div>
+      </div>
       </div>
     `;
       $("#add-to-cart").html(productAboutContent);

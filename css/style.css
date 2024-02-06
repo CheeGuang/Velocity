@@ -152,3 +152,123 @@ img {
   position: relative;
   object-fit: cover;
 }
+/* Copy from here */
+.btn-primary {
+  color: #fff;
+  border-radius: 3px;
+  background-image: linear-gradient(122deg, #ff5100 0%, #ffae00 100%);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  border: 0;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:not([disabled]):not(.disabled).active,
+.btn-primary:not([disabled]):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
+  background-image: linear-gradient(122deg, #ff1e00 0%, #ffa600 100%);
+  box-shadow: 0px 8px 13px 0px rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+
+.btn-default {
+  color: #fff;
+  border-radius: 3px;
+  background-image: linear-gradient(122deg, #969696 0%, #dcdcdc 100%);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  border: 0;
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default:not([disabled]):not(.disabled).active,
+.btn-default:not([disabled]):not(.disabled):active,
+.show > .btn-default.dropdown-toggle {
+  background-image: linear-gradient(122deg, #828282 0%, #d4d4d4 100%);
+  box-shadow: 0px 8px 13px 0px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.btn-info {
+  color: #fff;
+  border-radius: 3px;
+  background-image: linear-gradient(122deg, #00c0ef 0%, #9fecff 100%);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  border: 0;
+}
+
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active,
+.btn-info:not([disabled]):not(.disabled).active,
+.btn-info:not([disabled]):not(.disabled):active,
+.show > .btn-info.dropdown-toggle {
+  background-image: linear-gradient(122deg, #00acd6 0%, #65ddfb 100%);
+  box-shadow: 0px 8px 13px 0px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.btn-success {
+  color: #fff;
+  border-radius: 3px;
+  background-image: linear-gradient(122deg, #28c7c0 0%, #00ff8b 100%);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  border: 0;
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active,
+.btn-success:not([disabled]):not(.disabled).active,
+.btn-success:not([disabled]):not(.disabled):active,
+.show > .btn-success.dropdown-toggle {
+  background-image: linear-gradient(122deg, #24b3ad 0%, #00e27b 100%);
+  box-shadow: 0px 8px 13px 0px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.btn-warning {
+  color: #fff;
+  border-radius: 3px;
+  background-image: linear-gradient(122deg, #f49220 0%, #ffbe56 100%);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  border: 0;
+}
+
+.btn-warning:hover,
+.btn-warning:focus,
+.btn-warning:active,
+.btn-warning:not([disabled]):not(.disabled).active,
+.btn-warning:not([disabled]):not(.disabled):active,
+.show > .btn-warning.dropdown-toggle {
+  background-image: linear-gradient(122deg, #e07f1b 0%, #fbaa33 100%);
+  box-shadow: 0px 8px 13px 0px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.btn-danger {
+  color: #fff;
+  border-radius: 3px;
+  background-image: linear-gradient(122deg, #b91616 0%, #f16e57 100%);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  border: 0;
+}
+
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active,
+.btn-danger:not([disabled]):not(.disabled).active,
+.btn-danger:not([disabled]):not(.disabled):active,
+.show > .btn-danger.dropdown-toggle {
+  background-image: linear-gradient(122deg, rgb(138, 27, 15) 0%, #ce4c3d 100%);
+  box-shadow: 0px 8px 13px 0px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
