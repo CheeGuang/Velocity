@@ -25,7 +25,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <title>Shoe Finder Quiz</title>
+    <title>Checkout Delivery</title>
 
     <!-- Linking CSS -->
     <link rel="stylesheet" href="css/normalize.css" />
@@ -50,28 +50,35 @@
     <header>
       <div id="navbar-container"></div>
     </header>
-
     <div class="row" style="height: 100px"></div>
 
-    <section id="message" class="col-10 mx-auto">
-      <h1 class="mb-5">Velocity Shoe Finder Quiz</h1>
-      <p>
-        Having difficulties deciding from our vast selection of shoes?
-        <br /><br />
-        Fret not, we feel you. To make sure you never go through the same
-        torment, here&#39;s help sent.
-        <br /><br />
-        Your welcome.
-      </p>
-    </section>
+    <section id="resultsPage" class="col-10 mx-auto">
+      <section id="conclusionText" class="col-6 mx-auto">
+        <p>
+          Congratulations! <br /><br />
+          You've completed the Shoe Finder Quiz. <br /><br />
+          Based on your preferences, we reccommend you get the
+          <b>Ultra Boost 200</b>
+        </p>
+      </section>
 
-    <div class="btnSect col-10 mx-auto">
-      <a href="shoeFinderQuizQ1.html"
-        ><button id="startBtn" type="button" class="btn btn-outline-secondary">
-          <p>Let's Go</p>
-        </button></a
-      >
-    </div>
+      <section id="reccShoe" class="col-6 mx-auto">
+        <div id="shoeSummary" class="col-6 mx-auto">
+          <img src="images/ShoePictureF/shoe1-1.jpeg" alt="" />
+          <h2 class="mt-4">Ultra Boost 200</h2>
+
+          <a href="productDetail.html"
+            ><button
+              id="redirectProductPageBtn"
+              type="button"
+              class="btn btn-outline-secondary mt-4"
+            >
+              <p>Buy Now</p>
+            </button></a
+          >
+        </div>
+      </section>
+    </section>
 
     <footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
       <div

@@ -4,13 +4,53 @@
   align-items: center;
 }
 
+#startBtn,
 .option .btn {
-  width: 70px;
   color: var(--font-color);
 }
 
-.option .btn:hover {
+.option .btn {
+  width: 70px;
+}
+
+#startBtn:hover,
+.btn:hover {
   color: var(--body-color);
   background-color: var(--font-color);
   box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.3);
+}
+
+#progressBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.progressCircle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #b0b0b0;
+}
+
+.active.progressCircle {
+  width: 20px;
+  height: 20px;
+  background-color: var(--font-color);
+}
+
+#shoeSummary img {
+  width: 300px;
+  aspect-ratio: 1/1;
+}
+
+#resultsPage {
+  display: flex;
+  flex-direction: row;
+}
+
+#conclusionText {
+  display: flex;
+  align-items: center;
 }
