@@ -6,7 +6,7 @@ $(document).ready(function () {
       `${customerData["firstName"]} ${customerData["lastName"]}`
     );
     $("#email").text(customerData["email"]);
-    $("#pointTrackingSection-points").text(customerData["points"]);
+    $("#pointTrackingSection-points").text(`${customerData["points"]} Points`);
     $("#rebateAmt").text(`S$${(customerData["points"] / 100).toFixed(2)}`);
     $("#personal-name").text(
       `${customerData["firstName"]} ${customerData["lastName"]}`
