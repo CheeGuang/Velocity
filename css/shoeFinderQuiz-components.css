@@ -48,6 +48,8 @@
 #resultsPage {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 0;
 }
 
 #conclusionText {
