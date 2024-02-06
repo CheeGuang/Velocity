@@ -48,11 +48,6 @@
   color: #ff6d00;
 }
 
-#editIcon {
-  cursor: pointer;
-  color: #ff6d00;
-}
-
 .personalInfoContainer {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
