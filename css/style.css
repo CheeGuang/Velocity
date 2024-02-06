@@ -33,12 +33,12 @@ h2 {
 }
 
 h3 {
-  font-size: clamp(12px, 1.5vw, 32px);
+  font-size: clamp(16px, 1.5vw, 32px);
 }
 
 h4,
 p {
-  font-size: clamp(10px, 1.3vw, 30px);
+  font-size: clamp(15px, 1.3vw, 30px);
 }
 
 p {

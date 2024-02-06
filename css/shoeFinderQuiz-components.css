@@ -1,0 +1,15 @@
+.option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.option .btn {
+  width: 70px;
+  color: var(--font-color);
+}
+
+.option .btn:hover {
+  color: var(--body-color);
+  background-color: var(--font-color);
+}
