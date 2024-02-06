@@ -25,6 +25,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <title>Checkout Delivery</title>
 
     <!-- Linking CSS -->
@@ -38,11 +40,11 @@
     <!-- Linking JS -->
     <script src="js/script.js" defer></script>
     <script src="js/navbarFooter.js" defer></script>
+    <script src="js/shoeFinderQuiz.js" defer></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       defer
     ></script>
-
     <!-- Add a favicon to the tab bar -->
     <link rel="icon" type="image/x-icon" href="images/Logo/Logo-short.png" />
   </head>
@@ -62,7 +64,7 @@
     <section class="questionSection col-10 mx-auto">
       <h2 class="mb-5">Where do you spend the most time with your shoes?</h2>
       <div id="" class="option mb-3">
-        <a href="shoeFinderQuizQ2.html"
+        <a
           ><button
             id="walkingOption"
             type="button"
@@ -74,28 +76,28 @@
         <p class="ms-4">Indoors or light walking</p>
       </div>
       <div id="optionBarea" class="option mb-3">
-        <a href="shoeFinderQuizQ2.html">
+        <a>
           <button
-            id="runningOption"
+            id="outdoorOption"
             type="button"
             class="btn btn-outline-secondary"
           >
             B
           </button>
         </a>
-        <p class="ms-4">For a lot of running</p>
+        <p class="ms-4">Mainly outdoors or a lot of walking</p>
       </div>
       <div id="optionCarea" class="option mb-3">
-        <a href="shoeFinderQuizQ2.html">
+        <a>
           <button
-            id="walkingOption"
+            id="runningOption"
             type="button"
             class="btn btn-outline-secondary"
           >
             C
           </button>
         </a>
-        <p class="ms-4">Mainly outdoors or a lot of walking</p>
+        <p class="ms-4">For a lot of running</p>
       </div>
     </section>
     <footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">

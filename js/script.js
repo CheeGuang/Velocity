@@ -17,3 +17,12 @@ function redirectToSignIn(event) {
   // Redirect to the product detail page with the query parameters
   window.location.href = redirectUrl;
 }
+
+// Redirect User to Products Page with filter
+function redirectToProductWithFilter(filterOptions) {
+  // Encode filter options into a query string
+  var queryString = $.param({ filters: filterOptions }, true);
+
+  // Redirect to productPage.html with the encoded query string
+  window.location.href = "productPage.html?" + queryString;
+}

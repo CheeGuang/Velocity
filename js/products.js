@@ -22,6 +22,7 @@ const FILTERDICTIONARY = {
 };
 const PRODUCTDATAJSON = JSON.parse(localStorage.getItem("productData"));
 const decodedProduct = retrieveAndDecodeProductParam();
+const filters = retrieveAndOrganizeFilterParams("filters"); // Adjust the parameter name as needed
 
 if (
   window.location.pathname == "/productPage.html" ||
@@ -51,6 +52,14 @@ if (
           insertProductHTML(PRODUCTDATAJSON[i]);
           continue;
         }
+      }
+    }
+  } else if (filters) {
+    // Display filters in the document only if they exist
+    for (let i = 0; i < PRODUCTDATAJSON.length; i++) {
+      console.log(validateShoe(filters, PRODUCTDATAJSON[i]));
+      if (validateShoe(filters, PRODUCTDATAJSON[i])) {
+        insertProductHTML(PRODUCTDATAJSON[i]);
       }
     }
   } else {
@@ -252,6 +261,7 @@ $(document).ready(function () {
 });
 
 function validateShoe(selectedFilter, shoeObjToValidate) {
+  console.log(selectedFilter);
   // Helper function to check if shoe attribute matches any of the selected filters
   function isMatch(attribute, filter) {
     // No filter selected means skip this filter
@@ -300,4 +310,50 @@ function validateShoe(selectedFilter, shoeObjToValidate) {
 
   // Determine if the shoe passes all active filters
   return genderMatch && typeMatch && priceMatchResult && colorMatch;
+}
+function retrieveAndOrganizeFilterParams() {
+  const urlParams = new URLSearchParams(window.location.search);
+  let filters = {
+    gender: [],
+    color: [],
+    price: [],
+    type: [],
+  };
+
+  // Define the known values for each category
+  const knownValues = {
+    color: [
+      "Black",
+      "White",
+      "Red",
+      "Blue",
+      "Orange",
+      "Grey",
+      "Green",
+      "Yellow",
+      "Brown",
+    ],
+    gender: ["M", "F"],
+    price: ["Under S$50", "S$50 - S$100", "S$101 - S$199", "Over S$200"],
+    type: ["walking shoe", "sportswear", "sneakers"],
+  };
+
+  if (urlParams.has("filters")) {
+    for (let value of urlParams.getAll("filters")) {
+      let decodedValue = decodeURIComponent(value);
+
+      // Check and categorize each filter based on the known values
+      if (knownValues.gender.includes(decodedValue)) {
+        filters.gender.push(decodedValue);
+      } else if (knownValues.color.includes(decodedValue)) {
+        filters.color.push(decodedValue);
+      } else if (knownValues.price.includes(decodedValue)) {
+        filters.price.push(decodedValue);
+      } else if (knownValues.type.includes(decodedValue)) {
+        filters.type.push(decodedValue);
+      }
+    }
+  }
+
+  return filters;
 }

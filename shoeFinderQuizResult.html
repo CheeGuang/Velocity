@@ -4,80 +4,91 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Bootstrap Link -->
+    <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
+      defer
     />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/4f6d96e165.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+      defer
+    />
+
+    <!-- Custom CSS Links -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/shoeFinderQuiz-components.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/shoeFinderQuiz.js"></script>
+
+    <!-- Bootstrap JS with Popper.js -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
       defer
     ></script>
-    <script
-      src="https://kit.fontawesome.com/4f6d96e165.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <title>Checkout Delivery</title>
 
-    <!-- Linking CSS -->
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="css/navbar.css" />
-    <link rel="stylesheet" href="css/footer.css" />
-    <link rel="stylesheet" href="css/shoeFinderQuiz-components.css" />
-
-    <!-- Linking JS -->
+    <!-- Custom JS Scripts -->
     <script src="js/script.js" defer></script>
     <script src="js/navbarFooter.js" defer></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      defer
-    ></script>
 
-    <!-- Add a favicon to the tab bar -->
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/Logo/Logo-short.png" />
+
+    <title>Checkout Delivery</title>
   </head>
   <body>
     <header>
       <div id="navbar-container"></div>
     </header>
+
     <div class="row" style="height: 100px"></div>
 
-    <section id="resultsPage" class="col-sm-10 col-12 mx-auto">
-      <section id="conclusionText" class="col-sm-6 col-10 mx-auto">
-        <p>
-          Congratulations! <br /><br />
-          You've completed the Shoe Finder Quiz. <br /><br />
-          Based on your preferences, we reccommend you get the
-          <b>Ultra Boost 200</b>
-        </p>
-      </section>
+    <section id="resultsPage" class="container d-flex justify-content-center">
+      <div class="row justify-content-center">
+        <section
+          id="conclusionText"
+          class="col-12 col-md-6 text-center text-md-start"
+        >
+          <p>
+            Congratulations! <br /><br />
+            You've completed the Shoe Finder Quiz. <br /><br />
+            Based on your preferences, we recommend you get the
+            <b class="result-text">Result Shoe</b>
+          </p>
+        </section>
 
-      <section id="reccShoe" class="col-sm-6 col-12 mx-auto">
-        <div id="shoeSummary" class="col-6 mx-auto">
-          <img src="images/ShoePictureF/shoe1-1.jpeg" alt="" />
-          <h2 class="mt-4">Ultra Boost 200</h2>
-
-          <a href="productDetail.html"
-            ><button
-              id="redirectProductPageBtn"
-              type="button"
-              class="btn btn-outline-secondary mt-4"
+        <section
+          id="reccShoe"
+          class="col-10 col-md-6 d-flex justify-content-center"
+        >
+          <div id="shoeSummary" class="text-center">
+            <img id="result-image" src="" alt="Result" class="img-fluid" />
+            <h2 class="mt-4 result-text">Result Shoe</h2>
+            <a href="productDetail.html" class="btn btn-outline-secondary mt-4"
+              >Buy Now</a
             >
-              <p>Buy Now</p>
-            </button></a
-          >
-        </div>
-      </section>
+          </div>
+        </section>
+      </div>
     </section>
 
     <footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
@@ -86,5 +97,12 @@
         class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"
       ></div>
     </footer>
+
+    <!-- Responsive adjustments for the script if necessary -->
+    <script>
+      $(document).ready(function () {
+        // Any specific responsive adjustments can be scripted here
+      });
+    </script>
   </body>
 </html>
