@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap Link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/4f6d96e165.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Checkout Delivery</title>
+
+    <!-- Linking CSS -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/account-components.css" />
+
+    <!-- Linking JS -->
+    <script src="js/script.js" defer></script>
+    <script src="js/navbarFooter.js" defer></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      defer
+    ></script>
+
+    <!-- Add a favicon to the tab bar -->
+    <link rel="icon" type="image/x-icon" href="images/Logo/Logo-short.png" />
+  </head>
+  <body>
+    <header>
+      <div id="navbar-container"></div>
+    </header>
+
+    <section id="profile" class="col-10 mx-auto">
+      <img id="avatar" class="me-5" src="images/LoginIconLight.png" />
+      <div class="description">
+        <div id="username" class="mb-2">Evlorasin</div>
+        <div id="email">evlorasin@gmail.com</div>
+      </div>
+    </section>
+
+    <div id="personalInfoHeader" class="col-10 mb-5 mx-auto">
+      <h3>
+        Personal information <i id="editIcon" class="far fa-edit ms-3"></i>
+      </h3>
+      <p class="mt-3">
+        Manage your personal information, including phone numbers and email
+        address where you can be contacted
+      </p>
+    </div>
+
+    <section class="personalInfoContainer col-10">
+      <div class="infoContainer card">
+        <div class="card-body">
+          <div class="header">
+            <h5 class="card-title">Name</h5>
+            <i class="far fa-user-circle"></i>
+          </div>
+
+          <p class="card-text text-muted mt-3">Evlorasin</p>
+        </div>
+      </div>
+
+      <div class="infoContainer card">
+        <div class="card-body">
+          <div class="header">
+            <h5 class="card-title">Date Of Birth</h5>
+            <i class="far fa-calendar-alt"></i>
+          </div>
+
+          <p class="card-text text-muted mt-3">04 September 1990</p>
+        </div>
+      </div>
+
+      <div class="infoContainer card">
+        <div class="card-body">
+          <div class="header">
+            <h5 class="card-title">Country Region</h5>
+            <i class="fas fa-globe"></i>
+          </div>
+
+          <p class="card-text text-muted mt-3">Singapore</p>
+        </div>
+      </div>
+
+      <div class="infoContainer card">
+        <div class="card-body">
+          <div class="header">
+            <h5 class="card-title">Language</h5>
+            <i class="fas fa-language"></i>
+          </div>
+
+          <p class="card-text text-muted mt-3">English (UK) - English</p>
+        </div>
+      </div>
+
+      <div class="infoContainer card">
+        <div class="card-body">
+          <div class="header">
+            <h5 class="card-title">Contactable at</h5>
+            <i class="far fa-comments"></i>
+          </div>
+
+          <p class="card-text text-muted mt-3">evlorasin@gmail.com</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
+      <div
+        id="footer"
+        class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"
+      ></div>
+    </footer>
+  </body>
+</html>
