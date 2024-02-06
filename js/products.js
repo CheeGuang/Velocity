@@ -55,41 +55,53 @@ function getProductsData() {
 }
 
 function insertProductHTML(productData) {
+  let gender = "Women's";
+  if (productData["gender"] == "M") {
+    gender = "Men's";
+  }
+
   // Create a new HTML element, for example, a div
-  var newElement = document.createElement("div");
+  let newElement = document.createElement("div");
   newElement.style.display = "flex";
   newElement.style.alignItems = "center";
-  newElement.className = "card-flip";
-  // Add content to the new element
-  newElement.innerHTML = `
-  <div class="content">
-    <div class="front">
-       <a class="card front" href="#" onClick="redirectToProductDetail(event)">
-        <div class="card-body">
-            <div class="itemSummary">
-                <h2 class="card-title" style="height:75px">${
-                  productData["name"]
-                }</h2>
-                <p class="card-text">SGD$ ${productData["price"]}</p>
-            </div>
-            <img src="../images/ShoePicture${
-              productData["gender"]
-            }/${productData["imagePath"].split(",")[0].trim()}" alt="..." />
-        </div>
-      </a>
-    </div>
-    <div class="back">
-    <h2 class="card-title" style="height:75px">${productData["name"]}</h2>
-    <p class="card-text">${productData["price"]}</p>
-    <p class="card-text">${productData["type"]}</p>
-    <p class="card-text">${productData["color"]}</p>
-    <p class="card-text">${productData["gender"]}</p>
-    </div>
-  </div>
-`;
-  // onclick="addToCart()"
+  newElement.className = "card";
+
+  let redirectLink = document.createElement("a");
+  redirectLink.setAttribute("href", "#");
+  redirectLink.setAttribute("onclick", "redirectToProductDetail(event)");
+
+  let content = document.createElement("div");
+  content.className = "content";
+
+  let image = document.createElement("div");
+  image.className = "image mb-4";
+
+  let title = document.createElement("div");
+  title.className = "card-title mb-2";
+
+  let shoeDesc = document.createElement("div");
+  shoeDesc.className = "card-text mb-4 text-muted";
+
+  let price = document.createElement("div");
+  price.className = "card-text price";
+
+  redirectLink.appendChild(image);
+  redirectLink.appendChild(title);
+  redirectLink.appendChild(shoeDesc);
+  redirectLink.appendChild(price);
+  content.appendChild(redirectLink);
+  newElement.appendChild(content);
+
+  // Add the data into the divs
+  image.innerHTML = `<img src="../images/ShoePicture${
+    productData["gender"]
+  }/${productData["imagePath"].split(",")[0].trim()}" alt="..." />`;
+  title.innerHTML = `${productData["name"]}`;
+  shoeDesc.innerHTML = `${gender} ${productData["type"]}`;
+  price.innerHTML = `SGD $${productData["price"]}`;
+
   // Find the section element with the id "productListing"
-  var productListing = document.getElementById("productListing");
+  let productListing = document.getElementById("productListing");
 
   // Append the new element as a child to the section
   productListing.appendChild(newElement);

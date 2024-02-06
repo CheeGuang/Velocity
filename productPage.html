@@ -37,11 +37,11 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/productCard-component.css" />
+    <link rel="stylesheet" href="css/filter-components.css" />
 
     <!-- Linking JS -->
     <script src="js/script.js" defer></script>
     <script src="js/navbarFooter.js" defer></script>
-    <script src="js/productCardGlow.js" defer></script>
     <script src="js/products.js" defer></script>
     <script src="js/productDetail.js" defer></script>
     <script src="js/cart.js" defer></script>
@@ -54,24 +54,279 @@
       <div id="navbar-container"></div>
     </header>
 
-    <div class="banner">
-      <div class="container">
-        <div class="row">
-          <div class="details">
-            <h1 class="fw-bold display-4">Coding Yaar</h1>
-            <p>
-              You don't need to read this. Now that you hav decided to read it
-              anyways, its just some random dummy text to fill up the space for
-              Bootstrap banner or hero section.
-            </p>
-            <a href="#" class="btn btn-light"> Learn More</a>
+    <section id="banner">
+      <div class="landingBanner">
+        <img src="images/miscellaneous/misc5.jpg" alt="" class="darken-img" />
+      </div>
+
+      <div class="Title">
+        <h1>PICK THE PERFECT PAIR</h1>
+      </div>
+    </section>
+
+    <!-- Filter UI Function -->
+    <section
+      class="d-flex justify-content-end"
+      style="width: 100%; max-width: 1400px"
+    >
+      <button
+        class="btn mt-3"
+        id="filterBtn"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#filterOptions"
+        aria-controls="offcanvasWithBothOptions"
+      >
+        <img
+          id="filterIcon"
+          class="me-3"
+          src="images/filter.png"
+          alt=""
+        />Filter
+      </button>
+
+      <!-- Content -->
+      <div
+        class="offcanvas offcanvas-start"
+        data-bs-scroll="true"
+        tabindex="-1"
+        id="filterOptions"
+        aria-labelledby="offcanvasWithBothOptionsLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+            Shoes
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="col-10 offcanvas-body" style="margin: auto">
+          <!-- Checkboxes for Gender Filter -->
+          <h3 class="mb-4">Gender</h3>
+
+          <div class="mb-2 form-check">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="menFilter"
+            />
+            <label class="form-check-label" for="menFilter"> Men </label>
           </div>
-          <div class="col-sm-6 order-1 order-sm-2">
-            <img src="images/walkingDemo.jpg" class="img-fluid" alt="" />
+          <div class="form-check">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="womenFilter"
+            />
+            <label class="form-check-label" for="womenFilter"> Women </label>
+          </div>
+          <!-- Checkboxes for Gender Filter -->
+
+          <div class="seperator mt-3 mb-4"></div>
+
+          <!-- Checkboxes for Type Filter -->
+          <h3 class="mb-4">Type</h3>
+
+          <div class="mb-2 form-check">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="walkingFilter"
+            />
+            <label class="form-check-label" for="walkingFilter">
+              Walking
+            </label>
+          </div>
+          <div class="mb-2 form-check">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="sportswearFilter"
+            />
+            <label class="form-check-label" for="sportswearFilter">
+              Sportswear
+            </label>
+          </div>
+          <div class="mb-2 form-check">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="sneakerFilter"
+            />
+            <label class="form-check-label" for="sneakerFilter">
+              Sneaker
+            </label>
+          </div>
+          <!-- Checkboxes for Type Filter -->
+          <div class="seperator mt-3 mb-5"></div>
+
+          <!-- Checkboxes for Price Filter -->
+          <h3 class="mb-4">Price</h3>
+
+          <div class="mb-2 form-check">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="underFifty"
+            />
+            <label class="form-check-label" for="underFifty">
+              Under S$50
+            </label>
+          </div>
+          <div class="mb-2 form-check">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="underHundred"
+            />
+            <label class="form-check-label" for="underHundred">
+              S$50 - S$100
+            </label>
+          </div>
+          <div class="mb-2 form-check">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="undertwoHundred"
+            />
+            <label class="form-check-label" for="undertwoHundred">
+              S$101 - S$199
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="overtwoHundred"
+            />
+            <label class="form-check-label" for="overtwoHundred">
+              Over S$200
+            </label>
+          </div>
+          <!-- Checkboxes for Price Filter -->
+
+          <div class="seperator mt-3 mb-5"></div>
+
+          <!-- Color Filter -->
+          <h3 class="mb-4">Color</h3>
+
+          <div class="mb-2 form-check">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="Black"
+            />
+            <label class="form-check-label" for="Black"> Black </label>
+          </div>
+          <div class="mb-2 form-check">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="White"
+            />
+            <label class="form-check-label" for="White"> White </label>
+          </div>
+          <div class="mb-2 form-check">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="Red"
+            />
+            <label class="form-check-label" for="Red"> Red </label>
+          </div>
+          <div class="mb-2 form-check">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="Blue"
+            />
+            <label class="form-check-label" for="Blue"> Blue </label>
+          </div>
+          <div class="mb-2 form-check">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="Orange"
+            />
+            <label class="form-check-label" for="Orange"> Orange </label>
+          </div>
+          <div class="mb-2 form-check">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="Grey"
+            />
+            <label class="form-check-label" for="Grey"> Grey </label>
+          </div>
+
+          <div class="mb-2 form-check">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="Green"
+            />
+            <label class="form-check-label" for="Green"> Green </label>
+          </div>
+          <div class="mb-2 form-check">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="Purple"
+            />
+            <label class="form-check-label" for="Purple"> Purple </label>
+          </div>
+          <div class="mb-2 form-check">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="Yellow"
+            />
+            <label class="form-check-label" for="Yellow"> Yellow </label>
+          </div>
+          <div class="mb-2 form-check">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="Cyan"
+            />
+            <label class="form-check-label" for="Cyan"> Cyan </label>
+          </div>
+          <div class="mb-2 form-check">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="Brown"
+            />
+            <label class="form-check-label" for="Brown"> Brown </label>
           </div>
         </div>
+        <!-- End of pop up body -->
       </div>
-    </div>
+    </section>
 
     <section id="productListing">
       <!-- Coded in JS -->

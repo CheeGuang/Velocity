@@ -34,6 +34,7 @@
 
     <link rel="stylesheet" href="css/productDetails-components.css" />
     <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/footer.css" />
 
     <!-- Linking JS -->
     <script src="js/script.js" defer></script>
@@ -46,100 +47,231 @@
     ></script>
     <link rel="icon" type="image/x-icon" href="images/Logo/Logo-short.png" />
   </head>
-  <body style="background-color: #c4c4c4">
+  <body>
     <header>
       <div id="navbar-container"></div>
     </header>
-    <div class="container" style="height: 90vh; padding-top: 130px; width: 100vw;">
-      <div class="row d-flex justify-content-center" style="height: 70vh">
-        <div class="col-md-2" style="height: 100%">
+
+    <section
+      class="row d-flex justify-content-center"
+      style="margin-top: 100px"
+      id="productshowcase"
+    >
+      <div class="col-5" style="height: 100%; padding: 0; max-width: 100%">
+        <!-- Column 2 Content -->
+        <div style="height: 90%">
+          <img
+            id="main-product-image"
+            src=""
+            alt="Shoe Image 1"
+            class="img-fluid"
+            style="height: 100%"
+          />
+        </div>
+      </div>
+      <div class="col-4" style="height: 100%; padding: 0; max-width: 100%">
+        <!-- Column 3 Content -->
+        <div
+          class="p-3"
+          style="
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-bottom: 0 !important;
+          "
+        >
+          <!-- Progress bars for comfort, speed, and quality -->
+          <div class="row mb-2 stats-row">
+            <div class="col">
+              <h3>Comfort</h3>
+              <div class="progress">
+                <div
+                  id="comfort"
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 30%"
+                  aria-valuenow="3"
+                  aria-valuemin="0"
+                  aria-valuemax="10"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-2 stats-row">
+            <div class="col">
+              <h3>Speed</h3>
+              <div class="progress">
+                <div
+                  id="speed"
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 70%"
+                  aria-valuenow="7"
+                  aria-valuemin="0"
+                  aria-valuemax="10"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="row stats-row">
+            <div class="col">
+              <h3>Quality</h3>
+              <div class="progress">
+                <div
+                  id="quality"
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 50%"
+                  aria-valuenow="5"
+                  aria-valuemin="0"
+                  aria-valuemax="10"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" style="width: 100vw">
+      <div class="row d-flex col-11" style="margin: auto">
+        <div style="height: 100%; padding: 0; max-width: 100%">
           <!-- Column 1 Content -->
-          <div id="product-images"class="bg-primary p-3" style="height: 90%">
-            <img id="product-image1" src="" alt="Shoe Image 1"class="row clickable-image active" style="height: 25%"></img>
-            <img id="product-image2" src="" alt="Shoe Image 2"class="row clickable-image" style="height: 25%"></img>
-            <img id="product-image3" src="" alt="Shoe Image 3"class="row clickable-image" style="height: 25%"></img>
-            <img id="product-image4" src="" alt="Shoe Image 4"class="row clickable-image" style="height: 25%"></img>
+          <div id="product-images">
+            <img
+              id="product-image1"
+              src=""
+              alt="Shoe Image 1"
+              class="img-fluid mb-2 clickable-image active"
+            />
+            <img
+              id="product-image2"
+              src=""
+              alt="Shoe Image 2"
+              class="img-fluid mb-2 clickable-image"
+            />
+            <img
+              id="product-image3"
+              src=""
+              alt="Shoe Image 3"
+              class="img-fluid mb-2 clickable-image"
+            />
+            <img
+              id="product-image4"
+              src=""
+              alt="Shoe Image 4"
+              class="img-fluid mb-2 clickable-image"
+              style="background-color: white"
+            />
           </div>
         </div>
-        <div class="col-md-5" style="height: 100%">
-          <!-- Column 2 Content -->
-          <div class="bg-secondary p-3" style="height: 90%"><img id="main-product-image"src="" alt="Shoe Image 1"class="row" style="height: 100%"></img></div>
+      </div>
+    </section>
+
+    <div class="container prodDetailBody">
+      <div
+        class="row d-flex justify-content-center prodTitle align-items-start"
+      >
+        <div class="col-10">
+          <h2 id="product-name">Product Name</h2>
+          <p id="product-price" class="mt-3">Price</p>
         </div>
-        <div class="col-md-2" style="height: 100%">
-          <!-- Column 3 Content -->
-          <div class="bg-info p-3" style="height: 90%">
-            <!-- First row -->
-            <div class="row mb-4 stats-row">
-              <div class="col">
-                  <div class="progress">
-                      <div id="comfort" class="progress-bar" role="progressbar" style="width: 30%;" aria-valuenow="3" aria-valuemin="0" aria-valuemax="10">3/10</div>
-                  </div>
-              </div>
+      </div>
+      <div
+        class="row col-12 mb-5 d-flex justify-content-center align-items-start"
+      >
+        <div class="col-11" style="margin: auto">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                id="sizing-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#sizing"
+                type="button"
+                role="tab"
+                aria-controls="sizing"
+                aria-selected="true"
+              >
+                Sizing
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="product-info-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#product-info"
+                type="button"
+                role="tab"
+                aria-controls="product-info"
+                aria-selected="false"
+              >
+                Information
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="product-about-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#product-about"
+                type="button"
+                role="tab"
+                aria-controls="product-about"
+                aria-selected="false"
+              >
+                About
+              </button>
+            </li>
+          </ul>
+          <div class="tab-content d-flex flex-grow-1" id="myTabContent">
+            <div
+              class="tab-pane fade show active mt-4"
+              id="sizing"
+              role="tabpanel"
+              aria-labelledby="sizing-tab"
+            >
+              <!-- Available sizes to be inserted -->
             </div>
-
-            <!-- Second row -->
-            <div class="row mb-4 stats-row">
-              <div class="col">
-                  <div class="progress">
-                      <div id="speed" class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="7" aria-valuemin="0" aria-valuemax="10">7/10</div>
-                  </div>
-              </div>
+            <div
+              class="tab-pane fade mt-4"
+              id="product-info"
+              role="tabpanel"
+              aria-labelledby="product-info-tab"
+            >
+              <!-- Product information content -->
             </div>
-
-            <!-- Third row -->
-            <div class="row stats-row">
-              <div class="col">
-                  <div class="progress">
-                      <div id="quality" class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="5" aria-valuemin="0" aria-valuemax="10">5/10</div>
-                  </div>
-              </div>
+            <div
+              class="tab-pane fade mt-4"
+              id="product-about"
+              role="tabpanel"
+              aria-labelledby="product-about-tab"
+            >
+              <!-- Product about content -->
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="container" style="height: 100vh; width: 100vw; background-color: #f5f5f4; border-radius:40px; padding: 100px">
-      <div class="row d-flex align-items-start">
-        <div class="col-12">
-            <h2 id="product-name">Product Name</h2>
-            <p id="product-price">Price</p>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-12">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="sizing-tab" data-bs-toggle="tab" data-bs-target="#sizing" type="button" role="tab" aria-controls="sizing" aria-selected="true">Sizing</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="product-info-tab" data-bs-toggle="tab" data-bs-target="#product-info" type="button" role="tab" aria-controls="product-info" aria-selected="false">Product Information</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="product-about-tab" data-bs-toggle="tab" data-bs-target="#product-about" type="button" role="tab" aria-controls="product-about" aria-selected="false">Product About</button>
-                </li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="sizing" role="tabpanel" aria-labelledby="sizing-tab">
-                  <!-- Available sizes to be inserted -->
-                </div>
-                <div class="tab-pane fade" id="product-info" role="tabpanel" aria-labelledby="product-info-tab">
-                    <!-- Product information content -->
-                </div>
-                <div class="tab-pane fade" id="product-about" role="tabpanel" aria-labelledby="product-about-tab">
-                    <!-- Product about content -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="add-to-cart"class="row mt-4">
-      <div class="col-md-4">
-          <div id="add-to-cart-button"class="input-group mb-3">
-              <button onclick="addToCart()" class="btn btn-outline-secondary" type="button" id="button-addon2">Add To Cart</button>
+      <div
+        id="add-to-cart"
+        class="row col-10 mt-4 d-flex justify-content-center align-items-start"
+      >
+        <div class="col-12" style="margin: 0; padding: 0">
+          <div id="add-to-cart-button" class="input-group mb-3">
+            <button
+              onclick="addToCart()"
+              class="btn btn-outline-secondary"
+              type="button"
+              id="button-addon2"
+            >
+              Add To Cart
+            </button>
           </div>
+        </div>
       </div>
-    </div>
     </div>
 
     <footer>

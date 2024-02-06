@@ -1,3 +1,7 @@
+.offcanvas-body {
+  overflow: auto;
+}
+
 .form-check-label {
   display: flex;
   flex-direction: row;
