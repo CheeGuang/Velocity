@@ -30,3 +30,7 @@
   position: relative;
   bottom: 3.5px;
 }
+
+.offcanvas {
+  overflow-y: scroll;
+}
