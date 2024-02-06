@@ -38,6 +38,16 @@
   font-weight: 600;
 }
 
+#pointTrackingSection {
+  background-color: #ececec;
+  padding: 3rem;
+  border-radius: 25px;
+}
+
+#rebateAmt {
+  color: #ff6d00;
+}
+
 #editIcon {
   cursor: pointer;
   color: #ff6d00;
@@ -54,10 +64,11 @@
   margin: auto;
 }
 
-#personalInfoHeader h3 {
+h3,
+h4 {
   font-size: 20px;
 }
-#personalInfoHeader p {
+p {
   font-size: 15px;
 }
 
