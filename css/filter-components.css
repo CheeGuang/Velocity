@@ -1,0 +1,32 @@
+#filterIcon {
+  width: 20px;
+  aspect-ratio: 1/1;
+}
+
+#filterBtn {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--font-color);
+}
+
+.seperator {
+  background-color: #ececec;
+  height: 1px;
+  width: 100%;
+}
+
+.form-check-input:checked {
+  background-color: var(--font-color);
+  border-color: var(--font-color);
+}
+
+.form-check {
+  position: relative;
+  display: block;
+}
+
+.form-check-input {
+  vertical-align: middle;
+  position: relative;
+  bottom: 3.5px;
+}
