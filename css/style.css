@@ -105,6 +105,27 @@ img {
   box-shadow: 0 0 3px 0 #4b4b4b;
 }
 
+/* Style for the scrollbar */
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+/* Track (background) */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the track */
+}
+
+/* Handle (thumb) */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the thumb */
+  border-radius: 5px; /* Rounded corners */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the thumb on hover */
+}
+
 @media screen and (min-width: 769px) {
   p {
     font-size: 1.2em;
