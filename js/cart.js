@@ -22,111 +22,55 @@ if (
   displayCart();
 }
 
-// Add to Cart Logic
-function addToCart() {
-  // Get name of Product added
-  let itemName = $("#product-name").text();
-
-  // Adding to cartArray
-  for (let i = 0; i < productData.length; i++) {
-    console.log(productData[i]["name"]);
-    if (itemName == productData[i]["name"]) {
-      var itemJSON = productData[i];
-      var itemExistInCart = false;
-      for (let i = 0; i < cartArray.length; i++) {
-        if (itemName == cartArray[i][0]["name"]) {
-          cartArray[i][1] = cartArray[i][1] + 1;
-          itemExistInCart = true;
-          break;
-        }
-      }
-      if (itemExistInCart == false) {
-        cartArray.push([itemJSON, 1]);
-      }
-
-      if (localStorage.getItem("customersData") != null) {
-        for (
-          let i = 0;
-          i < JSON.parse(localStorage.getItem("customersData").length);
-          i++
-        ) {
-          if (
-            JSON.parse(localStorage.getItem("customerData"))["customerId"] ==
-            JSON.parse(localStorage.getItem("customersData"))[i]["customerId"]
-          ) {
-            localStorage.setItem(
-              "customerRestDBData",
-              JSON.stringify(
-                JSON.parse(localStorage.getItem("customersData"))[i]
-              )
-            );
-            break;
-          }
-        }
-        updateCustomerDataToRestDB();
-      }
-
-      break;
-    }
-  }
-
-  // Pushing cartArray to Local Storage
-  console.log(cartArray);
-  localStorage.setItem("cartData", JSON.stringify(cartArray));
-  console.log(JSON.parse(localStorage.getItem("cartData")));
-  updateOverlayText();
-
-  // Redirect to productPage.html
-  window.location.href = "productPage.html";
-}
-
 function displayCart() {
   var cart = JSON.parse(localStorage.getItem("cartData"));
   var cartProductInfoContent = ``;
   var subtotal = 0;
   var deliveryPrice = 5.9;
   let totalPointsEarned = 0;
-
-  for (let i = 0; i < cart.length; i++) {
-    console.log(cart[0]);
-    // Adding product info
-    let pointsEarned = Math.floor(cart[i][0]["price"]) * cart[i][1];
-    totalPointsEarned += pointsEarned;
-    cartProductInfoContent += `
+  if (cart != null) {
+    for (let i = 0; i < cart.length; i++) {
+      console.log(cart[0]);
+      // Adding product info
+      let pointsEarned = Math.floor(cart[i][0]["price"]) * cart[i][1];
+      totalPointsEarned += pointsEarned;
+      cartProductInfoContent += `
     <div class="card product-card">
     <div class="card-body">
-        <div class="d-flex">
+        <div class="d-flex align-items-start justify-content-start">
             <img src="images/ShoePicture${cart[i][0]["gender"]}/${
-      cart[i][0]["imagePath"].split(",")[0]
-    }" class="product-image" alt="${cart[i][0]["name"]} Image" 
-                 style="max-width: 30%; max-height: 180px; margin-right: 40px; margin-top: -14px; display: block;">
-            <div class="flex-grow-1 mt-4">
+        cart[i][0]["imagePath"].split(",")[0]
+      }" class="product-image" alt="${cart[i][0]["name"]} Image" 
+                 style="max-width: 20%; max-height: 13vw; margin-right: 40px; display: block; border: 2px solid #c5c5c5;">
+            <div class="flex-grow-1">
                 <h3 class="card-title product-name mb-3">${
                   cart[i][0]["name"]
                 }</h3>
                 <p class="card-text">${
                   cart[i][0]["gender"] == "M" ? "Men's" : "Women's"
                 } ${
-      cart[i][0]["type"] == "sportswear"
-        ? "Sports Shoe"
-        : cart[i][0]["type"] == "sneakers"
-        ? "Sneakers"
-        : "Walking Shoe"
-    }</p>
+        cart[i][0]["type"] == "sportswear"
+          ? "Sports Shoe"
+          : cart[i][0]["type"] == "sneakers"
+          ? "Sneakers"
+          : "Walking Shoe"
+      }</p>
                 <p class="card-text">${cart[i][0]["color"]}</p>
                 <div class="d-flex justify-content-between align-items-center" style="width: 10vw">
                     <div class="size-quantity mt-3 d-flex flex-row">
-                        <span class="product-size" style="min-width:8.5vw"><p class="card-text">Size 6.5</p></span>
+                        <span class="product-size" style="min-width:8.5vw"><p class="card-text">Size ${
+                          cart[i][2]
+                        }</p></span>
                         <span style="width:10vw"><p class="card-text">Quantity ${
                           cart[i][1]
                         }</p></span>
                     </div>
                 </div>              
             </div>
-            <div class="d-flex align-items-start mt-4 flex-column mt-3">
-                <div class="price mb-2"><h4>$${cart[i][0]["price"].toFixed(
-                  2
-                )}</h4></div>
+            <div class="d-flex align-items-start flex-column">
+                <div class="price mb-2"><h4>$${(
+                  cart[i][0]["price"] * cart[i][1]
+                ).toFixed(2)}</h4></div>
                 <div class="price"><h4 style="color: #FF6B00;">+${pointsEarned} Points</h4></div>
                 <button class="btn btn-outline-danger mt-4" onclick="removeItemFromCart(this)" 
                         style="padding: 6% 12%; font-size: 1rem;">
@@ -138,10 +82,11 @@ function displayCart() {
 </div>
     `;
 
-    subtotal += cart[i][0]["price"];
+      subtotal += cart[i][0]["price"];
+    }
   }
 
-  if (subtotal == 0) {
+  if (JSON.parse(localStorage.getItem("cartData")) == null) {
     cartProductInfoContent += `<p>Your Bag is Empty. Proceed to shop!</p>`;
   }
   console.log($("#cart-items"));
@@ -329,3 +274,87 @@ function updateCustomerDataToRestDB() {
     console.log(response);
   });
 }
+$(document).ready(function () {
+  // Use event delegation for dynamically added elements
+  $("body").on("click", ".size-btn", function () {
+    // Assuming this toggles a 'selected' class on the size buttons
+    $(".size-btn").removeClass("selected"); // Remove 'selected' class from all buttons
+    $(this).addClass("selected"); // Add 'selected' class to clicked button
+  });
+
+  $("#button-addon2").click(function (event) {
+    event.preventDefault();
+    var selectedSize = $(".size-btn.selected").text(); // Get the text of the selected size button
+    if (selectedSize) {
+      console.log("Selected size:", selectedSize); // Log if a size is selected
+    } else {
+      // No size selected, show the modal
+      var myModal = new bootstrap.Modal(
+        document.getElementById("sizeSelectionModal"),
+        {
+          keyboard: false,
+        }
+      );
+      myModal.show();
+      event.stopPropagation();
+      return;
+    }
+
+    // Get name of Product added
+    let itemName = $("#product-name").text();
+
+    // Adding to cartArray
+    for (let i = 0; i < productData.length; i++) {
+      if (itemName == productData[i]["name"]) {
+        var itemJSON = productData[i];
+        var itemExistInCart = false;
+        for (let i = 0; i < cartArray.length; i++) {
+          if (
+            itemName == cartArray[i][0]["name"] &&
+            selectedSize == cartArray[i][2]
+          ) {
+            cartArray[i][1] = cartArray[i][1] + 1;
+            itemExistInCart = true;
+            break;
+          }
+        }
+        if (itemExistInCart == false) {
+          cartArray.push([itemJSON, 1, selectedSize]);
+        }
+
+        if (localStorage.getItem("customersData") != null) {
+          for (
+            let i = 0;
+            i < JSON.parse(localStorage.getItem("customersData").length);
+            i++
+          ) {
+            if (
+              JSON.parse(localStorage.getItem("customerData"))["customerId"] ==
+              JSON.parse(localStorage.getItem("customersData"))[i]["customerId"]
+            ) {
+              localStorage.setItem(
+                "customerRestDBData",
+                JSON.stringify(
+                  JSON.parse(localStorage.getItem("customersData"))[i]
+                )
+              );
+              break;
+            }
+          }
+          updateCustomerDataToRestDB();
+        }
+
+        break;
+      }
+    }
+
+    // Pushing cartArray to Local Storage
+    console.log(cartArray);
+    localStorage.setItem("cartData", JSON.stringify(cartArray));
+    console.log(JSON.parse(localStorage.getItem("cartData")));
+    updateOverlayText();
+
+    // Redirect to productPage.html
+    window.location.href = "productPage.html";
+  });
+});

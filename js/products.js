@@ -3,23 +3,32 @@ const APIKEY = "65b03b109eb5ba00e57fa24e";
 // If product data does not exist in local storage, get product data from RestDB and store it in local storage
 if (localStorage.getItem("productData") == null) {
   getProductsData();
-} else {
-  console.log(JSON.parse(localStorage.getItem("productData")));
 }
+const FILTERDICTIONARY = {
+  Men: "M",
+  Women: "F",
+  Walking: "walking shoe",
+  Sportswear: "sportswear",
+  Sneaker: "sneakers",
+  Black: "Black",
+  White: "White",
+  Red: "Red",
+  Blue: "Blue",
+  Orange: "Orange",
+  Grey: "Grey",
+  Green: "Green",
+  Yellow: "Yellow",
+  Brown: "Brown",
+};
 const PRODUCTDATAJSON = JSON.parse(localStorage.getItem("productData"));
-console.log(window.location.pathname);
+const decodedProduct = retrieveAndDecodeProductParam();
+
 if (
   window.location.pathname == "/productPage.html" ||
   window.location.pathname == "/productpage"
 ) {
-  console.log("Entered window.location.pathname == /productPage.html");
   if (JSON.parse(localStorage.getItem("searchedImage")) != null) {
     for (let i = 0; i < PRODUCTDATAJSON.length; i++) {
-      console.log("Iterating Shoe " + i);
-      console.log(PRODUCTDATAJSON[i]["type"]);
-      console.log(JSON.parse(localStorage.getItem("searchedImage"))["type"]);
-      console.log(PRODUCTDATAJSON[i]["color"]);
-      console.log(JSON.parse(localStorage.getItem("searchedImage"))["colour"]);
       if (
         PRODUCTDATAJSON[i]["type"] ==
           JSON.parse(localStorage.getItem("searchedImage"))["type"] &&
@@ -30,6 +39,20 @@ if (
       }
     }
     localStorage.removeItem("searchedImage");
+  } else if (decodedProduct != null) {
+    for (let i = 0; i < PRODUCTDATAJSON.length; i++) {
+      if (decodedProduct == "menShoe") {
+        if (PRODUCTDATAJSON[i]["gender"] == "M") {
+          insertProductHTML(PRODUCTDATAJSON[i]);
+          continue;
+        }
+      } else {
+        if (PRODUCTDATAJSON[i]["gender"] == "F") {
+          insertProductHTML(PRODUCTDATAJSON[i]);
+          continue;
+        }
+      }
+    }
   } else {
     for (let i = 0; i < PRODUCTDATAJSON.length; i++) {
       insertProductHTML(PRODUCTDATAJSON[i]);
@@ -55,7 +78,6 @@ function getProductsData() {
   //RESTDb/NoSql always adds in a unique id for each data, we tap on it to have our data and place it into our links
 
   $.ajax(settings).done(function (response) {
-    console.log(response);
     let productDataJSONString = JSON.stringify(response);
     localStorage.setItem("productData", productDataJSONString);
   });
@@ -132,4 +154,150 @@ function redirectToProductDetail(event) {
 
   // Redirect to the product detail page with the query parameters
   window.location.href = redirectUrl;
+}
+
+// Function to get a query parameter by name, with explicit decoding
+function getQueryParam(paramName) {
+  // Use URLSearchParams to parse query parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  // Retrieve the parameter and explicitly decode it
+  const value = urlParams.get(paramName);
+  return value ? decodeURIComponent(value) : null;
+}
+
+// Function to retrieve, decode, and display the product parameter
+function retrieveAndDecodeProductParam() {
+  // Decode the product parameter from the URI
+  const product = getQueryParam("product");
+
+  return product;
+}
+
+$(document).ready(function () {
+  // Listen for any changes on checkboxes within the specified section
+  $("section").on("change", 'input[type="checkbox"]', function () {
+    $("#productListing").empty();
+    // Initialize empty arrays for each category
+    var groups = {
+      gender: [],
+      color: [],
+      price: [],
+      type: [],
+    };
+
+    // Check which checkboxes are checked and categorize them
+    $('input[type="checkbox"]:checked').each(function () {
+      var checkboxId = $(this).attr("id");
+
+      // Categorize based on the checkbox ID
+      if (checkboxId.includes("Filter")) {
+        var category = checkboxId.replace("Filter", "");
+        if (category === "men" || category === "women") {
+          groups.gender.push(
+            FILTERDICTIONARY[
+              `${category.charAt(0).toUpperCase() + category.slice(1)}`
+            ]
+          );
+        } else {
+          groups.type.push(
+            FILTERDICTIONARY[
+              `${category.charAt(0).toUpperCase() + category.slice(1)}`
+            ]
+          );
+        }
+      } else if (
+        checkboxId.startsWith("under") ||
+        checkboxId.startsWith("over")
+      ) {
+        groups.price.push($(this).next("label").text().trim());
+      } else {
+        groups.color.push(
+          FILTERDICTIONARY[`${$(this).next("label").text().trim()}`]
+        );
+      }
+    });
+
+    if (
+      groups.gender.length != 0 ||
+      groups.color.length != 0 ||
+      groups.price.length != 0 ||
+      groups.type.length != 0
+    ) {
+      for (let i = 0; i < PRODUCTDATAJSON.length; i++) {
+        console.log(validateShoe(groups, PRODUCTDATAJSON[i]));
+        if (validateShoe(groups, PRODUCTDATAJSON[i])) {
+          insertProductHTML(PRODUCTDATAJSON[i]);
+        }
+      }
+    } else if (decodedProduct != null) {
+      for (let i = 0; i < PRODUCTDATAJSON.length; i++) {
+        if (decodedProduct == "menShoe") {
+          if (PRODUCTDATAJSON[i]["gender"] == "M") {
+            insertProductHTML(PRODUCTDATAJSON[i]);
+            continue;
+          }
+        } else {
+          if (PRODUCTDATAJSON[i]["gender"] == "F") {
+            insertProductHTML(PRODUCTDATAJSON[i]);
+            continue;
+          }
+        }
+      }
+    } else {
+      for (let i = 0; i < PRODUCTDATAJSON.length; i++) {
+        insertProductHTML(PRODUCTDATAJSON[i]);
+      }
+    }
+  });
+});
+
+function validateShoe(selectedFilter, shoeObjToValidate) {
+  // Helper function to check if shoe attribute matches any of the selected filters
+  function isMatch(attribute, filter) {
+    // No filter selected means skip this filter
+    if (filter.length === 0) {
+      return true;
+    }
+    return filter.includes(attribute);
+  }
+
+  // Special handling for price to interpret ranges correctly
+  function priceMatch(price, priceFilters) {
+    if (priceFilters.length === 0) {
+      return true; // Skip price filter if none selected
+    }
+    return priceFilters.some((filter) => {
+      if (filter.startsWith("Under")) {
+        return price < 50;
+      } else if (filter.startsWith("Over")) {
+        return price > 200;
+      } else {
+        const bounds = filter.match(/\d+/g);
+        const lowerBound = parseInt(bounds[0], 10);
+        const upperBound = parseInt(bounds[1], 10);
+        return price >= lowerBound && price <= upperBound;
+      }
+    });
+  }
+
+  // Convert shoe type and color to match filter format
+  const shoeGender = shoeObjToValidate.gender;
+  const shoeType = shoeObjToValidate.type.toLowerCase();
+  const shoePrice = shoeObjToValidate.price;
+  const shoeColor = shoeObjToValidate.color;
+
+  // Adjusting filter criteria to match the shoe object properties
+  const genderFilters = selectedFilter.gender.map((g) => g);
+  const typeFilters = selectedFilter.type.map((t) => t.toLowerCase());
+  const priceFilters = selectedFilter.price;
+  const colorFilters = selectedFilter.color;
+
+  // Validate against each filter
+  const genderMatch = isMatch(shoeGender, genderFilters);
+  const typeMatch = isMatch(shoeType, typeFilters);
+  const priceMatchResult = priceMatch(shoePrice, priceFilters);
+  const colorMatch = isMatch(shoeColor, colorFilters);
+
+  // Determine if the shoe passes all active filters
+  return genderMatch && typeMatch && priceMatchResult && colorMatch;
 }

@@ -184,3 +184,17 @@ function updateOverlayText() {
     $("#shoppingCart-overlay-text").css("display", "none");
   }
 }
+
+// Function to encode and redirect for men's shoes
+function redirectToMenShoe() {
+  var productName = encodeURIComponent("menShoe");
+  var url = "productPage.html?product=" + productName;
+  window.location.href = url;
+}
+
+// Function to encode and redirect for women's shoes
+function redirectToWomenShoe() {
+  var productName = encodeURIComponent("womenShoe");
+  var url = "productPage.html?product=" + productName;
+  window.location.href = url;
+}
