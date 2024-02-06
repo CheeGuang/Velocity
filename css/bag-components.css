@@ -1,3 +1,8 @@
+.product-image {
+  max-width: 200px !important;
+  max-height: 180px !important;
+}
+
 /* Custom CSS added to product Cards */
 .product-card {
   background-color: #fafafa;
@@ -19,6 +24,10 @@
 .top-pick-product-image {
   width: 220px;
   max-height: 220px;
+}
+
+.card:hover {
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Style the scrollbar for #top-pick-products */
@@ -56,4 +65,85 @@
 .form-check-input:not(:checked):disabled {
   background-color: #f5f5f5 !important;
   opacity: 1; /* Ensures the color change is visible */
+}
+@media screen and (max-width: 1179px) {
+  p {
+    font-size: clamp(10px, 1.3vw, 20px);
+  }
+  .product-image {
+    max-width: 150px !important;
+    max-height: 140px !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  .container {
+    max-width: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .product-image,
+  .top-pick-product-image {
+    max-width: 100px !important;
+    max-height: 90px !important;
+    margin-right: 0px !important;
+  }
+  .product-image {
+    margin-right: 20px !important;
+  }
+  .text-start {
+    max-width: 100px !important;
+  }
+  .card {
+    margin-bottom: 20px !important;
+  }
+  #top-pick-products {
+    height: 200px;
+  }
+  .top-pick-product {
+    height: 150px;
+    width: 100px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .product-image {
+    max-width: 80px !important;
+    max-height: 70px !important;
+    margin-right: 20px !important;
+  }
+  .flex-grow-1 .mb-3 {
+    margin-bottom: 0.4rem !important;
+  }
+  .flex-grow-1 .mt-3 {
+    margin-top: 0.2rem !important;
+  }
+  .card-body {
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+  }
+  .card {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  .top-pick-product-image {
+    max-width: 80px !important;
+    max-height: 70px !important;
+    margin-right: 0px !important;
+  }
+  .text-start {
+    max-width: 100px !important;
+  }
+}
+@media screen and (max-width: 400px) {
+  .card-text {
+    width: 50px;
+  }
+}
+@media screen and (max-width: 385px) {
+  .size-quantity {
+    flex-direction: column !important;
+  }
+  .card-text {
+    margin-bottom: 4px !important;
+  }
 }

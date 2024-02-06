@@ -54,6 +54,9 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-.row {
-  margin: 25;
+@media screen and (max-width: 1179px) {
+  .col-md-12 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
 }
