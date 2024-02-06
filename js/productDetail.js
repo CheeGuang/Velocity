@@ -149,7 +149,7 @@ function updateProductAbout(productObject) {
 function insertAddToCartLogic(productObject) {
   var productAboutContent = "";
   if (productObject["memberReq"]) {
-    if (JSON.parse(localStorage.getItem("customerDate")) == null) {
+    if (JSON.parse(localStorage.getItem("customerData")) == null) {
       productAboutContent = `
       <div class="col-11" style="margin: auto">
       <h3 class="mb-2">Unlock this design</h3>

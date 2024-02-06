@@ -72,7 +72,7 @@ function displayCart() {
                   cart[i][0]["price"] * cart[i][1]
                 ).toFixed(2)}</h4></div>
                 <div class="price"><h4 style="color: #FF6B00;">+${pointsEarned} Points</h4></div>
-                <button class="btn btn-danger mt-4" onclick="removeItemFromCart(this)" 
+                <button class="btn btn-outline-danger mt-4" onclick="removeItemFromCart(this)" 
                         style="padding: 6% 12%; font-size: 1rem;">
                     <p style="margin-bottom: 0;">Remove</p>
                 </button>
@@ -282,12 +282,22 @@ $(document).ready(function () {
     $(this).addClass("selected"); // Add 'selected' class to clicked button
   });
 
-  $("#button-addon2").click(function () {
+  $("#button-addon2").click(function (event) {
+    event.preventDefault();
     var selectedSize = $(".size-btn.selected").text(); // Get the text of the selected size button
     if (selectedSize) {
       console.log("Selected size:", selectedSize); // Log if a size is selected
     } else {
-      console.log("No size selected"); // Log if no size is selected
+      // No size selected, show the modal
+      var myModal = new bootstrap.Modal(
+        document.getElementById("sizeSelectionModal"),
+        {
+          keyboard: false,
+        }
+      );
+      myModal.show();
+      event.stopPropagation();
+      return;
     }
 
     // Get name of Product added
