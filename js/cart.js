@@ -99,7 +99,7 @@ function displayCart() {
             <img src="images/ShoePicture${cart[i][0]["gender"]}/${
       cart[i][0]["imagePath"].split(",")[0]
     }" class="product-image" alt="${cart[i][0]["name"]} Image" 
-                 style="max-width: 30%; max-height: 180px; margin-right: 40px; margin-top: -14px; display: block;">
+                 style="max-width: 30%; max-height: 180px; margin-right: 40px; margin-top: -14px; display: block; border: 2px solid #c5c5c5;">
             <div class="flex-grow-1 mt-4">
                 <h3 class="card-title product-name mb-3">${
                   cart[i][0]["name"]
@@ -124,9 +124,9 @@ function displayCart() {
                 </div>              
             </div>
             <div class="d-flex align-items-start mt-4 flex-column mt-3">
-                <div class="price mb-2"><h4>$${cart[i][0]["price"].toFixed(
-                  2
-                )}</h4></div>
+                <div class="price mb-2"><h4>$${(
+                  cart[i][0]["price"] * cart[i][1]
+                ).toFixed(2)}</h4></div>
                 <div class="price"><h4 style="color: #FF6B00;">+${pointsEarned} Points</h4></div>
                 <button class="btn btn-outline-danger mt-4" onclick="removeItemFromCart(this)" 
                         style="padding: 6% 12%; font-size: 1rem;">
