@@ -6,9 +6,6 @@ $(document).ready(function () {
     document.getElementById(searchInput),
     {
       types: ["geocode"],
-      /*componentRestrictions: {
-   country: "USA"
-  }*/
     }
   );
 

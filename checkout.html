@@ -16,28 +16,38 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <!-- Font Awesome Link -->
     <script
       src="https://kit.fontawesome.com/4f6d96e165.js"
       crossorigin="anonymous"
     ></script>
+    <!-- Google Font Link -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
+    <!-- jQuery Link -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      defer
+    ></script>
     <title>Checkout</title>
 
     <!-- Linking CSS -->
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/progressBars.css" />
     <link rel="stylesheet" href="css/orderSummary.css" />
     <link rel="stylesheet" href="css/checkout-components.css" />
+    <link rel="stylesheet" href="css/bag-components.css" />
 
     <!-- Linking JS -->
     <script src="js/script.js" defer></script>
     <script src="js/navbarFooter.js"></script>
     <script src="js/searchFunction.js"></script>
+    <script src="js/cart.js" defer></script>
     <script src="js/checkout.js" defer></script>
 
     <!-- Add a favicon to the tab bar -->
@@ -96,11 +106,14 @@
           </div>
 
           <div class="container mt-5">
-            <p>Spend $50 more and get free shipping</p>
+            <p id="checkout-freeShippingBar-message">
+              Congratualtions! You are entitled for Free Express Shipping!
+            </p>
 
             <!-- Progress Bar -->
-            <div id="checkout-freeShippingBar-bar" class="progress mt-3">
+            <div class="progress mt-3">
               <div
+                id="checkout-freeShippingBar-bar"
                 class="progress-bar"
                 role="progressbar"
                 style="width: 85%; background-color: #44403c"
@@ -142,7 +155,7 @@
         <div class="line"></div>
       </div>
       <div class="row">
-        <div class="container mb-5 mt-5">Loading Products...</div>
+        <div id="cart-items" class="row mb-5 mt-5">Loading Products...</div>
         <div class="line"></div>
       </div>
       <div class="row">
@@ -190,18 +203,17 @@
         </div>
       </div>
       <div class="row">
-        <button class="btn btn-primary">Pay Now</button>
+        <a href="payment.html">
+          <button class="btn btn-secondary">Pay Now</button>
+        </a>
       </div>
     </div>
 
-    <footer>
-      <div id="footer"></div>
+    <footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
+      <div
+        id="footer"
+        class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"
+      ></div>
     </footer>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
   </body>
 </html>

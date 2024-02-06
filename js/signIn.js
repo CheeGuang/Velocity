@@ -1,8 +1,7 @@
 const APIKEY = "65b03b109eb5ba00e57fa24e";
-
-globalThis.handleCredentialResponse = async (response) => {
-  // decodeJwtResponse() is a custom function defined by you
-  // to decode the credential response.
+let previousPath;
+window.handleCredentialResponse = (response) => {
+  // decodeJwtResponse() is a custom function to decode the encrypted response
   const responsePayload = decodeJwtResponse(response.credential);
 
   // Storing New Google Account Information
@@ -32,7 +31,6 @@ globalThis.handleCredentialResponse = async (response) => {
   localStorage.setItem("customerData", customerJSONString);
 
   if (getCustomersData() == true) {
-    console.log("Hi");
     // Storing Information as a JSON
     let jsondata = {
       customerId: customerId,
@@ -62,6 +60,22 @@ globalThis.handleCredentialResponse = async (response) => {
       console.log(response);
     });
   }
+
+  // If customer has a cart in the database, make this cart his current cart.
+  let customersData = JSON.parse(localStorage.getItem("customersData"));
+  for (let i = 0; i < customersData.length; i++) {
+    if (customerId == customersData[i]["customerId"]) {
+      if (customersData[i]["cart"] != null) {
+        localStorage.setItem(
+          "cartData",
+          JSON.stringify(customersData[i]["cart"])
+        );
+      }
+    }
+  }
+
+  // redirect user back to where he came from
+  window.location.href = previousPath;
 };
 
 function decodeJwtResponse(token) {
@@ -78,11 +92,11 @@ function decodeJwtResponse(token) {
 
   return JSON.parse(jsonPayload);
 }
-// getCustomersData();
+
 function getCustomersData() {
   //[STEP 7]: Create our AJAX settings
   let settings = {
-    async: true,
+    async: false,
     crossDomain: true,
     url: "https://velocity-554e.restdb.io/rest/customer",
     method: "GET", // use GET to retrieve info
@@ -106,11 +120,36 @@ function getCustomersData() {
     localStorage.setItem("customersData", JSON.stringify(response));
     for (var i = 0; i < response.length; i++) {
       if (customerDataJSON["customerId"] == response[i]["customerId"]) {
+        // Assign retrieved customer data to customerData in localStorage
+        for (const key in response[i]) {
+          if (response[i].hasOwnProperty(key)) {
+            // Check to avoid inherited properties
+            console.log(key, response[i][key]);
+            customerDataJSON[key] = response[i][key];
+          }
+        }
+        localStorage.setItem("customerData", JSON.stringify(customerDataJSON));
+        // return customer is Not New
         isNew = false;
-        console.log(isNew);
-
         return isNew;
       }
     }
   });
+}
+
+// Retrieve Previous Path
+// Call the retrieve ProductDetails function when the productDetails.html loads
+window.onload = retrieveProductDetails;
+
+function getQueryParam(previousPath) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(previousPath);
+}
+
+function retrieveProductDetails() {
+  // Get the encoded URI parameters
+  const encodedProductName = getQueryParam("previousPath");
+
+  // Decode the URI parameters
+  previousPath = decodeURIComponent(encodedProductName);
 }

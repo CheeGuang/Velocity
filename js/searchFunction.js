@@ -1,69 +1,18 @@
 // This is for the search bar pop up
+const nav = $("#navbar");
+$(document).ready(function () {
+  $("#navbar-searchIcon").click(function () {
+    nav.toggleClass("openSearch");
 
-const nav = document.querySelector("#navbar"),
-  searchIcon = document.querySelector("#navbar-searchIcon");
-
-searchIcon.addEventListener("click", () => {
-  nav.classList.toggle("openSearch");
-
-  if (nav.classList.contains("openSearch")) {
-    return searchIcon.classList.replace("fa-magnifying-glass", "fa-xmark"); // '.replace' only replaces first match
-  }
-  searchIcon.classList.replace("fa-xmark", "fa-magnifying-glass");
+    if (nav.hasClass("openSearch")) {
+      searchIcon.removeClass("fa-magnifying-glass").addClass("fa-xmark");
+    } else {
+      searchIcon.removeClass("fa-xmark").addClass("fa-magnifying-glass");
+    }
+  });
 });
 
 // This is for autocomplete function
-
-let suggestions = [
-  "Black Shoes",
-  "Black Sneakers",
-  "Black Sports Shoe",
-  "Black Walking Shoe",
-  "Blue Shoes",
-  "Blue Sneakers",
-  "Blue Sports Shoe",
-  "Blue Walking Shoe",
-  "Green Shoes",
-  "Green Sneakers",
-  "Green Sports Shoe",
-  "Green Walking Shoe",
-  "Grey Shoes",
-  "Grey Sneakers",
-  "Grey Sports Shoe",
-  "Grey Walking Shoe",
-  "Member Shoes",
-  "Men",
-  "Newest Releases",
-  "Non-Member Shoes",
-  "Orange Shoes",
-  "Orange Sneakers",
-  "Orange Sports Shoe",
-  "Orange Walking Shoe",
-  "Purple Shoes",
-  "Purple Sneakers",
-  "Purple Sports Shoe",
-  "Purple Walking Shoe",
-  "Red Shoes",
-  "Red Sneakers",
-  "Red Sports Shoe",
-  "Red Walking Shoe",
-  "Running",
-  "Sneakers",
-  "Walking",
-  "White Shoes",
-  "White Sneakers",
-  "White Sports Shoe",
-  "White Walking Shoe",
-  "Women",
-  "Yellow Shoes",
-  "Yellow Sneakers",
-  "Yellow Sports Shoe",
-  "Yellow Walking Shoe",
-];
-
-const searchWrapper = document.querySelector(".search-bar"); //This is to access the entire search bar + autocom-box
-const inputBox = searchWrapper.querySelector("input"); // This is to track user input in search field
-const suggBox = searchWrapper.querySelector(".autocom-box"); //  This is to track the autocomplete box area
 
 // Track if user presses any key and releases them (.onkeyup)
 // Shorthand => is for function(){} calling a function statement

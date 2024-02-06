@@ -7,26 +7,33 @@ if (localStorage.getItem("productData") == null) {
   console.log(JSON.parse(localStorage.getItem("productData")));
 }
 const PRODUCTDATAJSON = JSON.parse(localStorage.getItem("productData"));
-
-if (JSON.parse(localStorage.getItem("searchedImage")) != null) {
-  for (let i = 0; i < PRODUCTDATAJSON.length; i++) {
-    console.log(PRODUCTDATAJSON[i]["type"]);
-    console.log(JSON.parse(localStorage.getItem("searchedImage"))["type"]);
-    console.log(PRODUCTDATAJSON[i]["color"]);
-    console.log(JSON.parse(localStorage.getItem("searchedImage"))["colour"]);
-    if (
-      PRODUCTDATAJSON[i]["type"] ==
-        JSON.parse(localStorage.getItem("searchedImage"))["type"] &&
-      PRODUCTDATAJSON[i]["color"] ==
-        JSON.parse(localStorage.getItem("searchedImage"))["colour"]
-    ) {
+console.log(window.location.pathname);
+if (
+  window.location.pathname == "/productPage.html" ||
+  window.location.pathname == "/productpage"
+) {
+  console.log("Entered window.location.pathname == /productPage.html");
+  if (JSON.parse(localStorage.getItem("searchedImage")) != null) {
+    for (let i = 0; i < PRODUCTDATAJSON.length; i++) {
+      console.log("Iterating Shoe " + i);
+      console.log(PRODUCTDATAJSON[i]["type"]);
+      console.log(JSON.parse(localStorage.getItem("searchedImage"))["type"]);
+      console.log(PRODUCTDATAJSON[i]["color"]);
+      console.log(JSON.parse(localStorage.getItem("searchedImage"))["colour"]);
+      if (
+        PRODUCTDATAJSON[i]["type"] ==
+          JSON.parse(localStorage.getItem("searchedImage"))["type"] &&
+        PRODUCTDATAJSON[i]["color"] ==
+          JSON.parse(localStorage.getItem("searchedImage"))["colour"]
+      ) {
+        insertProductHTML(PRODUCTDATAJSON[i]);
+      }
+    }
+    localStorage.removeItem("searchedImage");
+  } else {
+    for (let i = 0; i < PRODUCTDATAJSON.length; i++) {
       insertProductHTML(PRODUCTDATAJSON[i]);
     }
-  }
-  localStorage.removeItem("searchedImage");
-} else {
-  for (let i = 0; i < PRODUCTDATAJSON.length; i++) {
-    insertProductHTML(PRODUCTDATAJSON[i]);
   }
 }
 

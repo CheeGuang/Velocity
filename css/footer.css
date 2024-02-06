@@ -1,23 +1,30 @@
-.footerContainer h5 {
-  font-weight: 700;
+footer a {
+  color: var(--bs-heading-color);
+  text-decoration: none;
+  font-weight: 400;
 }
 
-.footerContainer a:hover {
-  color: var(--font-color) !important;
+footer a:hover {
+  color: #1a1818;
 }
 
-.footer-para {
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
+footer h5 {
+  font-weight: 500;
+  margin-bottom: 7px;
 }
 
-.row.row-cols-1.row-cols-sm-2.row-cols-md-5.py-5.my-5.border-top {
-  display: flex;
-  align-items: flex-start;
-  max-width: 100%;
-  margin: auto;
+.bd-footer {
+  background-color: #f5f5f4 !important;
 }
 
-.footerContainer img {
-  max-width: 200px;
+#footer {
+  border-top: solid thin #cec9c9;
+}
+
+.text-muted {
+  margin-bottom: 7px;
+}
+
+#text-muted-text {
+  line-height: 130%;
 }

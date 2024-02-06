@@ -3,11 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Google Ownership Verification -->
-    <meta
-      name="google-site-verification"
-      content="d2_qi_7JJuLlqM-m5MiGvf_a2yXjse2yF3qygItovD0"
-    />
 
     <!-- Bootstrap Link -->
     <link
@@ -16,8 +11,6 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
@@ -33,33 +26,45 @@
       rel="stylesheet"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Payment</title>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+
+    <title>Checkout Review</title>
 
     <!-- Linking CSS -->
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/progressBars.css" />
-    <link rel="stylesheet" href="css/payment-components.css" />
+    <link rel="stylesheet" href="css/review-components.css" />
+    <link rel="stylesheet" href="css/orderSummary.css" />
+    <link rel="stylesheet" href="css/checkoutDelivery-components.css" />
     <link rel="stylesheet" href="css/accordian-components.css" />
     <link rel="stylesheet" href="css/memberRequired-components.css" />
     <link rel="stylesheet" href="css/footer.css" />
 
     <!-- Linking JS -->
     <script src="js/script.js" defer></script>
-    <script src="js/navbarFooter.js"></script>
+    <script src="js/navbarFooter.js" defer></script>
+    <script src="js/checkoutDelivery.js" defer></script>
     <script src="js/formValidation.js"></script>
-    <script src="js/searchFunction.js"></script>
     <script src="js/checkout.js" defer></script>
-    <script src="js/payment.js" defer></script>
+    <script src="js/shipping.js" defer></script>
+
+    <!-- Google Maps JavaScript library -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyAfODrfyamagW_DLjezjgVJRZ8XsXSkUCQ"
+      defer
+    ></script>
 
     <!-- Add a favicon to the tab bar -->
     <link rel="icon" type="image/x-icon" href="images/Logo/Logo-short.png" />
   </head>
-  <body class="d-flex flex-column align-items-center">
-    <nav>
+  <body>
+    <header>
       <div id="navbar-container"></div>
-    </nav>
+    </header>
 
     <div class="topbox"></div>
 
@@ -75,6 +80,12 @@
               style="width: 80vw"
             >
               <li class="step-indicator" style="width: 10vw">
+                <i class="fa-regular fa-circle-check fa-2xl"></i>
+              </li>
+              <li class="step-indicator" style="width: 25vw">
+                <div class="line"></div>
+              </li>
+              <li class="step-indicator" style="width: 10vw">
                 <div class="circle">
                   <!-- Content here -->
                 </div>
@@ -83,17 +94,7 @@
                 <div class="line"></div>
               </li>
               <li class="step-indicator" style="width: 10vw">
-                <div class="circle inactive">
-                  <!-- Content here -->
-                </div>
-              </li>
-              <li class="step-indicator" style="width: 25vw">
-                <div class="line"></div>
-              </li>
-              <li class="step-indicator" style="width: 10vw">
-                <div class="circle inactive">
-                  <!-- Content here -->
-                </div>
+                <div class="circle inactive"></div>
               </li>
             </ul>
             <ul
@@ -135,114 +136,53 @@
     </section>
 
     <section class="accordion col-md-10 mt-5" id="paymentModeAccordian">
-      <h2 class="mb-3 ms-5">Payment Method</h2>
+      <h2 class="mb-3 ms-5">Shipping Options</h2>
       <div class="row">
         <div class="col-md-12 px-5">
           <!-- First Option -->
-          <div
-            class="form-check accordion-item d-flex flex-column justify-content-center"
-          >
-            <div class="accordian-header">
+          <div class="form-check accordion-item">
+            <div class="accordian-header collapsed">
               <input
                 class="form-check-input collapsed"
                 type="radio"
                 name="exampleRadios"
-                id="credDebtCard"
-                value="cardOpt"
+                id="standardShippingOpt"
+                value="standardShipping"
                 checked
                 data-bs-toggle="collapse"
-                data-bs-target="#credDebtForm"
+                data-bs-target="#standardShippingDetails"
                 aria-expanded="false"
-                aria-controls="credDebtForm"
+                aria-controls="standardShippingDetails"
               />
-              <label class="form-check-label" for="credDebtCard">
-                Credit / Debit Card
+              <label
+                id="standardShippingText"
+                class="form-check-label"
+                for="credDebtCard"
+              >
+                Standard Shipping ($5.00)
               </label>
             </div>
 
             <div
-              id="credDebtForm"
+              id="standardShippingDetails"
               class="accordion-body collapse show"
               data-bs-parent="#paymentModeAccordian"
             >
-              <!-- Form to fill in for credit and debit card -->
-              <form
-                id="creditCardForm"
-                class="row g-3 needs-validation d-flex align-items-center justify-content-center"
-                novalidate
-                style="height: 40vh"
-              >
-                <div class="col-md-10">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="cardNumberHolder"
-                    placeholder="Card Number* (16 Digit)"
-                    pattern="^\d{16}$"
-                    required
-                  />
-                  <div class="valid-feedback">Looks good!</div>
-                  <div class="invalid-feedback">
-                    Please enter a valid credit card number
-                  </div>
+              <div class="row d-fliex justify-content-center">
+                <div
+                  class="col-md-10"
+                  style="padding-bottom: 25px; margin-left: -100px"
+                >
+                  Delivery Time: 3-5 working days
                 </div>
-
-                <div class="col-md-5">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="expirationDateHolder"
-                    placeholder="Expiration Date* (MM/YY)"
-                    pattern="^(0[1-9]|1[0-2])\/([0-9]{2})$"
-                    required
-                  />
-                  <div class="valid-feedback">Looks good!</div>
-                  <div class="invalid-feedback">Please enter a valid date</div>
+                <div
+                  id="standardShippingDetailsText"
+                  class="col-md-10"
+                  style="padding-bottom: 25px; margin-left: -100px"
+                >
+                  Estimated Arrival Date: 20 Feb 2024 - 24 Feb 2024
                 </div>
-
-                <div class="col-md-5">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="securityCodeHolder"
-                    placeholder="CVV* (3 Digit)"
-                    pattern="^\d{3}$"
-                    required
-                  />
-                  <div class="valid-feedback">Looks good!</div>
-                  <div class="invalid-feedback">Please enter a valid CVV</div>
-                </div>
-
-                <div class="col-md-10">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="cardNameHolder"
-                    placeholder="Card Name* (Only Alphabets)"
-                    pattern="^[a-zA-Z\s]+$"
-                    required
-                  />
-                  <div class="valid-feedback">Looks good!</div>
-                  <div class="invalid-feedback">
-                    Please enter a valid card holder name
-                  </div>
-                </div>
-
-                <div class="col-md-10">
-                  <div class="form-check d-flex align-items-center">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="saveCardInfo"
-                    />
-                    <label class="form-check-label" for="saveCardInfo">
-                      Securely save card for a quicker checkout (Members
-                      Exclusive)
-                    </label>
-                  </div>
-                </div>
-              </form>
+              </div>
             </div>
           </div>
 
@@ -250,29 +190,43 @@
           <div class="form-check accordion-item">
             <div class="accordian-header collapsed">
               <input
-                class="form-check-input"
+                class="form-check-input collapsed"
                 type="radio"
                 name="exampleRadios"
-                id="cashOnDev"
-                value="cashOpt"
+                id="nextDayShippingOpt"
+                value="nextDayShipping"
                 data-bs-toggle="collapse"
-                data-bs-target="#cashNotification"
+                data-bs-target="#nextDayShippingDetails"
                 aria-expanded="false"
-                aria-controls="cashNotification"
+                aria-controls="nextDayShippingDetails"
               />
-              <label class="form-check-label" for="cashNotification">
-                Cash On Delivery
+              <label
+                id="nextDayShippingText"
+                class="form-check-label"
+                for="credDebtCard"
+              >
+                Next-Day Delivery ($10.90)
               </label>
             </div>
 
             <div
-              id="cashNotification"
+              id="nextDayShippingDetails"
               class="accordion-body collapse"
               data-bs-parent="#paymentModeAccordian"
             >
               <div class="row d-fliex justify-content-center">
-                <div class="col-md-10" style="padding-bottom: 25px">
-                  Payment will be made when product is delivered.
+                <div
+                  class="col-md-10"
+                  style="padding-bottom: 25px; margin-left: -100px"
+                >
+                  Delivery Time: 1 working day
+                </div>
+                <div
+                  id="nextDayShippingDetailsText"
+                  class="col-md-10"
+                  style="padding-bottom: 25px; margin-left: -100px"
+                >
+                  Estimated Arrival Date: 5 Feb 2024
                 </div>
               </div>
             </div>
@@ -281,13 +235,101 @@
       </div>
     </section>
 
-    <div class="col-12" id="submitBtn">
-      <a href="#">
-        <button id="reviewOrderButton" class="btn btn-secondary" type="submit">
-          Review Order
-        </button>
-      </a>
+    <section id="DeliveryInfoSect" class="col-md-10 mt-5 px-5">
+      <h2 class="mb-3">Shipping Details</h2>
+
+      <form class="row g-3 needs-validation" novalidate>
+        <div class="col-md-6" style="margin-top: 33px">
+          <input
+            type="text"
+            class="form-control"
+            id="fname"
+            placeholder="First Name*"
+            pattern="^[A-Za-z]+(?:\s[A-Za-z]+)*$"
+            required
+          />
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Please enter a valid first name.</div>
+        </div>
+
+        <div class="col-md-6" style="margin-top: 33px">
+          <input
+            type="text"
+            class="form-control"
+            id="lname"
+            placeholder="Last Name*"
+            pattern="^[A-Za-z]+(?:\s[A-Za-z]+)*$"
+            required
+          />
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Please enter a valid last name.</div>
+        </div>
+
+        <div class="col-md-12" style="margin-top: 33px">
+          <div class="input-group has-validation">
+            <input
+              type="text"
+              class="form-control"
+              id="search_input"
+              placeholder="Address*"
+              required
+            />
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Please enter a valid address.</div>
+          </div>
+        </div>
+
+        <div class="col-md-6" style="margin-top: 33px">
+          <input
+            type="text"
+            class="form-control"
+            id="unitNo"
+            placeholder="Unit Number (#xx-xxx)"
+            pattern="^#[0-9]{2}-[0-9]{3}$"
+          />
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Please enter a valid unit number.</div>
+        </div>
+
+        <div class="col-md-6" style="margin-top: 33px">
+          <input
+            type="text"
+            class="form-control"
+            id="phoneNo"
+            placeholder="Phone Number* (8 Digits)"
+            pattern="^(?:\+\d{1,3}\d+|\d{8})$"
+            required
+          />
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Please enter a valid phone number.</div>
+        </div>
+
+        <div class="checkForm col-md-12" style="margin-top: 33px">
+          <div class="form-check d-flex align-items-center">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="saveUserInfo"
+            />
+            <label class="form-check-label" for="saveUserInfo">
+              Save my details for faster checkout
+            </label>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <div class="col-12 mt-5" id="submitBtn">
+      <button class="btn btn-secondary" type="submit">Review</button>
     </div>
+
+    <footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
+      <div
+        id="footer"
+        class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"
+      ></div>
+    </footer>
 
     <!-- Bootstrap Modal for Popup when Membership Required -->
     <div
@@ -332,11 +374,5 @@
         </div>
       </div>
     </div>
-    <footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
-      <div
-        id="footer"
-        class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"
-      ></div>
-    </footer>
   </body>
 </html>
