@@ -89,7 +89,6 @@ function displayCart() {
   if (JSON.parse(localStorage.getItem("cartData")) == null) {
     cartProductInfoContent += `<p>Your Bag is Empty. Proceed to shop!</p>`;
   }
-  console.log($("#cart-items"));
   $("#cart-items").html(cartProductInfoContent);
   $("#subtotal-price").text("$" + subtotal.toFixed(2));
   $("#total-points").text("+" + totalPointsEarned + " Points");

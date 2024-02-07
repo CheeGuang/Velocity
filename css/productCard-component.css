@@ -10,6 +10,10 @@
   padding-top: 0;
 }
 
+#productListing .card span {
+  color: #219ebc;
+}
+
 .card {
   position: relative;
   flex: 1 1 14rem;

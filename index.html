@@ -31,6 +31,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Landing Page</title>
 
@@ -62,28 +63,35 @@
     <header>
       <div id="navbar-container"></div>
     </header>
-    <div class="container-fluid p-0 overflow-hidden">
+
+    <div class="row" style="height: 70px"></div>
+
+    <div class="container-fluid p-0 overflow-hidden position-relative">
       <div
         class="banner position-relative d-flex align-items-end"
         style="
-          background-image: url('images/banner1.jpg');
-          height: 80vh;
+          background: url('images/floatingWhiteShoes.png');
+          height: 90vh;
           background-size: cover;
           background-position: center;
         "
-      >
-        <button id="shop-now-btn" class="btn btn-secondary position-absolute">
-          Shop Now
-        </button>
-      </div>
-    </div>
+      ></div>
 
-    <!-- Company Tagline -->
-    <div class="tagline">
-      <h1>Shoes from tomorrow, today</h1>
+      <!-- Company Tagline -->
+      <div class="tagline">
+        <h1 class="mb-3">SHOES FROM TOMORROW, TODAY</h1>
+        <a
+          href="productPage.html"
+          class="btn btn-secondary btn-lg btn-bold-shadow d-flex align-items-center justify-content-center"
+          ><h3>Learn More</h3></a
+        >
+      </div>
+
+      <!-- <div class="overlay"></div> -->
     </div>
 
     <!-- Shoe Shortcuts -->
+    <h2 class="shortcutHeader m-5">Footwear for Every Stride</h2>
     <section class="shortcuts">
       <div class="shortcut walkingShortcut">
         <!-- Image of shoe + Triangle + Text -->
@@ -91,7 +99,7 @@
           onclick="redirectToProductWithFilter(['walking shoe'])"
           class="shortcutDetail"
         >
-          <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+          <svg width="200" height="205" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop
@@ -104,7 +112,14 @@
                 />
               </linearGradient>
             </defs>
-            <polygon points="100,0 0,200 200,200" fill="url(#gradient1)" />
+            <polygon
+              points="100,0 0,200 200,200"
+              style="
+                stroke: url(#gradient1);
+                stroke-width: 4;
+                fill: transparent;
+              "
+            />
           </svg>
           <img src="images/transparent/walkingShoeShortcut.png" alt="" />
           <p>Walking</p>
@@ -116,7 +131,7 @@
           onclick="redirectToProductWithFilter(['sportswear'])"
           class="shortcutDetail"
         >
-          <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+          <svg width="200" height="205" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop
@@ -129,7 +144,14 @@
                 />
               </linearGradient>
             </defs>
-            <polygon points="100,0 0,200 200,200" fill="url(#gradient1)" />
+            <polygon
+              points="100,0 0,200 200,200"
+              style="
+                stroke: url(#gradient1);
+                stroke-width: 4;
+                fill: transparent;
+              "
+            />
           </svg>
           <img
             id="running-shoe"
@@ -145,7 +167,7 @@
           onclick="redirectToProductWithFilter(['sneakers', 'M'])"
           class="shortcutDetail"
         >
-          <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+          <svg width="200" height="205" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop
@@ -158,7 +180,14 @@
                 />
               </linearGradient>
             </defs>
-            <polygon points="100,0 0,200 200,200" fill="url(#gradient1)" />
+            <polygon
+              points="100,0 0,200 200,200"
+              style="
+                stroke: url(#gradient1);
+                stroke-width: 4;
+                fill: transparent;
+              "
+            />
           </svg>
           <img src="images/transparent/sneakerShortcutImg.png" alt="" />
           <p>Sneakers</p>
@@ -171,9 +200,9 @@
       id="shoeFinderQuizPrompt"
       class="text-white text-center p-5 position-relative"
       style="
-        background-image: url('images/miscellaneous/misc21.jpg');
+        background-image: url('images/shoeHand.jpg');
         background-size: cover;
-        background-position: center;
+        background-position: center -20px;
         height: 400px;
       "
     >

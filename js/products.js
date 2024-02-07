@@ -135,7 +135,13 @@ function insertProductHTML(productData) {
     productData["gender"]
   }/${productData["imagePath"].split(",")[0].trim()}" alt="..." />`;
   title.innerHTML = `${productData["name"]}`;
-  shoeDesc.innerHTML = `${gender} ${productData["type"]}`;
+
+  if (productData["memberReq"]) {
+    shoeDesc.innerHTML = `${gender} ${productData["type"]} <span>[Members Special]</span>`;
+  } else {
+    shoeDesc.innerHTML = `${gender} ${productData["type"]}`;
+  }
+
   price.innerHTML = `SGD $${productData["price"]}`;
 
   // Find the section element with the id "productListing"

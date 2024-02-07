@@ -29,6 +29,7 @@
 
 .progressCircle {
   width: 15px;
+  min-width: 15px;
   height: 15px;
   border-radius: 50%;
   background-color: #b0b0b0;
@@ -36,6 +37,7 @@
 
 .active.progressCircle {
   width: 20px;
+  min-width: 20px;
   height: 20px;
   background-color: var(--font-color);
 }

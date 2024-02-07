@@ -14,18 +14,41 @@ https://velocityfed.netlify.app/
 
 ## Idea For Assignment II
 
-The idea for my Assignment 1 is to create a Full Stack Website for an Official NIKE Reseller.
+For Assignment 2, we decided to explore building an interactive e-commerce web application complete with sutiable gamification concepts and API calls. Our e-commerce website is Velocity, an Official NIKE Reseller.
 
-### External User’s Goal:
+### Target Market
 
-This site’s target audience are teenagers, young adults and potential NIKE customers who wishes to get their hands on a brand new NIKE Shoe.
+Average Website Visitor:
 
-### Site Owner’s goal:
+- From 18 years old
+- Capable of making online purchases
+- NIKE patrons who lives in Singapore due to shipping limitations
+- Busy work-life and prefers shopping online
 
-Velocity would like to have an interactive and user-friendly website that allow them to have a smooth experience buying a new shoe.
-Additionally, the Velocity wishes to expand their number of Members in order to boost sales.
+### Site Owner’s Objectives and Goals
 
-## Design Process:
+Velocity would like to be able to promote online presence and brand recognition through web branding. As a NIKE shoe reseller, they hope to have a website that is associated with being active, full of energy while maintaining a professional front. Velocity also aims to attract and retain more members to boost brand loyalty.
+
+## Design Process
+
+After reviewing, our proposed design aims to address the following:
+
+1. Visual hierarchy: Using whitespace, font (size and color) and different layout to present content to users in clear and concise manner.
+2. Member's Privilege: Members have access to selected shoes only and can redeem points to exchange for rebates.
+3. Call-to-Action: Using black and orange against a white background to highlight important information, catch users' attention and guide them through the shopping process.
+
+The primary colours that are used in the website is:
+
+- Shades of Light Grey
+- Black
+- Yellow
+- Orange
+
+This is to enhance Velocity's brand image as an elegant, clean and minimal website while using bright and attention-grabbing colours, yellow and orange to incite positive and empowering traits like energy, active and freshness.
+
+## User Stories
+
+- As a first-time
 
 <!-- As a user, I would like to use the KFC website on split screen, however, certain pages in the official KFC website is not responsive and i struggle navigating the website (E.g. Home Page and Menu Page are Not responsive). Hence I decided to make my KFC website responsive
 
