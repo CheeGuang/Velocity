@@ -41,6 +41,14 @@ $(document).ready(function () {
     const type = retrieveAndDecodeProductParam("type");
     const gender = retrieveAndDecodeProductParam("gender");
     const priority = retrieveAndDecodeProductParam("priority");
+
+    showAnimationContinuously();
+    // Using the sleep function
+    sleep(2000).then(() => {
+      // This will run after 2 seconds
+      document.querySelector("dotlottie-player").style.display = "none";
+    });
+
     // Assuming type, gender, and priority are variables already defined
     let combination = `${type}-${gender}-${priority}`;
 

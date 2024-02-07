@@ -51,6 +51,14 @@ $(document).ready(function () {
     } else {
       // The checkbox is checked, proceed with further processing here
       // Remove customer's cart object in local storage
+
+      showAnimation();
+      // Using the sleep function
+      sleep(2000).then(() => {
+        // This will run after 2 seconds
+        document.querySelector("dotlottie-player").style.display = "none";
+        window.location.href = "index.html";
+      });
       localStorage.removeItem("cartData");
 
       let customerData = JSON.parse(localStorage.getItem("customerData"));
@@ -62,7 +70,6 @@ $(document).ready(function () {
         localStorage.setItem("customerData", JSON.stringify(customerData));
         updateCustomerDataToRestDB();
       }
-      window.location.href = "index.html";
     }
   });
 });
