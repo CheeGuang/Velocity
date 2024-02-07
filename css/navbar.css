@@ -3,9 +3,7 @@
 
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1); /* Adjust the shadow properties as needed */
   justify-content: space-between;
-  overflow: auto;
 }
-
 .navbarDetails {
   margin: 0;
   padding-left: 100px;
@@ -17,6 +15,7 @@
   color: var(--font-color);
   font-family: "Inter", sans-serif;
   transition: all 0.2s linear;
+  cursor: pointer;
 }
 
 #navbar .navbar-brand {
@@ -211,7 +210,7 @@
   }
 }
 
-@media screen and (max-width: 990.47px) {
+/* @media screen and (max-width: 990.47px) {
   #navbar .navbar-nav {
     position: absolute;
     top: 80px;
@@ -220,7 +219,22 @@
     transform: translateX(-50%);
     background-color: #fafafa;
     padding-bottom: 20px;
+  } */
+@media screen and (max-width: 990.47px) {
+  #navbar .navbar-nav {
+    display: block; /* Ensure it is always block display */
+    position: absolute;
+    top: 100%; /* Position it right below the navbar */
+    left: 0;
+    right: 0; /* Take full width */
+    transform: none; /* Remove translateX(-50%) */
+    background-color: var(--body-color); /* Use your navbar color */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Optional: add shadow for depth */
+    z-index: 900; /* Ensure it's above other content */
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
+
   .navbarDetails {
     padding-left: 70px;
     padding-right: 70px;
