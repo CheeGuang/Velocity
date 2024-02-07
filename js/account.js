@@ -19,6 +19,7 @@ $(document).ready(function () {
     localStorage.removeItem("customerData");
     localStorage.removeItem("customersData");
     localStorage.removeItem("customerRestDBData");
+    localStorage.removeItem("cartData");
     window.location.href = "index.html";
   });
 });
