@@ -154,8 +154,19 @@ function initialiseProfilePicture() {
   let customerDataJSONString = localStorage.getItem("customerData");
   let customerDataJSON = JSON.parse(customerDataJSONString);
   if (customerDataJSON != null) {
-    document.getElementById("profile-image-login").src =
-      customerDataJSON["imageUrl"];
+    $("#profile-image-login").attr("src", customerDataJSON["imageUrl"]);
+
+    // Override hover effect by setting opacity directly on hover events
+    $("#profile-image-login").hover(
+      function () {
+        // Mouse enters, set opacity to 1 or any desired value
+        $(this).css("opacity", "1");
+      },
+      function () {
+        // Mouse leaves, remove the inline style to let CSS take over again
+        $(this).css("opacity", "");
+      }
+    );
   }
 }
 
