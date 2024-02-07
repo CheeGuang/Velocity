@@ -153,7 +153,8 @@ header {
   font-size: clamp(15px, 5vw, 50px);
 }
 
-.btn-secondary {
+.btn-secondary,
+.btn-secondary:hover {
   color: var(--body-color);
   background-color: var(--font-color);
   border: 0;
