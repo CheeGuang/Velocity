@@ -46,12 +46,14 @@
     <link rel="stylesheet" href="css/shoeFinderQuiz-components.css" />
     <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/lottie.css" />
 
     <script src="js/shoeFinderQuiz.js"></script>
 
     <!-- Custom JS Scripts -->
     <script src="js/script.js" defer></script>
     <script src="js/navbarFooter.js" defer></script>
+    <script src="js/showAnimation.js" defer></script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/Logo/Logo-short.png" />
@@ -88,7 +90,7 @@
             <h2 class="mt-4 result-text">Result Shoe</h2>
             <a
               onclick="redirectToProductDetailShoeFinder(event)"
-              class="btn btn-outline-secondary mt-4"
+              class="btn btn-secondary mt-4"
               >Buy Now</a
             >
           </div>
@@ -105,9 +107,25 @@
 
     <!-- Responsive adjustments for the script if necessary -->
     <script>
+      showAnimation();
       $(document).ready(function () {
         // Any specific responsive adjustments can be scripted here
       });
     </script>
+
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+
+    <dotlottie-player
+      src="https://lottie.host/fcbc2828-5a84-435d-8467-7c36e72415c3/4ikVrMZGm3.json"
+      id="confettiAnimation"
+      background="transparent"
+      speed="1"
+      style="width: 300px; height: 300px"
+      loop
+      autoplay
+    ></dotlottie-player>
   </body>
 </html>
