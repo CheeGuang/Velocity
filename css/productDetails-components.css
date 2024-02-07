@@ -61,7 +61,7 @@
 }
 
 .nav-tabs > .nav-item > .nav-link.active {
-  background-color: #444;
+  background-color: var(--font-color);
   border-radius: 30px;
   color: #ffffff;
 }
@@ -106,15 +106,15 @@
 .prodTitle #product-price {
   font-size: clamp(20px, 1vw, 10px);
 }
-
+/* 
 #add-to-cart {
   height: 100px;
-}
+} */
 
 #button-addon2 {
-  width: 300px;
-  height: 60px;
+  background-color: var(--font-color);
 }
+
 .tab-pane p {
   font-size: clamp(15px, 2vw, 10px);
 }
