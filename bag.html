@@ -58,88 +58,150 @@
 
     <!-- Add a favicon to the tab bar -->
     <link rel="icon" type="image/x-icon" href="images/Logo/Logo-short.png" />
-</head>
-<body>
+  </head>
+  <body>
     <header>
       <div id="navbar-container"></div>
     </header>
     <div style="height: 130px"></div>
     <div class="container">
-        
       <div class="row align-items-start mx-5">
         <h1>Bag</h1>
-        <div id="bag-container" class="col mx-3" style="margin-top: 30px;">      
-            <div id="cart-items" class="row">
-                <!-- Use JS to insert cart products -->
-            </div>      
-            
-            <div class="row" style="margin-top: 60px; margin-bottom: 60px; width: 100%;">
-                <h2>Top Picks Just For You</h2>
-                <div id="top-pick-products" class="row d-flex flex-nowrap overflow-auto justify-content-between">
-                    <div class="card d-flex align-items-center top-pick-product mb-2" onClick="redirectToProductDetail(event)" style="cursor: pointer; flex: 0 0 auto; padding:0px!important; margin-top: 24px;">
-                        <img class="top-pick-product-image" src="images/ShoePictureM/shoe20-1.jpeg" alt="" style="max-width: 100%; height: 70%; margin-bottom: 20px; display: block; border: 2px solid #c5c5c5;">
-                        <p class="text-start card-title" style="width: 100%;">Air Force 1 Low</p>
-                        <p class="text-start" style="width: 100%;">$186</p>
-                    </div>
-                    <div class="card d-flex align-items-center top-pick-product mb-2" onClick="redirectToProductDetail(event)" style="cursor: pointer; flex: 0 0 auto; padding:0px!important; margin-top: 24px;">
-                        <img class="top-pick-product-image" src="images/ShoePictureM/shoe8-1.jpeg" alt="" style="max-width: 100%; height: 70%; margin-bottom: 20px; display: block; border: 2px solid #c5c5c5;">
-                        <p class="text-start card-title" style="width: 100%;">Revolution 6 LV</p>
-                        <p class="text-start" style="width: 100%;">$89</p>
-                    </div>
-                    <div class="card d-flex align-items-center top-pick-product mb-2" onClick="redirectToProductDetail(event)" style="cursor: pointer; flex: 0 0 auto; padding:0px!important; margin-top: 24px;">
-                        <img class="top-pick-product-image" src="images/ShoePictureM/shoe16-1.jpeg" alt="" style="max-width: 100%; height: 70%; margin-bottom: 20px; display: block; border: 2px solid #c5c5c5;">
-                        <p class="text-start card-title" style="width: 100%;">Metcon 9 AMP</p>
-                        <p class="text-start" style="width: 100%;">$220</p>
-                    </div>
-                </div>
-                
+        <div id="bag-container" class="col mx-3" style="margin-top: 30px">
+          <div id="cart-items" class="row">
+            <!-- Use JS to insert cart products -->
+          </div>
+
+          <div
+            class="row"
+            style="margin-top: 60px; margin-bottom: 60px; width: 100%"
+          >
+            <h2>Top Picks Just For You</h2>
+            <div
+              id="top-pick-products"
+              class="row d-flex flex-nowrap overflow-auto justify-content-between"
+            >
+              <div
+                class="card d-flex align-items-center top-pick-product mb-2"
+                onClick="redirectToProductDetail(event)"
+                style="
+                  cursor: pointer;
+                  flex: 0 0 auto;
+                  padding: 0px !important;
+                  margin-top: 24px;
+                "
+              >
+                <img
+                  class="top-pick-product-image"
+                  src="images/ShoePictureM/shoe20-1.jpeg"
+                  alt=""
+                  style="
+                    max-width: 100%;
+                    height: 70%;
+                    margin-bottom: 20px;
+                    display: block;
+                    border: 2px solid #c5c5c5;
+                  "
+                />
+                <p class="text-start card-title" style="width: 100%">
+                  Air Force 1 Low
+                </p>
+                <p class="text-start" style="width: 100%">$186</p>
+              </div>
+              <div
+                class="card d-flex align-items-center top-pick-product mb-2"
+                onClick="redirectToProductDetail(event)"
+                style="
+                  cursor: pointer;
+                  flex: 0 0 auto;
+                  padding: 0px !important;
+                  margin-top: 24px;
+                "
+              >
+                <img
+                  class="top-pick-product-image"
+                  src="images/ShoePictureM/shoe8-1.jpeg"
+                  alt=""
+                  style="
+                    max-width: 100%;
+                    height: 70%;
+                    margin-bottom: 20px;
+                    display: block;
+                    border: 2px solid #c5c5c5;
+                  "
+                />
+                <p class="text-start card-title" style="width: 100%">
+                  Revolution 6 LV
+                </p>
+                <p class="text-start" style="width: 100%">$89</p>
+              </div>
+              <div
+                class="card d-flex align-items-center top-pick-product mb-2"
+                onClick="redirectToProductDetail(event)"
+                style="
+                  cursor: pointer;
+                  flex: 0 0 auto;
+                  padding: 0px !important;
+                  margin-top: 24px;
+                "
+              >
+                <img
+                  class="top-pick-product-image"
+                  src="images/ShoePictureM/shoe16-1.jpeg"
+                  alt=""
+                  style="
+                    max-width: 100%;
+                    height: 70%;
+                    margin-bottom: 20px;
+                    display: block;
+                    border: 2px solid #c5c5c5;
+                  "
+                />
+                <p class="text-start card-title" style="width: 100%">
+                  Metcon 9 AMP
+                </p>
+                <p class="text-start" style="width: 100%">$220</p>
+              </div>
             </div>
+          </div>
         </div>
         <div class="col-md-4">
-        <h2 class=" mb-4">Summary</h2>
-        <div class="row">
+          <h2 class="mb-4">Summary</h2>
+          <div class="row">
             <div class="col mb-3">
-                <p>
-                    Subtotal
-                </p>
+              <p>Subtotal</p>
             </div>
             <div class="col text-end"><p id="subtotal-price">$0.00</p></div>
-        </div>
-        <div class="row">
+          </div>
+          <div class="row">
             <div class="col mb-3">
-                <p>
-                    Shipping Fee
-                </p>
+              <p>Shipping Fee</p>
             </div>
             <div class="col text-end"><p id="delivery-price">$0.00</p></div>
-        </div>
-        <hr class="my-4">
-        <div class="row">
+          </div>
+          <hr class="my-4" />
+          <div class="row">
             <div class="col">
-                <h3 class="mb-2">
-                    Total
-                </h3>
-        </div>
-            <div class="col text-end">
-                <div class="row">
-    
-                    <p id="total-price" class="mb-2"></p>
-                </div>
-                <div class="row">
-    
-                    <h4 id="total-points" style="color: #FF6B00;">+0 Points</h4>
-                </div>
+              <h3 class="mb-2">Total</h3>
             </div>
-        </div>
-        <div class="row mx-1 mb-5">
+            <div class="col text-end">
+              <div class="row">
+                <p id="total-price" class="mb-2"></p>
+              </div>
+              <div class="row">
+                <h4 id="total-points" style="color: #ff6b00">+0 Points</h4>
+              </div>
+            </div>
+          </div>
+          <div class="row mx-1 mb-5">
             <div class="container mt-5">
-                <p id="checkout-freeShippingBar-message">
-                    Spend $200 more to enjoy Free Next-Day Delivery
-                </p>
-    
-                <!-- Progress Bar -->
-                <div class="progress mt-3">
-                  <div
+              <p id="checkout-freeShippingBar-message">
+                Spend $200 more to enjoy Free Next-Day Delivery
+              </p>
+
+              <!-- Progress Bar -->
+              <div class="progress mt-3">
+                <div
                   id="checkout-freeShippingBar-bar"
                   class="progress-bar"
                   role="progressbar"
@@ -147,31 +209,52 @@
                   aria-valuenow="50"
                   aria-valuemin="0"
                   aria-valuemax="100"
-                  ></div>
-                </div>
+                ></div>
               </div>
             </div>
-            <div class="row d-flex flex-row justify-content-between align-items-center mt-5 mb-5">
-                <div class="form-check form-switch d-flex flex-row-reverse justify-content-between align-items-center" style="padding-left: 10px; height: 30px;"> 
-                    <input id="applyCashbackButton" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="transform: scale(1.5); margin-right: 10px">
-                    <div class="d-flex align-items-center">
-                        <i class="fa fa-dollar mx-2"></i>
-                        <label class="form-check-label" for="flexSwitchCheckDefault"><p  id="applyCashbackText">Apply Cashback $0.00</p></label>
-                    </div>
-                </div>
+          </div>
+          <div
+            class="row d-flex flex-row justify-content-between align-items-center mt-5 mb-5"
+          >
+            <div
+              class="form-check form-switch d-flex flex-row-reverse justify-content-between align-items-center"
+              style="padding-left: 10px; height: 30px"
+            >
+              <input
+                id="applyCashbackButton"
+                class="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+                style="transform: scale(1.5); margin-right: 10px"
+              />
+              <div class="d-flex align-items-center">
+                <i class="fa fa-dollar mx-2"></i>
+                <label class="form-check-label" for="flexSwitchCheckDefault"
+                  ><p id="applyCashbackText">Apply Cashback $0.00</p></label
+                >
+              </div>
             </div>
-            <div class="row">
-                <button class="btn btn-secondary" type="button" id="toPaymentButton" style="width: 100%;">To Payment</button>
-            </div>
+          </div>
+          <div class="row">
+            <button
+              class="btn btn-secondary"
+              type="button"
+              id="toPaymentButton"
+              style="width: 100%"
+            >
+              To Payment
+            </button>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
-</div>
-<footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
+
+    <footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
       <div
         id="footer"
         class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"
       ></div>
     </footer>
-</body>
+  </body>
 </html>
