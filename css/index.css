@@ -4,9 +4,17 @@
 }
 
 .tagline {
-  margin: 4rem 40px;
   font-size: clamp(20px, 5vw, 40px);
-  margin-bottom: -40px;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tagline h1 {
+  /* color: var(--body-color); */
+  font-family: "Inter", serif;
+  font-size: 40px;
 }
 
 .shortcuts {
@@ -96,9 +104,6 @@
 
 #shoeFinderQuizPrompt-title {
   color: white;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9), 4px 4px 5px rgba(0, 0, 0, 0.7),
-    6px 6px 5px rgba(0, 0, 0, 0.5), 8px 8px 5px rgba(0, 0, 0, 0.3),
-    10px 10px 5px rgba(0, 0, 0, 0.1);
 }
 
 .btn-bold-shadow {

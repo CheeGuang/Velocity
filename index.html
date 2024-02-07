@@ -31,6 +31,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Landing Page</title>
 
@@ -65,21 +66,22 @@
 
     <div class="row" style="height: 70px"></div>
 
-    <div class="container-fluid p-0 overflow-hidden">
+    <div class="container-fluid p-0 overflow-hidden position-relative">
       <div
         class="banner position-relative d-flex align-items-end"
         style="
-          background-image: url('images/tennisNike.jpg');
+          background: url('images/floatingWhiteShoes.jpg');
           height: 80vh;
           background-size: cover;
-          background-position: 100% 50%;
+          background-position: center;
+          filter: drop-shadow();
         "
       ></div>
-    </div>
 
-    <!-- Company Tagline -->
-    <div class="tagline">
-      <h1>Shoes from tomorrow, today</h1>
+      <!-- Company Tagline -->
+      <div class="tagline">
+        <h1>SHOES FROM TOMORROW, TODAY</h1>
+      </div>
     </div>
 
     <!-- Shoe Shortcuts -->
@@ -191,9 +193,9 @@
       id="shoeFinderQuizPrompt"
       class="text-white text-center p-5 position-relative"
       style="
-        background-image: url('images/nike-makers-of-the-game-all-star-2018.jpg');
+        background-image: url('images/shoeHand.jpg');
         background-size: cover;
-        background-position: center;
+        background-position: center -20px;
         height: 400px;
       "
     >
