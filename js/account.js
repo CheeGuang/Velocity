@@ -13,4 +13,13 @@ $(document).ready(function () {
     );
     $("#personal-email").text(customerData["email"]);
   }
+
+  $("#sign-out-btn").click(function () {
+    console.log("Sign Out");
+    localStorage.removeItem("customerData");
+    localStorage.removeItem("customersData");
+    localStorage.removeItem("customerRestDBData");
+    localStorage.removeItem("cartData");
+    window.location.href = "index.html";
+  });
 });

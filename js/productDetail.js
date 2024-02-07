@@ -167,3 +167,39 @@ function insertAddToCartLogic(productObject) {
     }
   }
 }
+// document.addEventListener("DOMContentLoaded", function () {
+//   // Close button inside the modal
+//   document.querySelector(".btn-close").addEventListener("click", function () {
+//     $("#sizeSelectionModal").modal("hide"); // Close the modal
+//   });
+
+//   // "Close" button in the modal footer
+//   document
+//     .querySelector('[data-bs-dismiss="modal"]')
+//     .addEventListener("click", function () {
+//       $("#sizeSelectionModal").modal("hide"); // Close the modal
+//     });
+// });
+
+// $(document).ready(function () {
+//   // Function to close the modal
+//   $("#close-modal-btn, .btn-close").on("click", function () {
+//     // Assuming Bootstrap 4 or a jQuery-compatible environment
+//     console.log($("#sizeSelectionModal").modal("hide"));
+//     $("#sizeSelectionModal").modal("hide");
+//   });
+// });
+$(document).ready(function () {
+  // Function to close the modal
+  $("#close-modal-btn, .btn-close").on("click", function () {
+    var modalElement = document.getElementById("sizeSelectionModal");
+    var modalInstance = bootstrap.Modal.getInstance(modalElement);
+    if (modalInstance) {
+      modalInstance.hide();
+    } else {
+      // This handles the case where the modal instance hasn't been created yet
+      modalInstance = new bootstrap.Modal(modalElement);
+      modalInstance.hide();
+    }
+  });
+});

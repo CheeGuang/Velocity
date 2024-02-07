@@ -3,9 +3,7 @@
 
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1); /* Adjust the shadow properties as needed */
   justify-content: space-between;
-  overflow: auto;
 }
-
 .navbarDetails {
   margin: 0;
   padding-left: 100px;
@@ -17,6 +15,7 @@
   color: var(--font-color);
   font-family: "Inter", sans-serif;
   transition: all 0.2s linear;
+  cursor: pointer;
 }
 
 #navbar .navbar-brand {
@@ -211,7 +210,7 @@
   }
 }
 
-@media screen and (max-width: 990.47px) {
+/* @media screen and (max-width: 990.47px) {
   #navbar .navbar-nav {
     position: absolute;
     top: 80px;
@@ -220,7 +219,22 @@
     transform: translateX(-50%);
     background-color: #fafafa;
     padding-bottom: 20px;
+  } */
+@media screen and (max-width: 990.47px) {
+  #navbar .navbar-nav {
+    display: block; /* Ensure it is always block display */
+    position: absolute;
+    top: 100%; /* Position it right below the navbar */
+    left: 0;
+    right: 0; /* Take full width */
+    transform: none; /* Remove translateX(-50%) */
+    background-color: var(--body-color); /* Use your navbar color */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Optional: add shadow for depth */
+    z-index: 900; /* Ensure it's above other content */
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
+
   .navbarDetails {
     padding-left: 70px;
     padding-right: 70px;
@@ -239,54 +253,40 @@
 }
 
 @media screen and (max-width: 690px) {
+  #navbar {
+    min-height: 70px;
+  }
   .navbar-brand > img {
     width: 120px !important;
   }
   .navbarDetails {
-    padding-left: 60px;
-    padding-right: 60px;
-  }
-
-  .icons .icon {
-    margin-right: 30px;
-  }
-  #nav-hamburger {
-    margin-left: 10px !important;
-  }
-  .icons .icon,
-  #navbar-toggler-icon,
-  .profile-image {
-    font-size: 26px !important;
-    width: 80%;
-    height: 80%;
-  }
-  .shoppingCart-icon-overlay {
-    right: 20px;
-    padding: 2px 5px;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .navbar-brand > img {
-    width: 100px !important;
-  }
-  .navbarDetails {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   .icons .icon {
     margin-right: 20px;
   }
   #nav-hamburger {
-    margin-left: 0px !important;
+    margin-left: 7px !important;
   }
-  .icons .icon,
-  #navbar-toggler-icon,
-  .profile-image {
-    font-size: 24px !important;
-    width: 80%;
-    height: 80%;
+  .shoppingCart-icon-overlay {
+    right: 10px;
+    padding: 2px 5px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .navbarDetails {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .icons .icon {
+    margin-right: 20px;
+  }
+  #nav-hamburger {
+    margin-left: 5px !important;
   }
   .shoppingCart-icon-overlay {
     right: 12px;
@@ -296,9 +296,6 @@
 }
 
 @media screen and (max-width: 400px) {
-  .navbar-brand > img {
-    width: 80px !important;
-  }
   .navbarDetails {
     padding-left: 20px;
     padding-right: 20px;
@@ -308,14 +305,7 @@
     margin-right: 15px;
   }
   #nav-hamburger {
-    margin-left: -10px !important;
-  }
-  .icons .icon,
-  #navbar-toggler-icon,
-  .profile-image {
-    font-size: 20px !important;
-    width: 66%;
-    height: 66%;
+    margin-left: 2px !important;
   }
   .navbar {
     height: 75px !important;

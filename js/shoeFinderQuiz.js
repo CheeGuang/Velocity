@@ -159,37 +159,54 @@ function retrieveAndDecodeProductParam(paramName) {
 
   return product;
 }
-// Function to handle button clicks and redirect
 function redirectToQuestion3(selectedGender) {
-  // Construct the base URL for the next quiz question page
-  let baseUrl = new URL("http://127.0.0.1:5500/shoeFinderQuizQ3.html");
+  // Dynamically construct the base URL for the next quiz question page
+  var baseUrl = window.location.origin + "/shoeFinderQuizQ3.html";
 
   // Get the current page URL and its parameters
-  let currentUrlParams = new URLSearchParams(window.location.search);
+  var currentUrlParams = new URLSearchParams(window.location.search);
 
   // Set the gender parameter based on the button clicked
   currentUrlParams.set("gender", selectedGender);
 
-  // Append the existing and new query parameters to the base URL
-  baseUrl.search = currentUrlParams.toString();
+  // Construct the final URL
+  var finalUrl = baseUrl + "?" + currentUrlParams.toString();
 
   // Redirect to the next quiz question page with updated query parameters
-  window.location.href = baseUrl.toString();
+  window.location.href = finalUrl;
 }
-
 function redirectToResultsWithPriority(priority) {
-  // Construct the base URL for the results page
-  let baseUrl = new URL("http://127.0.0.1:5500/shoeFinderQuizResult.html");
+  // Dynamically construct the base URL for the results page
+  var baseUrl = window.location.origin + "/shoeFinderQuizResult.html";
 
   // Get the current page URL and its parameters
-  let currentUrlParams = new URLSearchParams(window.location.search);
+  var currentUrlParams = new URLSearchParams(window.location.search);
 
   // Add or update the 'priority' query parameter
   currentUrlParams.set("priority", priority);
 
-  // Append the updated query parameters to the base URL
-  baseUrl.search = currentUrlParams.toString();
+  // Construct the final URL
+  var finalUrl = baseUrl + "?" + currentUrlParams.toString();
 
   // Redirect to the results page with the updated query parameters
-  window.location.href = baseUrl.toString();
+  window.location.href = finalUrl;
+}
+
+function redirectToProductDetailShoeFinder(event) {
+  event.preventDefault();
+
+  // Get the product name from the clicked element
+  var productName = $("#result-text-id").text();
+
+  // Encode the product name for further processing or sending to another page
+  var encodedProductName = encodeURIComponent(productName);
+
+  // Construct the URL with query parameters
+  var redirectUrl = "productDetail.html" + "?name=" + encodedProductName;
+  console.log(productName);
+  console.log(encodedProductName);
+  console.log(redirectUrl);
+
+  // Redirect to the product detail page with the query parameters
+  window.location.href = redirectUrl;
 }

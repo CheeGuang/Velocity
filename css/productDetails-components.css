@@ -1,3 +1,7 @@
+body {
+  padding-right: 0 !important;
+}
+
 /* CSS to style the progress bar */
 .progress {
   height: 20px; /* Set the height of the progress bar */
