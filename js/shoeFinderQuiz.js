@@ -191,3 +191,22 @@ function redirectToResultsWithPriority(priority) {
   // Redirect to the results page with the updated query parameters
   window.location.href = finalUrl;
 }
+
+function redirectToProductDetailShoeFinder(event) {
+  event.preventDefault();
+
+  // Get the product name from the clicked element
+  var productName = $("#result-text-id").text();
+
+  // Encode the product name for further processing or sending to another page
+  var encodedProductName = encodeURIComponent(productName);
+
+  // Construct the URL with query parameters
+  var redirectUrl = "productDetail.html" + "?name=" + encodedProductName;
+  console.log(productName);
+  console.log(encodedProductName);
+  console.log(redirectUrl);
+
+  // Redirect to the product detail page with the query parameters
+  window.location.href = redirectUrl;
+}

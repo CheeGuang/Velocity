@@ -1,21 +1,24 @@
 // Allow customers to get redirected back to the page they left off before clicking Sign In
 function redirectToSignIn(event) {
   event.preventDefault();
+  if (JSON.parse(localStorage.getItem("customerData") == null)) {
+    // Get the previousPath from the clicked element
+    var previousPath = window.location.pathname;
 
-  // Get the previousPath from the clicked element
-  var previousPath = window.location.pathname;
+    // Encode the previous Path for further processing or sending to another page
+    var encodedPreviousPath = encodeURIComponent(previousPath);
 
-  // Encode the previous Path for further processing or sending to another page
-  var encodedPreviousPath = encodeURIComponent(previousPath);
+    // Construct the URL with query parameters
+    var redirectUrl = "signin.html" + "?previousPath=" + encodedPreviousPath;
+    console.log(previousPath);
+    console.log(encodedPreviousPath);
+    console.log(redirectUrl);
 
-  // Construct the URL with query parameters
-  var redirectUrl = "signin.html" + "?previousPath=" + encodedPreviousPath;
-  console.log(previousPath);
-  console.log(encodedPreviousPath);
-  console.log(redirectUrl);
-
-  // Redirect to the product detail page with the query parameters
-  window.location.href = redirectUrl;
+    // Redirect to the product detail page with the query parameters
+    window.location.href = redirectUrl;
+  } else {
+    window.location.href = "account.html";
+  }
 }
 
 // Redirect User to Products Page with filter
