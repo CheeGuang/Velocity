@@ -3,8 +3,10 @@
 
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1); /* Adjust the shadow properties as needed */
   justify-content: space-between;
+  width: 100vw !important;
 }
 .navbarDetails {
+  width: 100vw !important;
   margin: 0;
   padding-left: 100px;
   padding-right: 100px;

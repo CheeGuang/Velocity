@@ -99,6 +99,10 @@ function insertProductHTML(productData) {
   }
 
   // Create a new HTML element, for example, a div
+  let newParentElement = document.createElement("div");
+  newParentElement.className = "col-6 col-sm-6 card-parent";
+
+  // Create a new HTML element, for example, a div
   let newElement = document.createElement("div");
   newElement.style.display = "flex";
   newElement.style.alignItems = "center";
@@ -129,6 +133,7 @@ function insertProductHTML(productData) {
   redirectLink.appendChild(price);
   content.appendChild(redirectLink);
   newElement.appendChild(content);
+  newParentElement.appendChild(newElement);
 
   // Add the data into the divs
   image.innerHTML = `<img src="../images/ShoePicture${
@@ -148,7 +153,7 @@ function insertProductHTML(productData) {
   let productListing = document.getElementById("productListing");
 
   // Append the new element as a child to the section
-  productListing.appendChild(newElement);
+  productListing.appendChild(newParentElement);
 }
 
 function redirectToProductDetail(event) {
