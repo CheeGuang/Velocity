@@ -50,6 +50,7 @@
     <link rel="stylesheet" href="css/bag-components.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/checkout-components.css" />
+    <link rel="stylesheet" href="css/lottie.css" />
 
     <!-- Linking JS -->
     <script src="js/script.js" defer></script>
@@ -57,6 +58,7 @@
     <script src="js/checkout.js" defer></script>
     <script src="js/cart.js" defer></script>
     <script src="js/review.js" defer></script>
+    <script src="js/showAnimation.js" defer></script>
 
     <!-- Add a favicon to the tab bar -->
     <link rel="icon" type="image/x-icon" href="images/Logo/Logo-short.png" />
@@ -220,7 +222,10 @@
       </div>
       <div class="row">
         <div class="col container mx-4">
-          <div id="total-container" class="row gy-2 mt-3 d-flex justify-content-between mx-5">
+          <div
+            id="total-container"
+            class="row gy-2 mt-3 d-flex justify-content-between mx-5"
+          >
             <h2 id="totalText" class="col-md-7 mb-2">
               Total
               <small>Including GST</small>
@@ -243,28 +248,35 @@
         </div>
       </div>
       <form id="orderForm" class="needs-validation" novalidate>
-            <!-- Agree to Delivery T&C -->
-            <div class="checkForm col-md-12 mx-5" style="margin-top: 70px">
-                <div class="form-check d-flex align-items-center mx-4">
-                    <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="deliveryTC"
-                        required
-                    />
-                    <label class="form-check-label" for="deliveryTC">
-                        I have read and agree to the terms and conditions*
-                    </label>
-                </div>
-                <!-- Position invalid feedback here, directly below the checkbox and label -->
-                <div class="invalid-feedback">You must agree before submitting.</div>
-            </div>
-        </section>
-    </form>
-    
+        <!-- Agree to Delivery T&C -->
+        <div class="checkForm col-md-12 mx-5" style="margin-top: 70px">
+          <div class="form-check d-flex align-items-center mx-4">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="deliveryTC"
+              required
+            />
+            <label class="form-check-label" for="deliveryTC">
+              I have read and agree to the terms and conditions*
+            </label>
+          </div>
+          <!-- Position invalid feedback here, directly below the checkbox and label -->
+          <div class="invalid-feedback">You must agree before submitting.</div>
+        </div>
+      </form>
+    </section>
+
     <div class="col-12 mt-5" id="submitBtn">
-        <button class="btn btn-secondary" type="button" id="placeOrderButton">Place Order</button>
+      <button
+        class="btn btn-secondary"
+        type="button"
+        id="placeOrderButton"
+        onclick="showAnimation()"
+      >
+        Place Order
+      </button>
     </div>
 
     <footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
@@ -273,5 +285,20 @@
         class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"
       ></div>
     </footer>
+
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+
+    <dotlottie-player
+      src="https://lottie.host/d89b9987-a19a-4ef3-a328-0742538e1fe6/ufOnosv0RF.json"
+      id="confirmOrder"
+      background="transparent"
+      speed="1"
+      style="width: 300px; height: 300px"
+      loop
+      autoplay
+    ></dotlottie-player>
   </body>
 </html>

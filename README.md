@@ -14,7 +14,7 @@ https://velocityfed.netlify.app/
 
 ## Idea For Assignment II
 
-For Assignment 2, we decided to explore building an interactive e-commerce web application complete with sutiable gamification concepts and API calls. Our e-commerce website is Velocity, an Official NIKE Reseller.
+For Assignment 2, we decided to explore building an interactive e-commerce web application complete with sutiable gamification concepts and API calls. Our e-commerce website client is Velocity, an Official NIKE Retailer.
 
 ### Target Market
 
@@ -22,20 +22,20 @@ Average Website Visitor:
 
 - From 18 years old
 - Capable of making online purchases
-- NIKE patrons who lives in Singapore due to shipping limitations
+- NIKE enthusiasts who lives in Singapore
 - Busy work-life and prefers shopping online
 
 ### Site Owner’s Objectives and Goals
 
-Velocity would like to be able to promote online presence and brand recognition through web branding. As a NIKE shoe reseller, they hope to have a website that is associated with being active, full of energy while maintaining a professional front. Velocity also aims to attract and retain more members to boost brand loyalty.
+Velocity would like to be able to promote online presence and brand recognition through web branding. As a NIKE shoe retailer, they hope to have a website that is associated with being active, full of energy while maintaining a professional front. Velocity also aims to attract and retain more members to boost brand loyalty.
 
 ## Design Process
 
-After reviewing, our proposed design aims to address the following:
+Taking into account Velocity's requirements, our proposed design aims to incoporate the following:
 
-1. Visual hierarchy: Using whitespace, font (size and color) and different layout to present content to users in clear and concise manner.
-2. Member's Privilege: Members have access to selected shoes only and can redeem points to exchange for rebates.
-3. Call-to-Action: Using black and orange against a white background to highlight important information, catch users' attention and guide them through the shopping process.
+### Look and Feel
+
+- Visual hierarchy: Using whitespace, font (size and color) and a simple layout to present content to users in clear and concise manner.
 
 The primary colours that are used in the website is:
 
@@ -44,19 +44,34 @@ The primary colours that are used in the website is:
 - Yellow
 - Orange
 
-This is to enhance Velocity's brand image as an elegant, clean and minimal website while using bright and attention-grabbing colours, yellow and orange to incite positive and empowering traits like energy, active and freshness.
+This is to enhance Velocity's brand image as a clean and minimal to bring the focus to the shoes. Bright and attention-grabbing colours, yellow and orange incites positive and empowering traits like energy, active and freshness.
+
+### Gamifying the Experience
+
+- To encourage membership signups, Members' Privilege includes:
+  - Exclusive designs for members only
+  - Earn and redeem points for cash rebates
+  - More cashbacks on birthday months
+  - Flash deals
+- To entice and motivate customers, a progress bar is used as a visual aid to indicate how much more a customer should purchase to qualify for free shipping.
+- Shoe Finder Quiz aims to deliver a more customised shopping experience by reccommending the most suitable shoe according to customer's answer.
 
 ## User Stories
 
-- As a first-time
+- As a first-time visitor to Velocity, I want to find a walking shoe that looks similar to the one I currently have as well as be able to look at the product details:
 
-<!-- As a user, I would like to use the KFC website on split screen, however, certain pages in the official KFC website is not responsive and i struggle navigating the website (E.g. Home Page and Menu Page are Not responsive). Hence I decided to make my KFC website responsive
+  1. Click on Camera icon -> Image Search Page
+  2. Image Search Page -> Click on 'Choose Another File' -> Choose file -> Website redirects to product listing page with shoes that are similar
+  3. Click on any product card -> Selected product detail page
 
-As a user, I want the website to remember my cart even after I close my browser, so I decided to utilise local storage to store cart details.
+- As a first-time cisitor to Velocity, I want to make an account and view account details:
+  1. Click on profile -> Login Page
+  2. Sign in with Google -> Website redirects you back to home page
+  3. Click on profile icon -> My Account page
 
-As a user, I want to see a consistent use of color and design in the KFC Website. Thus, I decided to incorporate KFC's signature "Pigment Red" colour into every page. -->
+### Wireframe
 
-### [Link to Wireframe](https://www.figma.com/file/XPogNB1whV7ch5bO8wb3W6/Velocity-UI?type=design&node-id=0%3A1&mode=design&t=mQjHcbvrWgSPeWiG-1)
+https://www.figma.com/file/XPogNB1whV7ch5bO8wb3W6/Velocity-UI?type=design&node-id=0%3A1&mode=design&t=mQjHcbvrWgSPeWiG-1
 
 ## Features Summary:
 
@@ -90,25 +105,19 @@ As a user, I want to see a consistent use of color and design in the KFC Website
 
 ### Home page:
 
-<!-- - It will a navigation bar for users to easily navigate around the KFC website
-- It will include banners on the current events/promotions as a slideshow.
-- It will include a footer with content related to the company and its social media sites.
-- Action Buttons to allow users to access various features such as Menu Page, Locate Us and Contact Us -->
+The homepage includes a navigation bar consisting of links to all pages and a clickable logo that defaults to the Landing page. Users can click on the bag icon to view added items. Bottom of the landing page features 3 shortcuts to the product page (filtered by shoe type) and footer.
 
-### Menu:
+### Product Listing Page:
 
-<!-- - Image, item title and price will be available for each listing. There will also an add to cart button for users to add the items they want to their shopping cart.
-- Users can click onto a listing to view more details and select the quantity of the item they would like to add to cart.
-- After adding items to cart, the total number and price of items in the cart, and Checkout button will appear on the navbar. By clickin on the Checkout button to checkout their cart. -->
+Products are dynamically populated using JS card design, each include product image, shoe type and price. Clicking on each card brings the user to the product detail page. Customer can filter display by gender, colour, type and price range.
+
+### Product Detail Page:
+
+Selected product detail page is dynamically created using JS,and displays more information. For Members Special shoes, only members signed in can purchase. Otherwise a sign in prompt is displayed.
 
 ### Checkout Page:
 
-<!-- - It will include a checkout page for user to enter their delivery address, change quantity of items in cart, view total price payable, apply promo code and enter billing information to make payment for their order. -->
-
-### Responsive Navigation Bar
-
-<!-- - Navigation Bar will display full Navigation Bar when screen is big enough.
-- Navigation Bar will display a Hamburger Menu when screen width is small. -->
+All products added to cart would be displayed, with total cost computed. Users can still manipulate product quantity before committing. The checkout process is divided into 3 simple forms, namely Payment, Shipping and Review Pages. Each aims to clearly guide users through the checkout process with intuitive information input design.
 
 ## Technologies Used
 
