@@ -47,6 +47,7 @@
     <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/signin-components.css" />
     <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/lottie.css" />
 
     <!-- Linking JS -->
     <script src="js/signIn.js"></script>
@@ -121,5 +122,33 @@
         class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"
       ></div>
     </footer>
+
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+
+    <section id="lottieAnimationAppearance">
+      <div
+        class="shadow"
+        style="
+          width: 100vw;
+          height: 100vh;
+          background-color: rgba(0, 0, 0, 0.3);
+          position: fixed;
+          top: 50%;
+          left: 49%;
+          transform: translate(-50%, -50%);
+        "
+      ></div>
+      <dotlottie-player
+        src="https://lottie.host/fe48acf8-cc3c-454c-9301-1a19f6c88998/mtuIkf1Jmu.json"
+        background="transparent"
+        speed="1"
+        style="width: 300px; height: 300px"
+        loop
+        autoplay
+      ></dotlottie-player>
+    </section>
   </body>
 </html>

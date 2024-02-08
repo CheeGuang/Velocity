@@ -23,3 +23,11 @@ dotlottie-player {
   width: 10px;
   height: 10px;
 }
+
+#lottieAnimationAppearance {
+  display: none;
+}
+
+#lottieAnimationAppearance dotlottie-player {
+  display: block;
+}

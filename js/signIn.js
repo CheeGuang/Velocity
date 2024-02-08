@@ -1,6 +1,10 @@
 const APIKEY = "65b03b109eb5ba00e57fa24e";
 let previousPath;
 window.handleCredentialResponse = (response) => {
+  // Lottie animation
+  let animatedOverlay = document.getElementById("lottieAnimationAppearance");
+  animatedOverlay.style.display = "block";
+
   // decodeJwtResponse() is a custom function to decode the encrypted response
   const responsePayload = decodeJwtResponse(response.credential);
 
@@ -66,8 +70,13 @@ window.handleCredentialResponse = (response) => {
     }
   }
 
-  // redirect user back to where he came from
-  window.location.href = previousPath;
+  // Using the sleep function
+  sleep(2000).then(() => {
+    // This will run after 2 seconds
+    animatedOverlay.style.display = "none";
+    // redirect user back to where he came from
+    window.location.href = previousPath;
+  });
 };
 
 function decodeJwtResponse(token) {
