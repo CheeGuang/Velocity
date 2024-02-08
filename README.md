@@ -87,6 +87,7 @@ Velocity would like to be able to promote online presence and brand recognition 
   - HTML
   - CSS
   - JS
+  - Lottie
 
 </td>
 </tr>
@@ -172,18 +173,15 @@ Raeanne is responsible for the design of the user interface and user experience 
 
 **Workscope** :
 
-- Research : Based on Velocity's needs and requirements, Raeanne conducted research to gather information about user preferences,
-  behaviors, expectations and pain points of identified target of audiences. User personas and user scenarios were then developed to guide the website design process.
+- Research : Based on Velocity's needs and requirements, Raeanne conducted research to gather information about user preferences, behaviors, expectations and pain points of identified target of audiences. User personas and user scenarios were then developed to guide the website design process.
 
-- Gamifying user experience : Raeanne specially designed and incoporated features that enhances user engagement, motivating  
-   web-visitors to sign up as members as well as making more purchases. Other features includes animations and quizes to catch users' attentions, making it more interactive and customed to users' needs.
+- Gamifying user experience : Raeanne specially designed and incoporated features that enhances user engagement, motivating web-visitors to sign up as members as well as making more purchases. Other features includes animations and quizes to catch users' attentions, making it more interactive and customed to users' needs.
 
 - Wireframing : Raeanne was responsbile for creation and managment of prototype content in Figma.
 
-                https://www.figma.com/file/XPogNB1whV7ch5bO8wb3W6/Velocity-UI?type=design&node-id=0%3A1&mode=design&t=mQjHcbvrWgSPeWiG-1
+  https://www.figma.com/file/XPogNB1whV7ch5bO8wb3W6/Velocity-UI?type=design&node-id=0%3A1&mode=design&t=mQjHcbvrWgSPeWiG-1
 
-- Management : Raeanne worked closely with team member to address UX feedback as well as UI supporting logic implementations.
-  She analyses the impact of design and usability changes, ensuring cohesiveness in design without compromising on user experience.
+- Management : Raeanne worked closely with team member to address UX feedback as well as UI supporting logic implementations. She analyses the impact of design and usability changes, ensuring cohesiveness in design without compromising on user experience.
 
 **Skillset**:
 
@@ -257,7 +255,9 @@ The primary colours that are used in the website are:
   3. Click on any product card -> Selected product detail page
   4. Select Size -> Add to Cart -> Website redirects back to product listing page
   5. Click on bag -> Click on Proceed to Payment
-  6. Choose mode of payment (Card)
+  6. Choose mode of payment (Card) -> Fill in details -> Click on Proceed -> Shipping page
+  7. Click on 'Next Day Delivery' -> Fill in shipping details -> Click on Review -> Review Page
+  8. Click on terms and condition checkbox -> Click Place Order
 
 ## Features Summary:
 
@@ -326,25 +326,45 @@ The primary colours that are used in the website are:
 
 ### Home page:
 
+![alt text](images/websiteSnapshots/image.png)
+![alt text](images/websiteSnapshots/image-1.png)
+![alt text](images/websiteSnapshots/image-2.png)
+![alt text](images/websiteSnapshots/image-3.png)
+
 The homepage includes a navigation bar consisting of links to all pages and a clickable Velocity Logo that defaults to the Landing page. Users can click on the bag icon to view added and remove items. Furthermore, Home Page features 3 shortcuts to the product page (filtered by shoe type), and a Shoe Finder Quiz Advertisement to help users who are overwhelmed and unsure which shoe to get, find a shoe. Lastly, there is a responsive footer for easier navigation.
 
 ### Products Page:
+
+![alt text](images/websiteSnapshots/image-4.png)
+![alt text](images/websiteSnapshots/image-5.png)
 
 Products are dynamically populated using JS card design, each include product image, shoe type and price. Clicking on each card brings the user to the product detail page. Additionally, Customer use the filter function to display by shoes by gender, colour, type and even price range.
 
 ### Product Detail Page:
 
+![alt text](images/websiteSnapshots/image-7.png)
+![alt text](images/websiteSnapshots/image-8.png)
+![alt text](images/websiteSnapshots/image-9.png)
+
 When a user clicks a shoe they wish to buy, the user is redirected to the Product Details Page uses JS to dynamically display more information and allow them to add the shoe to cart. For Members Special shoes, only members signed in can purchase. Otherwise, a sign-in prompt is displayed.
 
 ### Bag Page:
+
+![alt text](images/websiteSnapshots/image-10.png)
 
 All products added to cart would be displayed, with total cost computed. Users can still manipulate product quantity before committing. The checkout process is divided into 3 simple forms, namely Payment, Shipping and Review Pages. Each aims to clearly guide users through the checkout process with intuitive information input design.
 
 ### Image Search:
 
+![alt text](images/websiteSnapshots/image-11.png)
+
 This feature allows users to upload an image of the shoe they wish to purchase. Utilizing Google Cloud Vision API, it identifies the type and color of the shoe, listing all matching shoes available on the platform. This enhances the customer experience by simplifying the search process, making it interactive and highly user-friendly. Customers can find what they're looking for with greater accuracy and less effort, improving overall satisfaction.
 
 ### Shoe Finder Quiz Page:
+
+![alt text](images/websiteSnapshots/image-12.png)
+![alt text](images/websiteSnapshots/image-13.png)
+![alt text](images/websiteSnapshots/image-14.png)
 
 Consisting of five HTML pages, this interactive quiz guides users through a personalized shoe selection process. Starting with a landing page, it progresses through three questions, each on a separate page, gathering user preferences. The use of query parameters ensures a seamless experience by remembering user choices. A tree diagram algorithm helps in displaying the result on the final page, where a Lottie animation celebrates the completion of the quiz. This engaging approach aids customers in discovering the perfect shoe, enhancing the shopping experience through personalization and interactivity.
 
@@ -354,17 +374,29 @@ Designed for customer personalization, the account page displays essential detai
 
 ### Payment Page:
 
+![alt text](images/websiteSnapshots/image-16.png)
+![alt text](images/websiteSnapshots/image-17.png)
+
 This page provides a seamless checkout experience by allowing users to choose their preferred payment method, whether credit or cash on delivery. For members who have previously saved their details, the RestDB API is used to auto-fill credit card information, streamlining the payment process. The use of query parameters to send payment method details to the shipping page further personalizes the experience, making it convenient and user-friendly.
 
 ### Shipping Page:
+
+![alt text](images/websiteSnapshots/image-18.png)
+![alt text](images/websiteSnapshots/image-19.png)
 
 Offering flexibility in shipping options, this page allows customers to choose their preferred shipping method. For orders over $200, customers automatically qualify for free next-day delivery, with the standard shipping option being disabled for such cases. The integration of Google's autocomplete API enables users to accurately and conveniently fill in their address, along with other details like name, unit number, and phone number. The use of query parameters ensures that payment and shipping details are seamlessly passed on to the review page, enhancing the customer experience with convenience and efficiency.
 
 ### Review Page:
 
+![alt text](images/websiteSnapshots/image-20.png)
+![alt text](images/websiteSnapshots/image-21.png)
+![alt text](images/websiteSnapshots/image-22.png)
+
 Before finalizing their order, customers are directed to this page where query parameters are decoded to dynamically display their order, shipping, and payment details for review. This transparency allows customers to confirm their choices, ensuring satisfaction with their decisions. Upon placing the order, a Lottie animation signals the successful transaction, and the customer's cart is updated accordingly—both locally and in the database. This final step underscores the website's commitment to a user-friendly, reassuring, and interactive shopping experience.
 
 ### Sign In Page:
+
+![alt text](images/websiteSnapshots/image-15.png)
 
 The Sign In Page offers a streamlined user experience by integrating Google Sign In, enabling customers to access their account with just 3-4 clicks. Upon authentication, JavaScript (JS) logic determines whether the user is returning or new. For existing customers, it pulls customer data from the database, ensuring a personalized experience right from the start. New customers trigger a PUT request to the database to create their profile, seamlessly integrating them into the customer base. After signing in, customers are conveniently redirected back to their previous page, maintaining a smooth and uninterrupted browsing experience. This process enhances the customer experience by providing a fast, secure, and hassle-free sign-in method, directly contributing to customer satisfaction and engagement with the interactive website.
 
