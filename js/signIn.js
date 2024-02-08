@@ -27,7 +27,7 @@ window.handleCredentialResponse = (response) => {
   let customerJSONString = JSON.stringify(customerJSON);
   localStorage.setItem("customerData", customerJSONString);
 
-  if (getCustomersData() == true) {
+  if (getCustomersData()) {
     console.log("Entered post request");
     // Storing Information as a JSON
     let jsondata = {
