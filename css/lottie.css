@@ -5,7 +5,7 @@ dotlottie-player {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 3;
+  z-index: 1000;
   display: none;
 }
 
@@ -13,4 +13,13 @@ dotlottie-player {
   top: 30%;
   left: 22%;
   display: block;
+}
+
+#logoAnimation {
+  display: block;
+}
+
+#logoAnimation {
+  width: 10px;
+  height: 10px;
 }

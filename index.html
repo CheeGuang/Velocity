@@ -51,6 +51,7 @@
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/lottie.css" />
 
     <!-- Linking JS -->
     <script src="js/script.js" defer></script>
@@ -244,5 +245,22 @@
         class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary"
       ></div>
     </footer>
+
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+
+    <div style="width: 100vw; height: 100vh">
+      <dotlottie-player
+        src="https://lottie.host/35266b4b-6de5-4b51-85a3-d94bd017941c/hIJquRqcv1.json"
+        id="logoAnimation"
+        background="transparent"
+        speed="1"
+        style="width: 300px; height: 300px"
+        loop
+        autoplay
+      ></dotlottie-player>
+    </div>
   </body>
 </html>

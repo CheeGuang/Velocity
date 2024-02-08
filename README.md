@@ -163,11 +163,52 @@ Velocity would like to be able to promote online presence and brand recognition 
 </tr>
 </table>
 
-### Raeanne
+### Zou Ruining, Raeanne (S10258772G)
 
--
--
--
+### Role 1 : UX/UI Designer
+
+**Responsibility** :
+Raeanne is responsible for the design of the user interface and user experience of Velocity website. She ensures that the look and feel of the website clearly projects Velocity's branding images as well as translating Velocity's business requirement to functional UI. She oversees and communicate with developers to ensure features are implemented as intended.
+
+**Workscope** :
+
+- Research : Based on Velocity's needs and requirements, Raeanne conducted research to gather information about user preferences,
+  behaviors, expectations and pain points of identified target of audiences. User personas and user scenarios were then developed to guide the website design process.
+
+- Gamifying user experience : Raeanne specially designed and incoporated features that enhances user engagement, motivating  
+   web-visitors to sign up as members as well as making more purchases. Other features includes animations and quizes to catch users' attentions, making it more interactive and customed to users' needs.
+
+- Wireframing : Raeanne was responsbile for creation and managment of prototype content in Figma.
+
+                https://www.figma.com/file/XPogNB1whV7ch5bO8wb3W6/Velocity-UI?type=design&node-id=0%3A1&mode=design&t=mQjHcbvrWgSPeWiG-1
+
+- Management : Raeanne worked closely with team member to address UX feedback as well as UI supporting logic implementations.
+  She analyses the impact of design and usability changes, ensuring cohesiveness in design without compromising on user experience.
+
+**Skillset**:
+
+- UX Design Thinking
+- Gamifications
+- Design and Prototyping Tools : Figma
+- Graphic design
+- Information Architecture
+- Effective communication skills
+
+### Role 2 : Frontend Developer
+
+**Responsibility** :
+Raeanne is responsible for the implementation of the design created by the UI/UX Designer into a functioning website.
+(As stated above)
+
+The course of development includes running through positive and negative test scenarios to ensure that the website runs as intended, and optimisation of codes ensuring tha the website loads quickly and operates effectively on multiple devices.
+
+Other responsiblities includes the documentation of her codes and design in readMe.md.
+
+**Skillset**:
+
+- Javascript
+- HTML
+- CSS
 
 ## Design Process
 
@@ -183,8 +224,8 @@ The primary colours that are used in the website are:
 - Black
 - Yellow
 - Orange
-
-This is to enhance Velocity's brand image as clean and minimal to bring the focus to the shoes. Bright and attention-grabbing colours, yellow and orange, incite positive and empowering traits like energy, active and freshness.
+  dm
+  This is to enhance Velocity's brand image as clean and minimal to bring the focus to the shoes. Bright and attention-grabbing colours, yellow and orange, incite positive and empowering traits like energy, active and freshness.
 
 ### Gamifying the Experience
 
@@ -194,7 +235,7 @@ This is to enhance Velocity's brand image as clean and minimal to bring the focu
   - More cashbacks on birthday months
   - Flash deals
 - To entice and motivate customers, a progress bar is used as a visual aid to indicate how much more a customer should purchase to qualify for free shipping.
-- Shoe Finder Quiz aims to deliver a more customized shopping experience by recommending the most suitable shoe according to customer's answer.
+- Shoe Finder Quiz aims to enhance user engagement by deliverying a more customized shopping experience - recommending the most suitable shoe according to customer's answer.
 
 ## User Stories
 
@@ -205,9 +246,18 @@ This is to enhance Velocity's brand image as clean and minimal to bring the focu
   3. Click on any product card -> Selected product detail page
 
 - As a first-time visitor to Velocity, I want to make an account and view account details:
+
   1. Click on profile -> Login Page
-  2. Sign in with Google -> Website redirects you back to home page
+  2. Sign in with Google -> Website redirects back to home page
   3. Click on profile icon -> My Account page
+
+- As a member of Velocity, I want to browse the products that Velocity have and purchase a new running shoe for my brother as a birthday gift:
+  1. Click on Men -> Product listing page that contains only men shoes
+  2. Click on Filter -> Click on "Men" and "Running"
+  3. Click on any product card -> Selected product detail page
+  4. Select Size -> Add to Cart -> Website redirects back to product listing page
+  5. Click on bag -> Click on Proceed to Payment
+  6. Choose mode of payment (Card)
 
 ## Features Summary:
 
