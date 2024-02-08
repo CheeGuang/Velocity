@@ -123,7 +123,7 @@ function getCustomersData() {
   //Once we get the response, we modify our table content by creating the content internally. We run a loop to continously add on data
   //RESTDb/NoSql always adds in a unique id for each data, we tap on it to have our data and place it into our links
   let isNew = true;
-  var response = "";
+  var responseIsNew = "";
 
   $.ajax(settings).done(function (response) {
     localStorage.setItem("customersData", JSON.stringify(response));
@@ -139,15 +139,15 @@ function getCustomersData() {
         localStorage.setItem("customerData", JSON.stringify(customerDataJSON));
         // return customer is Not New
         isNew = false;
-        response = isNew;
+        responseIsNew = isNew;
       }
     }
     console.log(response);
-    response = isNew;
+    responseIsNew = isNew;
   });
 
-  console.log(response);
-  return response;
+  console.log(responseIsNew);
+  return responseIsNew;
 }
 
 // Retrieve Previous Path
