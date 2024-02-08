@@ -28,6 +28,7 @@ window.handleCredentialResponse = (response) => {
   localStorage.setItem("customerData", customerJSONString);
 
   if (getCustomersData() == true) {
+    console.log("Entered post request");
     // Storing Information as a JSON
     let jsondata = {
       customerId: customerId,
@@ -57,32 +58,32 @@ window.handleCredentialResponse = (response) => {
       // This will run after 2 seconds
       animatedOverlay.style.display = "none";
       // redirect user back to where he came from
+      // window.location.href = previousPath;
     });
 
-    // If customer has a cart in the database, make this cart his current cart.
-    let customersData = JSON.parse(localStorage.getItem("customersData"));
-    for (let i = 0; i < customersData.length; i++) {
-      if (customerId == customersData[i]["customerId"]) {
-        console.log(customersData[i]["cart"] != null);
-        if (
-          customersData[i]["cart"] != null &&
-          customersData[i]["cart"] != ""
-        ) {
-          localStorage.setItem(
-            "cartData",
-            JSON.stringify(customersData[i]["cart"])
-          );
-        }
-      }
-    }
-    window.location.href = previousPath;
+    // // If customer has a cart in the database, make this cart his current cart.
+    // let customersData = JSON.parse(localStorage.getItem("customersData"));
+    // for (let i = 0; i < customersData.length; i++) {
+    //   if (customerId == customersData[i]["customerId"]) {
+    //     console.log(customersData[i]["cart"] != null);
+    //     if (
+    //       customersData[i]["cart"] != null &&
+    //       customersData[i]["cart"] != ""
+    //     ) {
+    //       localStorage.setItem(
+    //         "cartData",
+    //         JSON.stringify(customersData[i]["cart"])
+    //       );
+    //     }
+    //   }
+    // }
   } else {
     // Using the sleep function
     sleep(2000).then(() => {
       // This will run after 2 seconds
       animatedOverlay.style.display = "none";
       // redirect user back to where he came from
-      window.location.href = previousPath;
+      // window.location.href = previousPath;
     });
   }
 };
