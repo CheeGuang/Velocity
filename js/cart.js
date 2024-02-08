@@ -108,8 +108,8 @@ function displayCart() {
   // Disable cashback button if customer has points to redeem
   if (customerData != null) {
     if (
-      customerData["points"] != null ||
-      customerData["points"] != 0 ||
+      customerData["points"] != null &&
+      customerData["points"] != 0 &&
       customerData["points"] != NaN
     ) {
       $("#applyCashbackText").text(
