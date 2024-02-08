@@ -142,10 +142,11 @@ function getCustomersData() {
         response = isNew;
       }
     }
-    console.log(isNew);
+    console.log(response);
     response = isNew;
   });
 
+  console.log(response);
   return response;
 }
 
