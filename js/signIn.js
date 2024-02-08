@@ -56,6 +56,7 @@ window.handleCredentialResponse = (response) => {
   let customersData = JSON.parse(localStorage.getItem("customersData"));
   for (let i = 0; i < customersData.length; i++) {
     if (customerId == customersData[i]["customerId"]) {
+      console.log(customersData[i]["cart"] != null);
       if (customersData[i]["cart"] != null) {
         localStorage.setItem(
           "cartData",
@@ -83,7 +84,7 @@ function decodeJwtResponse(token) {
 
   return JSON.parse(jsonPayload);
 }
-console.log(customersData[i]["cart"] != null);
+
 function getCustomersData() {
   //[STEP 7]: Create our AJAX settings
   let settings = {
