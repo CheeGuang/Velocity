@@ -53,7 +53,20 @@ window.handleCredentialResponse = (response) => {
         "data": JSON.stringify(jsondata)
       }
 
-    $.ajax(settings).done(function (response) {});
+    $.ajax(settings).done(function (response) {
+      // This will run after 2 seconds
+      animatedOverlay.style.display = "none";
+      // redirect user back to where he came from
+      window.location.href = previousPath;
+    });
+  } else {
+    // Using the sleep function
+    sleep(2000).then(() => {
+      // This will run after 2 seconds
+      animatedOverlay.style.display = "none";
+      // redirect user back to where he came from
+      window.location.href = previousPath;
+    });
   }
 
   // If customer has a cart in the database, make this cart his current cart.
@@ -69,14 +82,6 @@ window.handleCredentialResponse = (response) => {
       }
     }
   }
-
-  // Using the sleep function
-  sleep(2000).then(() => {
-    // This will run after 2 seconds
-    animatedOverlay.style.display = "none";
-    // redirect user back to where he came from
-    window.location.href = previousPath;
-  });
 };
 
 function decodeJwtResponse(token) {
