@@ -57,6 +57,7 @@ window.handleCredentialResponse = (response) => {
 
     $.ajax(settings).done(function (response) {
       // This will run after 2 seconds
+      getCustomersData();
       animatedOverlay.style.display = "none";
       console.log(response);
       // redirect user back to where he came from
