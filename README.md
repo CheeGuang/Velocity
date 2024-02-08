@@ -12,6 +12,9 @@ Ngee Ann Polytechnic - Front End Development Assignment II
 
 https://velocityfed.netlify.app/
 
+### Github Link
+https://github.com/CheeGuang/Velocity
+
 ### Video Walkthrough:
 
 <!-- https://www.loom.com/share/b2b5cea9697340fb994a075baf069e30?sid=c638001d-4e24-4094-a24a-d520f56197fb -->
