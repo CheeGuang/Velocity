@@ -6,7 +6,7 @@ $(document).ready(function () {
       `${customerData["firstName"]} ${customerData["lastName"]}`
     );
     $("#email").text(customerData["email"]);
-    if (!customerData["points"]) {
+    if (customerData["points"]) {
       $("#pointTrackingSection-points").text(
         `${customerData["points"]} Points`
       );
