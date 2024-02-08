@@ -38,6 +38,7 @@ window.handleCredentialResponse = (response) => {
       imageUrl: customerImageURL,
     };
 
+    console.log(jsondata);
     // Create AJAX settings
     // prettier-ignore
     var settings = {
@@ -57,6 +58,7 @@ window.handleCredentialResponse = (response) => {
     $.ajax(settings).done(function (response) {
       // This will run after 2 seconds
       animatedOverlay.style.display = "none";
+      console.log(response);
       // redirect user back to where he came from
       // window.location.href = previousPath;
     });
