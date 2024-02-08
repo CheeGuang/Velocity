@@ -169,15 +169,21 @@ Velocity would like to be able to promote online presence and brand recognition 
 ### Role 1 : UX/UI Designer
 
 **Responsibility** :
-Raeanne is responsible for the design of the user interface and user experience of Velocity website. She ensures that the look and feel of the website clearly projects Velocity's branding images as well as translating Velocity's business requirement to functional UI. She oversees and communicate with developers to ensure features are implemented as intended.
+Raeanne is responsible for the Conceptualisation of Velocity website design. She ensures that the look and feel of the website clearly projects Velocity's branding images as well as translating Velocity's business requirement to functional UI. She oversees and communicate with developers to ensure features are implemented as intended.
 
 **Workscope** :
 
-- Research : Based on Velocity's needs and requirements, Raeanne conducted research to gather information about user preferences, behaviors, expectations and pain points of identified target of audiences. User personas and user scenarios were then developed to guide the website design process.
+- Responsible for the Design of Velocity's Company Logo.
 
-- Gamifying user experience : Raeanne specially designed and incoporated features that enhances user engagement, motivating web-visitors to sign up as members as well as making more purchases. Other features includes animations and quizes to catch users' attentions, making it more interactive and customed to users' needs.
+- Gamifying User Experience (UX) :
+  Raeannne is responsible for the UX design of the website, focusing on users' shopping experience.
+  She specially designed and incoporated features that enhances user experience, motivating web-visitors to sign up to enjoy members' privilege.
+  Other features includes the Shoe Finder Quiz to provide customised recommendation to meet user's need.
 
-- Wireframing : Raeanne was responsbile for creation and managment of prototype content in Figma.
+- UI Design :
+  Raeanne is responsible for defining the look of the website, paying attention to details from the use of whitespaces to visual cues like CTA, ensuring users are guided with intuitive design. Incoporating the use of animations (Lotties) and progress bar to reflect customers' spending to get free shippings are features to enhance user engagment.
+
+- Wireframing : Raeanne was responsbile for the creation and managment of interactive prototype content in Figma.
 
   https://www.figma.com/file/XPogNB1whV7ch5bO8wb3W6/Velocity-UI?type=design&node-id=0%3A1&mode=design&t=mQjHcbvrWgSPeWiG-1
 
@@ -185,12 +191,13 @@ Raeanne is responsible for the design of the user interface and user experience 
 
 **Skillset**:
 
-- UX Design Thinking
+- Design Thinking
 - Gamifications
 - Design and Prototyping Tools : Figma
 - Graphic design
 - Information Architecture
 - Effective communication skills
+- Adobe Illustrator
 
 ### Role 2 : Frontend Developer
 
@@ -198,15 +205,26 @@ Raeanne is responsible for the design of the user interface and user experience 
 Raeanne is responsible for the implementation of the design created by the UI/UX Designer into a functioning website.
 (As stated above)
 
-The course of development includes running through positive and negative test scenarios to ensure that the website runs as intended, and optimisation of codes ensuring tha the website loads quickly and operates effectively on multiple devices.
-
 Other responsiblities includes the documentation of her codes and design in readMe.md.
+
+**Workscope**
+
+- Development of the UI of all website pages, ensuring that the design are according to the prototype illustrated in Figma
+
+- Managing of team member's UI feedback which includes modification of codes to ensure design standardization.
+
+- Identifying data required and translating into information for display on forms etc.
+
+- Create (Adobe illustrator) and implemented customised Lotties in addition to incoporating preset Lotties to enhance visual cues.
+
+- Running through positive and negative test scenarios to ensure that the website runs as intended, and optimisation of codes ensuring that the website loads quickly and operates effectively on multiple devices.
 
 **Skillset**:
 
 - Javascript
 - HTML
 - CSS
+- Adobe Illustrator
 
 ## Design Process
 
@@ -222,8 +240,8 @@ The primary colours that are used in the website are:
 - Black
 - Yellow
 - Orange
-  dm
-  This is to enhance Velocity's brand image as clean and minimal to bring the focus to the shoes. Bright and attention-grabbing colours, yellow and orange, incite positive and empowering traits like energy, active and freshness.
+
+This is to enhance Velocity's brand image as clean and minimal to bring the focus to the shoes. Bright and attention-grabbing colours, yellow and orange, incite positive and empowering traits like energy, active and freshness.
 
 ### Gamifying the Experience
 
