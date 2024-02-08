@@ -1,7 +1,7 @@
 // If customer has a cart in the database, make this cart his current cart.
 let customersData = JSON.parse(localStorage.getItem("customersData"));
 for (let i = 0; i < customersData.length; i++) {
-  if (customerId == customersData[i]["customerId"]) {
+  if ("101413827769948405961" == customersData[i]["customerId"]) {
     console.log(customersData[i]["cart"] != null);
     if (customersData[i]["cart"] != null) {
       localStorage.setItem(
