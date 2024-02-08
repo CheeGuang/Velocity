@@ -11,13 +11,6 @@ window.handleCredentialResponse = (response) => {
   let customerLastName = responsePayload.family_name;
   let customerImageURL = responsePayload.picture;
 
-  // Logging User Details
-  console.log("ID: " + customerId);
-  console.log("Email: " + customerEmail);
-  console.log("Given Name: " + customerFirstName);
-  console.log("Family Name: " + customerLastName);
-  console.log("Image URL: " + customerImageURL);
-
   //prettier-ignore
   let customerJSON = {
     "customerId": customerId,
@@ -56,9 +49,7 @@ window.handleCredentialResponse = (response) => {
         "data": JSON.stringify(jsondata)
       }
 
-    $.ajax(settings).done(function (response) {
-      console.log(response);
-    });
+    $.ajax(settings).done(function (response) {});
   }
 
   // If customer has a cart in the database, make this cart his current cart.
@@ -92,7 +83,7 @@ function decodeJwtResponse(token) {
 
   return JSON.parse(jsonPayload);
 }
-
+console.log(customersData[i]["cart"] != null);
 function getCustomersData() {
   //[STEP 7]: Create our AJAX settings
   let settings = {
@@ -109,14 +100,11 @@ function getCustomersData() {
 
   let customerDataJSONString = localStorage.getItem("customerData");
   let customerDataJSON = JSON.parse(customerDataJSONString);
-  console.log(customerDataJSON);
   //[STEP 8]: Make our AJAX calls
   //Once we get the response, we modify our table content by creating the content internally. We run a loop to continously add on data
   //RESTDb/NoSql always adds in a unique id for each data, we tap on it to have our data and place it into our links
   let isNew = true;
   $.ajax(settings).done(function (response) {
-    console.log(response);
-    console.log(JSON.stringify(response));
     localStorage.setItem("customersData", JSON.stringify(response));
     for (var i = 0; i < response.length; i++) {
       if (customerDataJSON["customerId"] == response[i]["customerId"]) {
@@ -124,7 +112,6 @@ function getCustomersData() {
         for (const key in response[i]) {
           if (response[i].hasOwnProperty(key)) {
             // Check to avoid inherited properties
-            console.log(key, response[i][key]);
             customerDataJSON[key] = response[i][key];
           }
         }
