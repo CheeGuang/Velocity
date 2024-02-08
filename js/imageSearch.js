@@ -3,6 +3,9 @@ document
   .addEventListener("submit", function (e) {
     e.preventDefault();
 
+    // Using the sleep function
+    showModal();
+
     const file = document.getElementById("imageInput").files[0];
     const reader = new FileReader();
 
@@ -92,7 +95,10 @@ document
             "searchedImage",
             JSON.stringify(searchedProduct)
           );
-          window.location.href = "productPage.html";
+
+          sleep(2000).then(() => {
+            window.location.href = "productPage.html";
+          });
         })
         .catch((error) => console.error("Error:", error));
     };
@@ -121,4 +127,23 @@ function getColorNameFromRGB(r, g, b) {
 
   // Default to 'Undefined' if no match
   return "Undefined";
+}
+
+function showModal() {
+  $("#modal-backdrop")
+    .css("display", "block")
+    .delay(10)
+    .queue(function (next) {
+      $(this).css("opacity", "1"); // Fade in the backdrop
+      next();
+    });
+
+  $("#animation-modal")
+    .css("display", "block")
+    .delay(10)
+    .queue(function (next) {
+      $(this).css({ opacity: "1", transform: "translate(-50%, -50%)" }); // Fade in and move the modal into place
+      next();
+    });
+  $("#custom-lottie-target-animation").css("display", "block");
 }

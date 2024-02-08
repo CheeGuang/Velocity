@@ -55,6 +55,7 @@
     <script src="js/cart.js" defer></script>
     <script src="js/checkout.js" defer></script>
     <script src="js/bag.js" defer></script>
+    <script src="js/addToCartTopPicks.js" defer></script>
 
     <!-- Add a favicon to the tab bar -->
     <link rel="icon" type="image/x-icon" href="images/Logo/Logo-short.png" />
@@ -83,7 +84,7 @@
             >
               <div
                 class="card d-flex align-items-center top-pick-product mb-2"
-                onClick="redirectToProductDetail(event)"
+                onclick="redirectToProductDetailFromTopPick(event, 'Air Force 1 Low')"
                 style="
                   cursor: pointer;
                   flex: 0 0 auto;
@@ -110,7 +111,7 @@
               </div>
               <div
                 class="card d-flex align-items-center top-pick-product mb-2"
-                onClick="redirectToProductDetail(event)"
+                onclick="redirectToProductDetailFromTopPick(event, 'Revolution 6 LV')"
                 style="
                   cursor: pointer;
                   flex: 0 0 auto;
@@ -137,7 +138,7 @@
               </div>
               <div
                 class="card d-flex align-items-center top-pick-product mb-2"
-                onClick="redirectToProductDetail(event)"
+                onclick="redirectToProductDetailFromTopPick(event, 'Metcon 9 AMP')"
                 style="
                   cursor: pointer;
                   flex: 0 0 auto;

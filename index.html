@@ -52,8 +52,10 @@
     <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/lottie.css" />
+    <link rel="stylesheet" href="css/custom-lottie.css" />
 
     <!-- Linking JS -->
+    <script src="js/spalshScreen.js"></script>
     <script src="js/script.js" defer></script>
     <script src="js/navbarFooter.js" defer></script>
     <script src="js/products.js" defer></script>
@@ -70,6 +72,25 @@
     <link rel="icon" type="image/x-icon" href="images/Logo/Logo-short.png" />
   </head>
   <body>
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+    <div id="splash-screen-background">
+      <dotlottie-player
+        src="https://lottie.host/ca17b751-bc76-440d-aecb-65523bc3cabe/kxJKDwW4yD.json"
+        background="transparent"
+        speed="1"
+        style="
+          width: 155vh;
+          height: 155vh;
+          display: block;
+          max-width: 90vh;
+          max-height: 905vh;
+        "
+        autoplay
+      ></dotlottie-player>
+    </div>
     <header>
       <div id="navbar-container"></div>
     </header>

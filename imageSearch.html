@@ -49,11 +49,13 @@
     <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/imageSearch-components.css" />
+    <link rel="stylesheet" href="css/custom-lottie.css" />
 
     <!-- Linking JS -->
     <script src="js/script.js" defer></script>
     <script src="js/navbarFooter.js" defer></script>
     <script src="js/imageSearch.js" defer></script>
+    <script src="js/showAnimation.js" defer></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
       defer
@@ -66,6 +68,26 @@
     <header>
       <div id="navbar-container"></div>
     </header>
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+
+    <!-- Modal Backdrop -->
+    <div id="modal-backdrop" style="display: none"></div>
+
+    <!-- Modal Container -->
+    <div id="animation-modal" style="display: none">
+      <div id="custom-lottie-target-animation-background">
+        <dotlottie-player
+          src="https://lottie.host/907d7da2-daee-464a-aaa8-b3dcd41d42cb/R0XONv63ov.json"
+          background="transparent"
+          speed="1"
+          autoplay
+          id="custom-lottie-target-animation"
+        ></dotlottie-player>
+      </div>
+    </div>
     <div class="row" style="height: 100px; width: 100px"></div>
     <div class="container mt-5">
       <div class="row mt-3 mx-5 shadow" style="border-radius: 15px">
