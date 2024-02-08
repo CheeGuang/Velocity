@@ -1,3 +1,17 @@
+// If customer has a cart in the database, make this cart his current cart.
+let customersData = JSON.parse(localStorage.getItem("customersData"));
+for (let i = 0; i < customersData.length; i++) {
+  if (customerId == customersData[i]["customerId"]) {
+    console.log(customersData[i]["cart"] != null);
+    if (customersData[i]["cart"] != null) {
+      localStorage.setItem(
+        "cartData",
+        JSON.stringify(customersData[i]["cart"])
+      );
+    }
+  }
+}
+
 const APIKEY = "65b03b109eb5ba00e57fa24e";
 let previousPath;
 window.handleCredentialResponse = (response) => {
